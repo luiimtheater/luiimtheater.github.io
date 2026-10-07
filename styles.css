@@ -58,3 +58,87 @@ body{font-size:16px}
 .people-grid{align-items:start}.person-card-copy{padding-right:4px}.person h3{line-height:1.45}.person-role{line-height:1.55}
 @media (max-width:960px){.production-copy{padding:34px}.production-copy h3{font-size:clamp(2rem,6vw,3.4rem)}.production-title-block h2{font-size:clamp(2.8rem,8vw,4.9rem)}.footer-logo-horizontal{width:280px}}
 @media (max-width:600px){.production-copy{padding:28px 24px}.production-copy h3{font-size:clamp(1.9rem,9.5vw,2.8rem);line-height:1.2}.production-title-block h2{font-size:clamp(2.35rem,12vw,3.65rem);line-height:1.16}.production-stills{grid-template-columns:1fr;gap:9px}.production-stills figure{aspect-ratio:4/3}.lead{font-size:1rem;line-height:1.8}.footer-logo-horizontal{width:250px}}
+
+/* V6 — responsive rhythm, current roster and Chinese typography */
+html,body{max-width:100%;overflow-x:hidden}
+.section-head{grid-template-columns:minmax(260px,.82fr) minmax(0,1.9fr);align-items:start}
+.section-head .lead{max-width:880px;line-height:1.85;text-wrap:pretty;word-break:normal;line-break:strict}
+.about-copy{min-width:0}
+.about-copy p{max-width:42em;text-align:justify;text-justify:inter-ideograph;line-break:strict;word-break:normal;letter-spacing:.01em}
+.production-feature,.production-image,.production-copy,.production-body,.production-main,.production-side,.info-card{min-width:0;max-width:100%}
+.production-image{overflow:hidden;min-height:0}
+.production-image img{aspect-ratio:16/10;object-fit:cover}
+.production-copy p{max-width:36em;text-align:justify;text-justify:inter-ideograph;line-break:strict;word-break:normal}
+.production-title-block h2{max-width:100%;overflow-wrap:anywhere;word-break:normal;line-break:strict}
+.production-title-prefix,.production-title-name{display:block}
+.production-title-prefix{font-size:.52em;line-height:1.25;letter-spacing:.04em;color:#d4cfc6;margin-bottom:.25em}
+.prose-block p{text-align:justify;text-justify:inter-ideograph;line-break:strict;word-break:normal}
+.info-card dd{overflow-wrap:anywhere;word-break:normal;line-break:strict}
+.person-contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:.74rem;color:var(--muted)}
+.bio-link{text-decoration:underline;text-underline-offset:3px}
+
+@media (max-width:960px){
+  .section-head{grid-template-columns:1fr;gap:18px}
+  .section-head .lead{max-width:42em}
+  .about-copy p{max-width:none}
+  .production-feature{grid-template-columns:1fr;min-height:0}
+  .production-image img{width:100%;height:auto;aspect-ratio:16/10}
+  .production-copy{width:100%}
+}
+
+@media (max-width:600px){
+  :root{--nav-h:66px}
+  .container{width:calc(100% - 32px);max-width:100%}
+  .brand img{width:160px;max-height:44px}
+  .nav{gap:12px}
+  .section{padding:56px 0}
+  .section-head{margin-bottom:28px}
+  .section h2{font-size:clamp(2rem,10vw,3rem);line-height:1.12}
+  .section-head .lead{font-size:.96rem;line-height:1.75;max-width:none}
+  .about-grid{gap:34px}
+  .about-copy p{font-size:.96rem;line-height:1.9;text-align:left}
+  .about-photo{width:100%;max-width:none}
+  .about-photo img{aspect-ratio:4/3;height:auto;object-position:center 42%}
+  .gallery{display:grid;grid-auto-flow:column;grid-auto-columns:min(82vw,330px);grid-template-columns:none;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-left:0;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+  .gallery figure,.gallery .g1,.gallery .g2,.gallery .g3,.gallery .g4,.gallery .g5,.gallery .g6,.gallery .g7{grid-column:auto!important;width:100%;aspect-ratio:4/3!important;scroll-snap-align:start;min-width:0}
+  .gallery img{width:100%;height:100%;object-fit:cover}
+  .production-feature{display:block;width:100%;overflow:hidden}
+  .production-image{width:100%;aspect-ratio:4/3}
+  .production-image img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
+  .production-copy{padding:24px 20px 26px}
+  .production-copy h3{font-size:clamp(1.65rem,8.5vw,2.35rem);line-height:1.22;word-break:normal;overflow-wrap:anywhere;line-break:strict}
+  .production-copy p{font-size:.94rem;line-height:1.8;text-align:left;max-width:none}
+  .page-hero h1{font-size:clamp(2.8rem,16vw,4.3rem)}
+  .production-hero-image{height:auto;min-height:0;aspect-ratio:4/3}
+  .production-hero-image img{width:100%;height:100%;object-fit:cover}
+  .production-title-block{padding-top:34px;padding-bottom:36px}
+  .production-title-block h2{font-size:clamp(2rem,10vw,3rem);line-height:1.18;letter-spacing:-.01em;overflow-wrap:anywhere;word-break:normal}
+  .production-title-prefix{font-size:.5em;line-height:1.3;margin-bottom:.35em}
+  .production-title-name{display:block}
+  .production-en{font-size:.9rem;overflow-wrap:anywhere}
+  .production-meta{gap:7px;margin-top:20px}
+  .production-meta span{font-size:.72rem;padding:6px 9px}
+  .production-body{display:block;width:100%;padding-top:44px;padding-bottom:54px}
+  .prose-block{max-width:100%;margin-bottom:46px}
+  .prose-block h3{font-size:clamp(1.8rem,9vw,2.65rem);line-height:1.16}
+  .prose-block p{font-size:.95rem;line-height:1.88;text-align:left}
+  .production-side{display:block;width:100%}
+  .info-card{width:100%;padding:20px 18px;margin-top:12px;overflow:hidden}
+  .info-card dl div{display:block;padding:11px 0}
+  .info-card dt{margin-bottom:4px}
+  .info-card dd{font-size:.9rem;line-height:1.6}
+  .production-stills{display:grid;grid-auto-flow:column;grid-auto-columns:min(82vw,330px);grid-template-columns:none;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+  .production-stills figure{width:100%;aspect-ratio:4/3;scroll-snap-align:start}
+  .tour-item{grid-template-columns:56px minmax(0,1fr);gap:10px}
+  .tour-item strong,.tour-item span{overflow-wrap:anywhere}
+  .campus-stats{grid-template-columns:1fr 1fr}
+  .people-grid{grid-template-columns:1fr 1fr;gap:24px 10px}
+  .person-card-copy{padding-right:0}
+  .person h3{font-size:.9rem;line-height:1.4}
+  .person h3 small{font-size:.62rem}
+  .person-role{font-size:.72rem;line-height:1.45}
+  .bio-dialog-inner{display:block}
+  .bio-photo{height:48vw;min-height:210px;max-height:300px}
+  .bio-copy{padding:30px 20px 34px}
+  .footer-logo-horizontal{width:min(220px,70vw)}
+}
