@@ -23,3 +23,8 @@ GitHub Pages：Repository → Settings → Pages → Build and deployment → De
 ## 更新活動
 
 活動資料位於 `data/events.json`，亦可於 Pages CMS 透過 `.pages.yml` 設定後編輯。
+
+
+## V10 updates
+- Team introduction copy refined for balanced mobile line breaks.
+- Official Instagram added to the footer and structured data.

@@ -275,3 +275,26 @@ body{padding-top:var(--nav-h)}
   }
   .cal-event span{display:none}
 }
+
+
+/* V10 — team intro rhythm and social footer polish */
+.page-hero .team-intro{
+  max-width:52rem;
+  margin-top:18px;
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.9;
+  text-wrap:pretty;
+}
+.page-hero .team-intro span{display:block}
+.footer a{overflow-wrap:anywhere}
+@media (max-width:600px){
+  .page-hero .team-intro{
+    max-width:22em;
+    font-size:.95rem;
+    line-height:1.85;
+    text-align:left;
+    letter-spacing:0;
+  }
+  .page-hero .team-intro span + span{margin-top:.35rem}
+}
