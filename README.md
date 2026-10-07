@@ -1,3 +1,7 @@
+# 雷音劇坊 Lui Im Theater 官網 V9
+
+固定導覽列、手機版作品頁與行事曆最佳化。
+
 # 雷音劇坊 Lui Im Theater 官方網站
 
 GitHub Pages 靜態官網 V2。

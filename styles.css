@@ -197,3 +197,81 @@ main,section,article,aside,header,footer,.container,.section-head,.production-fe
 @media (min-width:601px) and (max-width:960px){
   .about-copy p,.prose-block p,.production-copy p{max-width:48em}
 }
+
+/* V9 — fixed navigation, mobile-safe production typography, compact mobile calendar */
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  z-index:120;
+}
+body{padding-top:var(--nav-h)}
+[id]{scroll-margin-top:calc(var(--nav-h) + 18px)}
+
+@media (max-width:960px){
+  .nav-links{top:100%}
+}
+
+@media (max-width:600px){
+  /* Make every long production heading wrap inside the viewport. */
+  .production-title-name{
+    white-space:normal;
+    font-size:clamp(1.55rem,7.4vw,1.9rem);
+    line-height:1.2;
+    letter-spacing:-.02em;
+    overflow-wrap:anywhere;
+    word-break:break-all;
+    line-break:anywhere;
+  }
+  .prose-block h3,
+  .production-stills-section .section-head h2,
+  .history-section .section-head h2,
+  .campus-section .section-head h2{
+    white-space:normal;
+    max-width:100%;
+    font-size:clamp(1.55rem,7.25vw,1.95rem);
+    line-height:1.3;
+    letter-spacing:-.01em;
+    overflow-wrap:anywhere;
+    word-break:break-all;
+    line-break:anywhere;
+  }
+  .prose-block,
+  .production-main,
+  .production-body,
+  .production-title-block,
+  .production-stills-section .container{
+    overflow-x:hidden;
+  }
+
+  /* Calendar: keep the month grid fully visible on a phone.
+     Event details remain in the Upcoming list below. */
+  .calendar-toolbar{margin:0 0 16px;gap:10px}
+  .calendar-toolbar h2{font-size:1.05rem}
+  .cal-nav button{width:38px;height:38px}
+  .calendar-wrap{overflow:visible;width:100%}
+  .calendar{
+    min-width:0;
+    width:100%;
+    grid-template-columns:repeat(7,minmax(0,1fr));
+  }
+  .weekday{padding:7px 0;font-size:.68rem}
+  .day{min-height:56px;padding:5px 2px;overflow:hidden}
+  .day-num{text-align:center;font-size:.7rem;line-height:1.2}
+  .cal-event{
+    width:7px;
+    height:7px;
+    min-height:7px;
+    margin:7px auto 0;
+    padding:0;
+    border:0;
+    border-radius:50%;
+    background:var(--red);
+    font-size:0;
+    line-height:0;
+    overflow:hidden;
+  }
+  .cal-event span{display:none}
+}
