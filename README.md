@@ -31,3 +31,10 @@ GitHub Pages：Repository → Settings → Pages → Build and deployment → De
 - 張莉婕完整學經歷與專長樂器
 
 人物照片目前多數仍沿用舊官網公開圖源；若取得原始照片，建議日後改存至本 repository 的 `assets/images/team/`，即可完全脫離 Wix 圖片主機。
+
+
+## V5 更新
+- 行政團隊依原 Wix「組織職掌」排序與職稱為主，並保留易芊作為專案行政統籌。
+- 易芊個人頁移除現職及已解散組織資訊，改放個人作品集連結。
+- 《青瞑的龍蛇無青瞑》新增 4 張演出劇照，並調整作品標題與文字排版。
+- 全站頁尾改用橫式 Logo。
