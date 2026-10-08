@@ -1,0 +1,71 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: events
+    label: 活動行事曆
+    type: file
+    path: data/events.json
+    format: json
+    list: true
+    operations:
+      delete: false
+    fields:
+      - name: title
+        label: 活動名稱
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: time
+        label: 時間
+        type: string
+        description: 例如 19:30；未定可留空
+      - name: end_date
+        label: 結束日期
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+      - name: category
+        label: 類型
+        type: select
+        required: true
+        options:
+          values:
+            - name: performance
+              label: 演出
+            - name: workshop
+              label: 工作坊
+            - name: exchange
+              label: 交流
+            - name: other
+              label: 其他
+      - name: location
+        label: 地點
+        type: string
+      - name: description
+        label: 簡介
+        type: text
+      - name: url
+        label: 活動／售票／報名連結
+        type: string
+      - name: featured
+        label: 首頁精選
+        type: boolean
+        default: false
+      - name: published
+        label: 公開顯示
+        type: boolean
+        default: true
+
+settings:
+  commit:
+    identity: app
+    templates:
+      update: "content: update {path}"
