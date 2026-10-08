@@ -382,3 +382,61 @@ body{padding-top:var(--nav-h)}
   .team-highlight{padding:22px}
   .team-collage{grid-template-columns:repeat(3,1fr);gap:8px}
 }
+
+
+/* V13 — image-led production layouts, public archive copy, complete team photos */
+.home-event-subtitle,.event-subtitle{margin-top:4px;color:#e8e2d9;font-size:.92rem;line-height:1.5;font-weight:500}
+
+/* Homepage featured production: image carries the title, copy gets full width below */
+.featured-work{border:1px solid var(--line);background:#0b0b0b}
+.featured-work-visual{display:block;position:relative;min-height:520px;overflow:hidden;background:#090909}
+.featured-work-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 36%,rgba(0,0,0,.78) 100%);pointer-events:none}
+.featured-work-visual img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center;transition:transform .6s ease}
+.featured-work-visual:hover img{transform:scale(1.025)}
+.featured-work-overlay{position:absolute;z-index:2;left:clamp(20px,4vw,58px);right:clamp(20px,4vw,58px);bottom:clamp(22px,4vw,52px);min-width:0}
+.featured-work-overlay .eyebrow{color:#d9d1c6;margin-bottom:8px}
+.featured-work-type{font-size:clamp(.9rem,1.4vw,1.18rem);color:#fff;margin-bottom:6px}
+.featured-work-overlay h3{font-family:"Songti TC","PMingLiU",serif;font-weight:500;line-height:1;letter-spacing:-.03em;margin:0;color:#fff;white-space:nowrap;font-size:clamp(1.7rem,4.1vw,4.2rem);text-shadow:0 2px 24px rgba(0,0,0,.65)}
+.featured-work-info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center;padding:24px 28px}
+.featured-work-info p{margin:0;max-width:54rem;color:#d8d2c9;line-height:1.9}
+
+/* Production library: no side-by-side title boxes. Titles stay on one line over flexible images. */
+.works-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important}
+.work-card-overlay{display:block!important;border:1px solid var(--line);background:#0b0b0b;min-width:0;overflow:hidden}
+.work-card-visual{position:relative;aspect-ratio:16/10;overflow:hidden;background:#111}
+.work-card-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 36%,rgba(0,0,0,.82) 100%);pointer-events:none}
+.work-card-visual img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .55s ease}
+.work-card-overlay:hover .work-card-visual img{transform:scale(1.045)}
+.work-card-overlay-copy{position:absolute;z-index:2;left:20px;right:20px;bottom:18px;min-width:0}
+.work-card-overlay-copy .eyebrow{color:#e2dbd1;font-size:.72rem;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.work-card-overlay-copy h2{font-family:"Songti TC","PMingLiU",serif;font-weight:500;line-height:1;margin:0!important;color:#fff;white-space:nowrap!important;max-width:none!important;font-size:clamp(1.15rem,2.35vw,2.25rem)!important;letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.7);overflow:visible!important}
+.work-card-summary{padding:16px 18px 18px;display:flex;gap:18px;justify-content:space-between;align-items:flex-end}
+.work-card-summary p{margin:0;color:#bbb5ac;line-height:1.7;font-size:.88rem;max-width:36rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.work-card-summary span{white-space:nowrap;font-size:.82rem;color:#fff}
+
+.stats-panel-archive .stats-copy p{display:none}
+
+@media(max-width:900px){
+  .works-grid{grid-template-columns:1fr!important}
+  .featured-work-visual{min-height:420px}
+  .featured-work-info{grid-template-columns:1fr;align-items:start}
+}
+@media(max-width:600px){
+  .featured-work-visual{min-height:310px;aspect-ratio:4/3}
+  .featured-work-overlay{left:16px;right:16px;bottom:18px}
+  .featured-work-type{font-size:.82rem}
+  .featured-work-overlay h3{font-size:clamp(1.02rem,5.15vw,1.45rem);letter-spacing:-.045em}
+  .featured-work-info{padding:18px}
+  .featured-work-info p{font-size:.9rem;line-height:1.75}
+  .work-card-visual{aspect-ratio:16/10}
+  .work-card-overlay-copy{left:14px;right:14px;bottom:14px}
+  .work-card-overlay-copy .eyebrow{font-size:.62rem}
+  .work-card-overlay-copy h2{font-size:clamp(.98rem,5.2vw,1.35rem)!important;letter-spacing:-.045em}
+  .work-card-summary{padding:13px 14px 14px;align-items:center}
+  .work-card-summary p{font-size:.79rem;-webkit-line-clamp:2}
+  .work-card-summary span{font-size:.75rem}
+}
+@media(max-width:380px){
+  .featured-work-overlay h3{font-size:.98rem}
+  .work-card-overlay-copy h2{font-size:.96rem!important}
+}
