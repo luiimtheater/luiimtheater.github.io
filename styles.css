@@ -440,3 +440,27 @@ body{padding-top:var(--nav-h)}
   .featured-work-overlay h3{font-size:.98rem}
   .work-card-overlay-copy h2{font-size:.96rem!important}
 }
+
+
+/* V14 — reliable production cover + image-rich upcoming events */
+.upcoming-card-list{display:grid;gap:18px}
+.upcoming-event-card{display:grid;grid-template-columns:220px minmax(0,1fr);border:1px solid var(--line);background:#0b0b0b;overflow:hidden;min-width:0}
+.upcoming-card-thumb{position:relative;min-height:155px;overflow:hidden;background:#131313}
+.upcoming-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.upcoming-event-card:hover .upcoming-card-thumb img{transform:scale(1.035)}
+.upcoming-card-badge{position:absolute;left:12px;top:12px;background:rgba(5,5,5,.9);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 9px;font-size:.7rem;letter-spacing:.05em;color:#fff}
+.upcoming-card-content{padding:22px 24px;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.upcoming-card-date{font-family:Georgia,serif;color:#e5ded4;font-size:.95rem}
+.upcoming-card-content h3{font-size:1.18rem;line-height:1.35;margin:.35rem 0 0;font-weight:600}
+.upcoming-card-subtitle{font-size:1rem;line-height:1.55;margin-top:4px;color:#eee8df}
+.upcoming-card-meta{font-size:.84rem;line-height:1.75;color:var(--muted);margin-top:8px}
+.upcoming-card-description{font-size:.82rem;line-height:1.7;color:#cfc8be;margin-top:10px}
+.upcoming-card-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.upcoming-card-tags span{display:inline-flex;border:1px solid #48443f;border-radius:999px;padding:5px 9px;font-size:.72rem;line-height:1.2;color:#ddd6cc}
+.upcoming-card-link{margin-top:14px;align-self:flex-start;font-size:.84rem;border-bottom:1px solid #6a6258;padding-bottom:2px}
+@media(max-width:700px){
+  .upcoming-event-card{grid-template-columns:1fr}
+  .upcoming-card-thumb{aspect-ratio:16/9;min-height:0}
+  .upcoming-card-content{padding:18px}
+  .upcoming-card-content h3{font-size:1.08rem}
+}
