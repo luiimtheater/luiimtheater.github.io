@@ -1,0 +1,145 @@
+[
+  {
+    "date": "2026-07-23",
+    "type": "Podcast",
+    "outlet": "繫服聊天室",
+    "title": "EP20 布袋戲？歌仔戲？傻傻分不清楚？！",
+    "summary": "邀請雷音劇坊團長陳建霖分享布袋戲創作與跨界經驗，並談《龜山夫人氣甲衝煙矣！》的人偶共演與兒童戲曲製作。",
+    "url": "https://podcasts.apple.com/tw/podcast/%E7%B9%AB%E6%9C%8D%E8%81%8A%E5%A4%A9%E5%AE%A4/id1801674538",
+    "related": "陳建霖／《龜山夫人氣甲衝煙矣！》",
+    "image": "assets/images/productions/guishan/guishan-08.jpg",
+    "featured": true
+  },
+  {
+    "date": "2026-06-18",
+    "type": "廣播專訪",
+    "outlet": "聽臺北・聽聲漫遊",
+    "title": "穿越小戲台：讓孩子走進戲曲的文化永續之路",
+    "summary": "兒童戲曲藝術節策展人吳岳霖與雷音劇坊團長陳建霖對談，從《龜山夫人氣甲衝煙矣！》談兒童戲曲、本土語言與文化永續。",
+    "url": "https://tradio.gov.taipei/channel/OTk1/MjUwNjgx",
+    "related": "陳建霖／《龜山夫人氣甲衝煙矣！》",
+    "image": "assets/images/productions/guishan/guishan-05.jpg",
+    "featured": true
+  },
+  {
+    "date": "2025-07-15",
+    "type": "新聞",
+    "outlet": "中央社",
+    "title": "傳藝中心請囡仔來看戲 李遠：兒童是文化政策核心",
+    "summary": "報導2025兒童戲曲巡演起跑，雷音劇坊於記者會演出《青瞑的龍蛇無青瞑》，呈現兒童戲曲向下扎根的創作成果。",
+    "url": "https://www.cna.com.tw/news/acul/202507150289.aspx",
+    "related": "《青瞑的龍蛇無青瞑》",
+    "image": "assets/images/productions/qingminglong/qingminglong-03.jpg",
+    "featured": false
+  },
+  {
+    "date": "2025-06-23",
+    "type": "專業藝文媒體",
+    "outlet": "PAR 表演藝術雜誌",
+    "title": "為孩子而演 傳藝中心推出兒童布袋戲全新製作",
+    "summary": "PAR官網限定報導首屆兒童布袋戲劇本創作推廣計畫，介紹雷音劇坊《青瞑的龍蛇無青瞑》於臺灣戲曲中心的試演製作。",
+    "url": "https://par.npac-ntch.org/tw/article/doc/H8L1U05IWI",
+    "related": "《青瞑的龍蛇無青瞑》",
+    "image": "assets/images/qingminglong-stage.jpg",
+    "featured": true
+  },
+  {
+    "date": "2025-06-23",
+    "type": "藝文新聞",
+    "outlet": "典藏 ARTouch",
+    "title": "為兒童量身打造！傳藝中心首度推出專屬兒童的布袋戲作品",
+    "summary": "報導兒童布袋戲創作推廣計畫與三齣新作，記錄雷音劇坊將《青瞑的龍蛇無青瞑》從劇本發展為舞台作品的階段成果。",
+    "url": "https://artouch.com/artco-kids/content-181775.html",
+    "related": "《青瞑的龍蛇無青瞑》",
+    "image": "assets/images/productions/qingminglong/qingminglong-01.jpg",
+    "featured": false
+  },
+  {
+    "date": "2025-06-23",
+    "type": "新聞",
+    "outlet": "中央社訊息平台",
+    "title": "為兒童量身打造 全新製作兒童布袋戲來了！",
+    "summary": "報導傳藝中心首度推出專屬兒童的布袋戲新作，並以陳建霖與《青瞑的龍蛇無青瞑》呈現臺南水文傳說的創作方向。",
+    "url": "https://www.cna.com.tw/postwrite/chi/405360",
+    "related": "陳建霖／《青瞑的龍蛇無青瞑》",
+    "image": "assets/images/productions/qingminglong/qingminglong-02.jpg",
+    "featured": false
+  },
+  {
+    "date": "2025-06-22",
+    "type": "Podcast",
+    "outlet": "布袋戲，講予恁聽",
+    "title": "「進擊吧！兒童布袋戲！」特別專訪－第二集 Ft. 蘇恆毅、陳建霖",
+    "summary": "編劇蘇恆毅與雷音劇坊團長陳建霖對談《青瞑的龍蛇無青瞑》的媒合、兒童布袋戲創作與幕後製作過程。",
+    "url": "https://podcasts.apple.com/tw/podcast/%E9%80%B2%E6%93%8A%E5%90%A7-%E5%85%92%E7%AB%A5%E5%B8%83%E8%A2%8B%E6%88%B2-%E7%89%B9%E5%88%A5%E5%B0%88%E8%A8%AA-%E7%AC%AC%E4%BA%8C%E9%9B%86-ft-%E8%98%87%E6%81%86%E6%AF%85-%E9%99%B3%E5%BB%BA%E9%9C%96/id1560125699?i=1000714049589",
+    "related": "蘇恆毅／陳建霖／《青瞑的龍蛇無青瞑》",
+    "image": "assets/images/team/chen-jianlin.jpg",
+    "featured": false
+  },
+  {
+    "date": "2025-01-08",
+    "type": "新聞",
+    "outlet": "中央社",
+    "title": "兒童布袋戲劇本創作徵選揭曉 傳藝中心兼當媒人婆",
+    "summary": "中央社報導首屆兒童布袋戲劇本創作徵選與劇團媒合，雷音劇坊與蘇恆毅《青瞑的龍蛇無青瞑》正式結緣。",
+    "url": "https://www.cna.com.tw/news/acul/202501080356.aspx",
+    "related": "蘇恆毅／《青瞑的龍蛇無青瞑》",
+    "image": "assets/images/qingminglong-stage.jpg",
+    "featured": false
+  },
+  {
+    "date": "2024-08-08",
+    "type": "Podcast專訪",
+    "outlet": "匿名日記",
+    "title": "EP63 雷音劇坊｜團長 陳建霖",
+    "summary": "全臺語長篇專訪，從陳建霖童年接觸布袋戲談到戲偶製作、團隊經營、傳統文化推廣與雷音劇坊的創作歷程。",
+    "url": "https://podcasts.apple.com/us/podcast/ep63-%E9%9B%B7%E9%9F%B3%E5%8A%87%E5%9D%8A-%E5%9C%98%E9%95%B7-%E9%99%B3%E5%BB%BA%E9%9C%96/id1678455209?i=1000664731465&l=zh-Hans-CN",
+    "related": "陳建霖／雷音劇坊",
+    "image": "assets/images/team/chen-jianlin.jpg",
+    "featured": false
+  },
+  {
+    "date": "2023-03-24",
+    "type": "影音專訪",
+    "outlet": "《看》雜誌 Watchinese",
+    "title": "傳統結合創意 陳建霖創作《鯽仔魚娶親》掌中戲版｜雷音劇坊",
+    "summary": "《看》雜誌影音專題記錄陳建霖從戲偶服飾、偶頭製作到操偶創作的學習歷程，以及《鯽仔魚娶親》的創作實踐。",
+    "url": "https://www.youtube.com/watch?v=cGKQDoKC9d8",
+    "related": "陳建霖／《鯽仔魚娶親》",
+    "image": "assets/images/backstage-01.jpg",
+    "featured": false
+  },
+  {
+    "date": "2023-03-05",
+    "type": "雜誌專題",
+    "outlet": "《看》雜誌 Watchinese",
+    "title": "傳統布袋戲 後生可期",
+    "summary": "《看》雜誌第242期封面專題介紹臺灣新生代布袋戲創作者，並以雷音劇坊《鯽仔魚娶親》金掌獎成果與陳建霖創作歷程為重要案例。",
+    "url": "https://www.watchinese.com/article/2023/26404",
+    "related": "雷音劇坊／陳建霖／《鯽仔魚娶親》",
+    "image": "assets/images/backstage-02.jpg",
+    "featured": false
+  },
+  {
+    "date": "2022-10-14",
+    "type": "新聞",
+    "outlet": "中央社",
+    "title": "金掌獎移師台北辦理 期許成為台灣第4金",
+    "summary": "第16屆金掌獎得獎消息，雷音劇坊以《鯽仔魚娶親》獲評審團特別獎。",
+    "url": "https://www.cna.com.tw/news/acul/202210140278.aspx",
+    "related": "《鯽仔魚娶親》／第16屆金掌獎",
+    "image": "assets/images/backstage-03.jpg",
+    "featured": false
+  },
+  {
+    "date": "2021-10-01",
+    "type": "官方影音",
+    "outlet": "慢遊雲林",
+    "title": "【武林天下英雄榜】青年金掌獎 雷音劇坊",
+    "summary": "2021雲林國際偶戲節青年金掌獎參賽團隊介紹，記錄雷音劇坊成團初期的創團宗旨、成員背景與傳承方向。",
+    "url": "https://www.youtube.com/watch?v=w3lDQN3rFqA",
+    "related": "雷音劇坊／青年金掌獎",
+    "image": "assets/images/hero-02.jpg",
+    "featured": false
+  }
+]
