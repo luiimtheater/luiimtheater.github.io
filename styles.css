@@ -504,3 +504,46 @@ body{padding-top:var(--nav-h)}
 .press-link-card em{font-style:normal;font-size:.78rem;margin-top:auto;color:#fff}
 @media(max-width:1050px){.media-home-grid,.media-featured-grid{grid-template-columns:1fr 1fr}.media-featured-grid .media-card-featured:last-child{grid-column:1/-1}.press-link-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.media-home-grid,.media-featured-grid,.media-grid,.press-link-grid{grid-template-columns:1fr}.media-featured-grid .media-card-featured:last-child{grid-column:auto}.media-card{grid-template-columns:1fr}.media-card-image{aspect-ratio:16/9}.media-home-card{min-height:190px;padding:22px}.press-link-card{min-height:0}.home-event-thumb{min-height:0}}
+
+
+/* V16 — mobile archive cleanup, production mosaic, safer media typography */
+.works-mosaic{position:relative;display:grid;grid-template-columns:1.15fr .85fr 1fr;grid-template-rows:260px 210px;gap:10px;overflow:hidden;border:1px solid var(--line);background:#080808;color:var(--text)}
+.works-mosaic .mosaic-item{margin:0;overflow:hidden;position:relative;background:#111}
+.works-mosaic .mosaic-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .35s ease}
+.works-mosaic:hover .mosaic-item img{transform:scale(1.025)}
+.works-mosaic .m1{grid-column:1;grid-row:1/3}.works-mosaic .m2{grid-column:2;grid-row:1}.works-mosaic .m3{grid-column:3;grid-row:1}.works-mosaic .m4{grid-column:2;grid-row:2}.works-mosaic .m5{grid-column:3;grid-row:2}.works-mosaic .m6{position:absolute;width:28%;height:42%;right:7%;bottom:8%;z-index:2;border:8px solid #090909;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.works-mosaic::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.06) 48%,rgba(0,0,0,.18) 100%);pointer-events:none}
+.works-mosaic-overlay{position:absolute;z-index:3;left:34px;bottom:32px;max-width:34rem;display:flex;gap:24px;align-items:flex-end}
+.works-mosaic-overlay h3{font-family:"Songti TC","PMingLiU",serif;font-weight:500;font-size:clamp(2rem,3.8vw,4rem);line-height:1.08;margin:.35rem 0 .6rem;text-shadow:0 3px 20px rgba(0,0,0,.75)}
+.works-mosaic-overlay p{margin:0;color:#eee6dc;line-height:1.7;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.button-on-image{flex:0 0 auto;background:rgba(7,7,7,.52);backdrop-filter:blur(8px)}
+
+.media-hero h1{font-size:clamp(2.6rem,6.8vw,6rem);line-height:1.03;max-width:100%;word-break:normal;overflow-wrap:break-word;text-wrap:balance}
+.media-card-copy,.media-card h2,.media-card h2 a,.media-outlet,.media-related{max-width:100%;min-width:0;overflow-wrap:anywhere;word-break:normal}
+.media-card h2{font-size:clamp(1.18rem,2vw,1.7rem);line-height:1.4}
+.media-card-image img{display:block}
+
+@media(max-width:700px){
+  .archive-row{display:grid;grid-template-columns:1fr;gap:5px;padding:18px 2px 20px}
+  .archive-row time{grid-column:auto;font-size:.92rem;line-height:1.2;color:#cfc6ba;white-space:nowrap;margin-bottom:3px}
+  .archive-row strong{grid-column:auto;font-size:1rem;line-height:1.55;overflow-wrap:break-word;word-break:normal}
+  .archive-row span{grid-column:auto;font-size:.87rem;line-height:1.55;overflow-wrap:break-word;word-break:normal}
+  .archive-table{border-left:0}
+  .archive-year-title{font-size:2.1rem}
+  .works-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:160px 140px 140px;gap:6px}
+  .works-mosaic .m1{grid-column:1;grid-row:1/3}.works-mosaic .m2{grid-column:2;grid-row:1}.works-mosaic .m3{grid-column:2;grid-row:2}.works-mosaic .m4{grid-column:1;grid-row:3}.works-mosaic .m5{grid-column:2;grid-row:3}.works-mosaic .m6{display:none}
+  .works-mosaic-overlay{left:18px;right:18px;bottom:18px;display:block;max-width:none}
+  .works-mosaic-overlay h3{font-size:clamp(1.7rem,8vw,2.35rem);max-width:10ch}
+  .works-mosaic-overlay p{display:none}
+  .works-mosaic-overlay .button{margin-top:12px;font-size:.8rem;padding:10px 14px}
+  .media-hero{padding-top:54px;padding-bottom:54px}
+  .media-hero h1{font-size:clamp(2.25rem,11vw,3.45rem);line-height:1.1;letter-spacing:-.035em;text-wrap:balance}
+  .media-hero p{font-size:.94rem;line-height:1.8}
+  .media-featured-grid,.media-grid{min-width:0}
+  .media-card,.media-card-featured{min-width:0;width:100%}
+  .media-card-copy,.media-card-featured .media-card-copy{padding:18px 0 4px;min-width:0}
+  .media-card h2{font-size:clamp(1.28rem,6.4vw,1.65rem);line-height:1.4;margin:8px 0 10px;text-wrap:pretty;overflow-wrap:anywhere}
+  .media-card p{font-size:.86rem;line-height:1.75}
+  .media-outlet{font-size:.98rem;line-height:1.5}
+  .media-related{font-size:.78rem;line-height:1.6}
+}

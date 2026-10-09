@@ -40,8 +40,9 @@
     "summary": "PAR官網限定報導首屆兒童布袋戲劇本創作推廣計畫，介紹雷音劇坊《青瞑的龍蛇無青瞑》於臺灣戲曲中心的試演製作。",
     "url": "https://par.npac-ntch.org/tw/article/doc/H8L1U05IWI",
     "related": "《青瞑的龍蛇無青瞑》",
-    "image": "assets/images/qingminglong-stage.jpg",
-    "featured": true
+    "image": "https://ap-northeast-1-ntch-website-par-files.s3-accelerate.amazonaws.com/par/upload/news/fe9b53759d2c4d099da5497fd5273781.jpg",
+    "featured": true,
+    "fallback": "assets/images/qingminglong-stage.jpg"
   },
   {
     "date": "2025-06-23",
@@ -106,8 +107,9 @@
     "summary": "《看》雜誌影音專題記錄陳建霖從戲偶服飾、偶頭製作到操偶創作的學習歷程，以及《鯽仔魚娶親》的創作實踐。",
     "url": "https://www.youtube.com/watch?v=cGKQDoKC9d8",
     "related": "陳建霖／《鯽仔魚娶親》",
-    "image": "assets/images/backstage-01.jpg",
-    "featured": false
+    "image": "https://i.ytimg.com/vi/cGKQDoKC9d8/hqdefault.jpg",
+    "featured": false,
+    "fallback": "assets/images/backstage-01.jpg"
   },
   {
     "date": "2023-03-05",
@@ -117,8 +119,9 @@
     "summary": "《看》雜誌第242期封面專題介紹臺灣新生代布袋戲創作者，並以雷音劇坊《鯽仔魚娶親》金掌獎成果與陳建霖創作歷程為重要案例。",
     "url": "https://www.watchinese.com/article/2023/26404",
     "related": "雷音劇坊／陳建霖／《鯽仔魚娶親》",
-    "image": "assets/images/backstage-02.jpg",
-    "featured": false
+    "image": "https://www.watchinese.com/sites/watchinese.com/files/article/2023/03/242/b242p38.jpg",
+    "featured": false,
+    "fallback": "assets/images/backstage-02.jpg"
   },
   {
     "date": "2022-10-14",
@@ -139,7 +142,8 @@
     "summary": "2021雲林國際偶戲節青年金掌獎參賽團隊介紹，記錄雷音劇坊成團初期的創團宗旨、成員背景與傳承方向。",
     "url": "https://www.youtube.com/watch?v=w3lDQN3rFqA",
     "related": "雷音劇坊／青年金掌獎",
-    "image": "assets/images/hero-02.jpg",
-    "featured": false
+    "image": "https://i.ytimg.com/vi/w3lDQN3rFqA/hqdefault.jpg",
+    "featured": false,
+    "fallback": "assets/images/hero-02.jpg"
   }
 ]

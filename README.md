@@ -10,3 +10,6 @@
 - Added Media link to site navigation and selected media links on production pages.
 - Changed the 2026/10/23 event title to 「2026大稻埕國際藝術節《青瞑的龍蛇無青瞑》」.
 - Homepage upcoming event now contains a static image fallback for LINE/iOS in-app browsers.
+
+
+V16：手機版演出足跡改為直式資訊排列；首頁作品改為作品庫影像拼貼；媒體頁行動版字級與斷行修正；部分媒體縮圖改用原報導/影音平台公開預覽圖並保留失敗後備圖。
