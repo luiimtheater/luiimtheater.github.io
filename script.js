@@ -41,6 +41,19 @@ function setupCounters(){
   nums.forEach(n=>io.observe(n));
 }
 
+
+function setupBackstageCarousel(){
+  document.querySelectorAll('[data-backstage-carousel]').forEach(carousel=>{
+    const track=carousel.querySelector('[data-backstage-track]');
+    const prev=carousel.querySelector('[data-backstage-prev]');
+    const next=carousel.querySelector('[data-backstage-next]');
+    if(!track)return;
+    const step=()=>{const card=track.querySelector('figure');return card?card.getBoundingClientRect().width+14:track.clientWidth*.8};
+    prev&&prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+    next&&next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+  });
+}
+
 function setupBackToTop(){
   const b=document.createElement('button');
   b.type='button'; b.className='back-to-top'; b.setAttribute('aria-label','回到頁面頂端'); b.setAttribute('title','回到頂端'); b.textContent='↑';
@@ -50,7 +63,7 @@ function setupBackToTop(){
   window.addEventListener('scroll',sync,{passive:true}); sync();
 }
 
-async function renderHomeEvents(){const host=document.querySelector('[data-home-events]'); if(!host)return; const ev=(await loadEvents()).filter(e=>parseDate(e.date)>=todayStart()).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3); if(!ev.length){host.innerHTML='<div class="schedule-empty">近期公開行程整理中。活動確認後會第一時間更新在這裡。</div>';return;} host.innerHTML=ev.map(e=>{const url=e.url||'schedule.html';const ext=externalLink(url)?' target="_blank" rel="noopener"':'';const tags=(Array.isArray(e.tags)?e.tags:[]).map(tag=>`<span>${esc(tag)}</span>`).join('');const img=e.image?`<img src="${esc(e.image)}" alt="${esc(e.title)}" loading="lazy"/>`:'';return `<a class="home-event-card" href="${esc(url)}"${ext}><div class="home-event-thumb">${img}<div class="home-event-badge">${esc(e.badge||EVENT_CATEGORY[e.category]||'活動')}</div></div><div class="home-event-body"><div class="home-event-date">${dateLabel(e.date)}${e.time?' · '+esc(e.time):''}</div><div class="home-event-title">${esc(e.title)}</div>${e.subtitle?`<div class="home-event-subtitle">${esc(e.subtitle)}</div>`:''}<div class="home-event-meta">${e.location?esc(e.location):''}</div>${tags?`<div class="home-event-tags">${tags}</div>`:''}</div></a>`}).join('');}
+async function renderHomeEvents(){const host=document.querySelector('[data-home-events]'); if(!host)return; const ev=(await loadEvents()).filter(e=>parseDate(e.date)>=todayStart()).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3); if(!ev.length){host.innerHTML='<div class="schedule-empty">近期公開行程整理中。活動確認後會第一時間更新在這裡。</div>';return;} host.innerHTML=ev.map(e=>{const url=e.url||'schedule.html';const ext=externalLink(url)?' target="_blank" rel="noopener"':'';const tags=(Array.isArray(e.tags)?e.tags:[]).map(tag=>`<span>${esc(tag)}</span>`).join('');const img=e.image?`<img src="${esc(e.image)}" alt="${esc(e.title)}" loading="eager" decoding="async"/>`:'';return `<a class="home-event-card" href="${esc(url)}"${ext}><div class="home-event-thumb">${img}<div class="home-event-badge">${esc(e.badge||EVENT_CATEGORY[e.category]||'活動')}</div></div><div class="home-event-body"><div class="home-event-date">${dateLabel(e.date)}${e.time?' · '+esc(e.time):''}</div><div class="home-event-title">${esc(e.title)}</div>${e.subtitle?`<div class="home-event-subtitle">${esc(e.subtitle)}</div>`:''}<div class="home-event-meta">${e.location?esc(e.location):''}</div>${tags?`<div class="home-event-tags">${tags}</div>`:''}</div></a>`}).join('');}
 
 let calCursor=new Date();
 async function renderSchedule(){const root=document.querySelector('[data-calendar]'); if(!root)return; const events=(await loadEvents()).sort((a,b)=>a.date.localeCompare(b.date)); const monthTitle=document.querySelector('[data-month-title]'); const grid=document.querySelector('[data-calendar-grid]'); const list=document.querySelector('[data-upcoming-list]');
@@ -58,4 +71,4 @@ async function renderSchedule(){const root=document.querySelector('[data-calenda
   document.querySelector('[data-prev-month]').addEventListener('click',()=>{calCursor=new Date(calCursor.getFullYear(),calCursor.getMonth()-1,1);draw()});document.querySelector('[data-next-month]').addEventListener('click',()=>{calCursor=new Date(calCursor.getFullYear(),calCursor.getMonth()+1,1);draw()});
   const upcoming=events.filter(e=>parseDate(e.date)>=todayStart()); list.innerHTML=upcoming.length?`<div class="upcoming-card-list">${upcoming.map(e=>{const ext=externalLink(e.url||'')?' target="_blank" rel="noopener"':'';const tags=(Array.isArray(e.tags)?e.tags:[]).map(tag=>`<span>${esc(tag)}</span>`).join('');const img=e.image?`<div class="upcoming-card-thumb"><img src="${esc(e.image)}" alt="${esc(e.subtitle||e.title)}" loading="lazy"><span class="upcoming-card-badge">${esc(e.badge||EVENT_CATEGORY[e.category]||'活動')}</span></div>`:'';return `<article class="upcoming-event-card">${img}<div class="upcoming-card-content"><div class="upcoming-card-date">${dateLabel(e.date)}${e.time?' · '+esc(e.time):''}</div><h3>${esc(e.title)}</h3>${e.subtitle?`<div class="upcoming-card-subtitle">${esc(e.subtitle)}</div>`:''}<div class="upcoming-card-meta">${e.location?esc(e.location):''}</div>${tags?`<div class="upcoming-card-tags">${tags}</div>`:''}${e.description?`<div class="upcoming-card-description">${esc(e.description)}</div>`:''}${e.url?`<a class="upcoming-card-link" href="${esc(e.url)}"${ext}>查看詳情 →</a>`:''}</div></article>`}).join('')}</div>`:'<div class="schedule-empty">目前尚無公開行程。新的演出、工作坊與交流活動確認後會更新於此。</div>'; draw();}
 
-document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackToTop();renderHomeEvents();renderSchedule();});
+document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackstageCarousel();setupBackToTop();renderHomeEvents();renderSchedule();});

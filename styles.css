@@ -547,3 +547,71 @@ body{padding-top:var(--nav-h)}
   .media-outlet{font-size:.98rem;line-height:1.5}
   .media-related{font-size:.78rem;line-height:1.6}
 }
+
+
+/* V17 — backstage carousel and Dadaocheng festival update */
+.backstage-section .section-head{margin-bottom:26px}
+.backstage-carousel{position:relative;min-width:0}
+.backstage-carousel-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+.backstage-carousel-controls{display:flex;gap:8px}
+.backstage-carousel-controls button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#0b0b0b;color:#fff;cursor:pointer;transition:border-color .2s ease,background .2s ease}
+.backstage-carousel-controls button:hover{border-color:#fff;background:#161616}
+.backstage-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(380px,48%);gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:#4a4640 transparent}
+.backstage-track figure{margin:0;aspect-ratio:16/10;overflow:hidden;background:#111;scroll-snap-align:start;position:relative}
+.backstage-track img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.backstage-track figure:hover img{transform:scale(1.025)}
+.backstage-track::-webkit-scrollbar{height:5px}
+.backstage-track::-webkit-scrollbar-thumb{background:#4a4640;border-radius:999px}
+.backstage-track::-webkit-scrollbar-track{background:transparent}
+@media(max-width:960px){.backstage-track{grid-auto-columns:min(72vw,520px)}}
+@media(max-width:600px){
+  .backstage-section .section-head{margin-bottom:20px}
+  .backstage-carousel-toolbar{margin-bottom:10px}
+  .backstage-carousel-controls button{width:38px;height:38px}
+  .backstage-track{grid-auto-columns:86%;gap:10px;padding-bottom:8px;scrollbar-width:none}
+  .backstage-track::-webkit-scrollbar{display:none}
+  .backstage-track figure{aspect-ratio:4/3}
+}
+
+/* V18 — production detail tour history spacing fix */
+.tour-list.standalone .tour-item{
+  grid-template-columns:minmax(132px,150px) minmax(0,1fr);
+  gap:24px;
+  align-items:start;
+}
+.tour-list.standalone .tour-item time{
+  display:block;
+  white-space:nowrap;
+  line-height:1.55;
+}
+.tour-list.standalone .tour-item > div{min-width:0}
+.tour-list.standalone .tour-item strong{
+  line-height:1.55;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.tour-list.standalone .tour-item span{line-height:1.55}
+
+@media (max-width:600px){
+  .history-section .tour-list.standalone .tour-item{
+    display:block;
+    padding:18px 16px;
+  }
+  .history-section .tour-list.standalone .tour-item time{
+    margin-bottom:7px;
+    font-size:.82rem;
+    line-height:1.35;
+  }
+  .history-section .tour-list.standalone .tour-item strong{
+    display:block;
+    font-size:.98rem;
+    line-height:1.55;
+    overflow-wrap:break-word;
+    word-break:normal;
+  }
+  .history-section .tour-list.standalone .tour-item span{
+    margin-top:5px;
+    font-size:.8rem;
+    line-height:1.55;
+  }
+}
