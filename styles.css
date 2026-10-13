@@ -777,3 +777,85 @@ body{padding-top:var(--nav-h)}
   .schedule-feature-meta strong,.schedule-feature-meta span{display:block}
   .schedule-feature-meta span{margin-top:5px}
 }
+
+
+/* V24 — expanded repertoire, image archives and safer mobile event hero */
+.production-stills-carousel{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:min(68vw,560px);
+  grid-template-columns:none;
+  gap:14px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-padding-left:0;
+  padding-bottom:12px;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+}
+.production-stills-carousel figure{
+  width:100%;
+  aspect-ratio:3/2;
+  scroll-snap-align:start;
+}
+.production-stills-carousel img{width:100%;height:100%;object-fit:cover}
+
+.work-card-visual-text{
+  background:
+    linear-gradient(180deg,rgba(7,7,7,.15),rgba(7,7,7,.72)),
+    url("assets/images/logo-calligraphy.png") center/44% auto no-repeat,
+    radial-gradient(circle at 72% 28%,#241411 0,#111 40%,#080808 72%);
+}
+.work-card-visual-text::after{
+  background:linear-gradient(180deg,rgba(0,0,0,.08) 20%,rgba(0,0,0,.86) 100%);
+}
+.text-hero-neutral{
+  background:radial-gradient(circle at 70% 30%,#21120f 0,#101010 42%,#070707 74%);
+}
+
+@media (max-width:600px){
+  .event-series-page-hero{
+    overflow:hidden;
+    padding-top:56px;
+    padding-bottom:28px;
+  }
+  .event-series-page-hero .container{
+    width:calc(100% - 32px);
+    max-width:100%;
+    overflow:hidden;
+  }
+  .event-series-page-hero .eyebrow{
+    max-width:100%;
+    font-size:.62rem;
+    line-height:1.65;
+    letter-spacing:.13em;
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+  .event-series-page-hero h1{
+    width:100%;
+    max-width:100%;
+    margin:.34em 0 .38em;
+    font-size:clamp(2.05rem,10.2vw,3rem)!important;
+    line-height:1.08;
+    letter-spacing:-.045em;
+    white-space:normal;
+    word-break:normal;
+    overflow-wrap:anywhere;
+    line-break:auto;
+    text-wrap:balance;
+  }
+  .event-series-page-hero p{
+    font-size:.98rem;
+    line-height:1.6;
+  }
+  .production-stills-carousel{
+    grid-auto-columns:min(86vw,360px);
+    gap:10px;
+    padding-bottom:10px;
+  }
+}
+@media (max-width:380px){
+  .event-series-page-hero h1{font-size:clamp(1.9rem,9.8vw,2.4rem)!important}
+}
