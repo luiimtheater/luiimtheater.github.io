@@ -1,21 +1,43 @@
 [
   {
-    "title": "2026大稻埕國際藝術節",
+    "title": "演出互動DIY場《豬八戒痟娶某》",
+    "date": "2026-10-21",
+    "endDate": "2026-10-25",
+    "time": "",
+    "category": "workshop",
+    "location": "思劇場 Thinkers’ Theater｜臺北市大同區迪化街一段32巷1號3樓",
+    "description": "2026大稻埕國際藝術節「街區藝埕｜親子偶戲藝術週」。從經典布袋戲《豬八戒痟娶某》出發，結合演出與扇子吊飾DIY，帶大小朋友從觀看走進布袋戲工藝。各場次時間依報名頁公告。",
+    "url": "https://sedaijin.oen.tw/events/3JBVXKCU0xk03Zm8mFUsRmwWmBR",
+    "featured": true,
+    "published": true,
+    "image": "assets/images/events/zhubajie-diy-banner.webp",
+    "imageFit": "contain",
+    "tags": [
+      "大稻埕國際藝術節",
+      "演出＋DIY",
+      "親子偶戲"
+    ],
+    "badge": "演出互動DIY",
+    "subtitle": "街區藝埕｜親子偶戲藝術週"
+  },
+  {
+    "title": "2026大稻埕國際藝術節《青瞑的龍蛇無青瞑》",
     "date": "2026-10-23",
     "time": "19:30–20:30",
     "category": "performance",
     "location": "思劇場 Thinkers’ Theater｜臺北市大同區迪化街一段32巷1號3樓",
-    "description": "雷音劇坊《青瞑的龍蛇無青瞑》臺北場｜思劇場 Thinkers’ Theater｜建議 6 歲以上",
-    "url": "work-qingminglong.html",
+    "description": "「街區藝埕｜親子偶戲藝術週」旗艦演出。以臺南南鯤鯓青瞑龍、青瞑蛇傳說為起點，透過臺語口白、歌仔調音樂與掌中戲，重新思考看見、理解與土地記憶。票價 NT$500–800。",
+    "url": "https://sedaijin.oen.tw/events/3JBWI27mXLKqOzSoxqOh5CTNDoT",
     "featured": true,
     "published": true,
-    "image": "assets/images/qingminglong-stage.jpg",
+    "image": "assets/images/events/qingminglong-dadaocheng-banner.webp",
+    "imageFit": "contain",
     "tags": [
-      "《青瞑的龍蛇無青瞑》",
+      "大稻埕國際藝術節",
       "臺語演出",
       "約 60 分鐘"
     ],
-    "badge": "大稻埕國際藝術節",
-    "subtitle": "歌仔調布袋戲《青瞑的龍蛇無青瞑》"
+    "badge": "旗艦演出",
+    "subtitle": "街區藝埕｜親子偶戲藝術週"
   }
 ]

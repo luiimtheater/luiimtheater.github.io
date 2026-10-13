@@ -1,18 +1,11 @@
-# 雷音劇坊 Lui Im Theater 官網 V18
+# 雷音劇坊官網 V19
 
-本版新增：作品庫（7個作品頁）、完整演出足跡 Archive、英文入口 EN、現役團隊本地照片。
+本版更新 2026 大稻埕國際藝術節檔期。
 
-上傳 GitHub Pages 時，請將本資料夾內所有檔案與 assets/data 資料夾一起覆蓋至 repository 根目錄。
-
-
-## V18 updates
-- Added media.html for press, interviews, podcasts and video coverage (2021–2026).
-- Added Media link to site navigation and selected media links on production pages.
-- Changed the 2026/10/23 event title to 「2026大稻埕國際藝術節《青瞑的龍蛇無青瞑》」.
-- Homepage upcoming event now contains a static image fallback for LINE/iOS in-app browsers.
-
-
-V18：手機版演出足跡改為直式資訊排列；首頁作品改為作品庫影像拼貼；媒體頁行動版字級與斷行修正；部分媒體縮圖改用原報導/影音平台公開預覽圖並保留失敗後備圖。
-
-
-V18：更新 2026 大稻埕國際藝術節近期資訊；首頁「台前一刻，台後千工」改為可滑動／按鍵切換的後台照片輪播；同步更新易芊 XTRAX 經歷與團隊頁文案。
+- 首頁新增藝術節主視覺，桌機使用橫幅版、手機自動切換直式主視覺。
+- 近期動向新增「演出互動DIY場《豬八戒痟娶某》」與旗艦演出《青瞑的龍蛇無青瞑》。
+- 行事曆支援 10/21–10/25 多日活動顯示。
+- 兩場活動皆加入官方購票／報名連結。
+- 《青瞑的龍蛇無青瞑》作品頁新增近期演出購票區塊。
+- 演出足跡新增大稻埕國際藝術節 DIY 場紀錄，並保留 V18 手機排版修正。
+- 新增 4 張活動視覺，網站使用 WebP 最佳化版本。

@@ -55,6 +55,13 @@ content:
       - name: url
         label: 活動／售票／報名連結
         type: string
+      - name: image
+        label: 活動縮圖路徑
+        type: string
+        description: 例如 assets/images/qingminglong-stage.jpg
+      - name: subtitle
+        label: 副標題
+        type: string
       - name: featured
         label: 首頁精選
         type: boolean
