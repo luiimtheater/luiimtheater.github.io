@@ -10,7 +10,7 @@
     "url": "https://sedaijin.oen.tw/events/3JBVXKCU0xk03Zm8mFUsRmwWmBR",
     "featured": true,
     "published": true,
-    "image": "assets/images/events/zhubajie-diy-banner.jpg",
+    "image": "assets/images/events/dadaocheng-2026-zhubajie-banner-v21.png",
     "imageFit": "contain",
     "tags": [
       "大稻埕國際藝術節",
@@ -18,7 +18,8 @@
       "親子偶戲"
     ],
     "badge": "演出互動DIY場",
-    "subtitle": "街區藝埕｜親子偶戲藝術週"
+    "subtitle": "街區藝埕｜親子偶戲藝術週",
+    "seriesUrl": "event-dadaocheng-2026.html#diy"
   },
   {
     "title": "2026大稻埕國際藝術節《青瞑的龍蛇無青瞑》",
@@ -30,7 +31,7 @@
     "url": "https://sedaijin.oen.tw/events/3JBWI27mXLKqOzSoxqOh5CTNDoT",
     "featured": true,
     "published": true,
-    "image": "assets/images/events/qingminglong-dadaocheng-banner.jpg",
+    "image": "assets/images/events/dadaocheng-2026-qingming-banner-v21.png",
     "imageFit": "contain",
     "tags": [
       "大稻埕國際藝術節",
@@ -38,6 +39,7 @@
       "約 60 分鐘"
     ],
     "badge": "旗艦演出",
-    "subtitle": "街區藝埕｜親子偶戲藝術週"
+    "subtitle": "街區藝埕｜親子偶戲藝術週",
+    "seriesUrl": "event-dadaocheng-2026.html#flagship"
   }
 ]
