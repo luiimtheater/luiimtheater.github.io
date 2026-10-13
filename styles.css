@@ -659,3 +659,50 @@ body{padding-top:var(--nav-h)}
   .current-event-copy{padding:20px 18px 22px}
   .current-event-copy h3{font-size:clamp(1.3rem,6.2vw,1.75rem)}
 }
+
+
+/* V20 — immersive backstage carousel, Dadaocheng series hierarchy, archive wording */
+.backstage-section{padding-top:clamp(32px,5vw,64px);padding-bottom:clamp(42px,6vw,78px)}
+.backstage-carousel-overlay-mode{position:relative;overflow:hidden;border:1px solid var(--line);background:#080808;min-height:clamp(440px,58vw,720px)}
+.backstage-carousel-overlay-mode .backstage-track{height:clamp(440px,58vw,720px);display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:0;padding:0;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory}
+.backstage-carousel-overlay-mode .backstage-track::-webkit-scrollbar{display:none}
+.backstage-carousel-overlay-mode .backstage-track figure{height:100%;aspect-ratio:auto;scroll-snap-align:start;margin:0}
+.backstage-carousel-overlay-mode .backstage-track img{width:100%;height:100%;object-fit:cover}
+.backstage-carousel-overlay-mode::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.46) 38%,rgba(0,0,0,.08) 72%),linear-gradient(0deg,rgba(0,0,0,.55),transparent 48%)}
+.backstage-overlay-copy{position:absolute;z-index:2;left:clamp(22px,5vw,70px);bottom:clamp(26px,6vw,72px);width:min(620px,72%);pointer-events:none;text-shadow:0 2px 22px rgba(0,0,0,.7)}
+.backstage-overlay-copy h2{font-family:"Songti TC","PMingLiU",serif;font-size:clamp(2.7rem,6.5vw,6.5rem);font-weight:500;line-height:.92;letter-spacing:-.035em;margin:8px 0 18px;color:#fff}
+.backstage-overlay-copy p{margin:0;max-width:540px;color:#f0ece6;line-height:1.8;font-size:clamp(.9rem,1.35vw,1.05rem)}
+.backstage-overlay-controls{position:absolute;z-index:3;right:clamp(16px,3vw,34px);bottom:clamp(16px,3vw,30px);display:flex;gap:8px}
+.backstage-overlay-controls button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:rgba(0,0,0,.55);backdrop-filter:blur(8px);color:#fff;cursor:pointer;font-size:1rem}
+.backstage-overlay-controls button:hover{background:rgba(0,0,0,.8);border-color:#fff}
+
+.dadaocheng-series-section{padding-bottom:24px}
+.series-hero{position:relative;overflow:hidden;border:1px solid var(--line);background:#0b1420}
+.series-hero picture,.series-hero img{display:block;width:100%}
+.series-hero img{aspect-ratio:2048/779;object-fit:cover}
+.series-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.series-hero-label{position:absolute;z-index:2;left:20px;right:20px;bottom:16px;display:flex;align-items:end;justify-content:space-between;gap:20px;text-shadow:0 2px 16px rgba(0,0,0,.8)}
+.series-hero-label strong{font-size:1.08rem;color:#fff}
+.series-hero-label span{font-size:.8rem;color:#e4ddd3}
+
+.archive-category{display:inline-block;font-style:normal;font-size:.66rem;line-height:1;border:1px solid #635c52;border-radius:999px;padding:5px 7px;margin:0 8px 4px 0;color:#d9d0c5;vertical-align:middle;font-weight:500;letter-spacing:.03em}
+.current-event-kicker{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:9px}
+.current-event-kicker span{display:inline-flex;border:1px solid #655d54;border-radius:999px;padding:5px 8px;font-size:.7rem;color:#e8e0d6}
+.current-event-kicker time{font-family:Georgia,serif;color:#d8d1c7;font-size:.82rem}
+
+@media(max-width:700px){
+  .backstage-carousel-overlay-mode{min-height:520px}
+  .backstage-carousel-overlay-mode .backstage-track{height:520px;grid-auto-columns:100%}
+  .backstage-carousel-overlay-mode .backstage-track figure{aspect-ratio:auto}
+  .backstage-carousel-overlay-mode::after{background:linear-gradient(0deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.56) 45%,rgba(0,0,0,.08) 76%)}
+  .backstage-overlay-copy{left:18px;right:18px;bottom:74px;width:auto}
+  .backstage-overlay-copy h2{font-size:clamp(2.8rem,14vw,4.7rem);margin-bottom:13px}
+  .backstage-overlay-copy p{font-size:.88rem;line-height:1.65;max-width:30rem}
+  .backstage-overlay-controls{right:14px;bottom:14px}
+  .backstage-overlay-controls button{width:40px;height:40px}
+  .series-hero img{aspect-ratio:1638/2048}
+  .series-hero-label{left:15px;right:15px;bottom:14px;display:block}
+  .series-hero-label strong{display:block;font-size:1rem;line-height:1.4}
+  .series-hero-label span{display:block;margin-top:5px;font-size:.75rem}
+  .archive-category{display:table;margin:0 0 7px}
+}
