@@ -859,3 +859,127 @@ body{padding-top:var(--nav-h)}
 @media (max-width:380px){
   .event-series-page-hero h1{font-size:clamp(1.9rem,9.8vw,2.4rem)!important}
 }
+
+/* V25 — repertoire menu, booking/outreach and mobile history spacing */
+@media (min-width:961px) and (max-width:1260px){
+  .nav-links{gap:16px;font-size:.8rem}
+  .brand img{width:205px}
+}
+
+/* Fix production-detail history actions overlapping cards on mobile */
+.history-section .work-links{margin-top:28px!important;margin-bottom:0;gap:12px}
+.history-section .work-links .button{margin-top:0}
+@media(max-width:600px){
+  .history-section .work-links{display:grid;grid-template-columns:1fr;margin-top:20px!important;gap:10px}
+  .history-section .work-links .button{width:100%;min-width:0;padding-inline:14px;white-space:normal;text-align:center}
+}
+
+/* Homepage booking teaser */
+.home-booking-section{padding-top:0}
+.home-booking-card{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);border:1px solid var(--line);background:#0a0a0a;min-height:430px;overflow:hidden}
+.home-booking-image{min-width:0;overflow:hidden}
+.home-booking-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.home-booking-card:hover .home-booking-image img{transform:scale(1.018)}
+.home-booking-copy{padding:clamp(28px,4vw,54px);display:flex;flex-direction:column;justify-content:flex-end}
+.home-booking-copy h2{font-size:clamp(2rem,4.2vw,4rem);line-height:1.05;margin:.2em 0 .35em}
+.home-booking-copy p{color:#cfc9c0;line-height:1.85;max-width:38rem;margin:0}
+.home-booking-copy span{margin-top:24px;font-size:.9rem;color:#fff}
+@media(max-width:800px){
+  .home-booking-card{grid-template-columns:1fr;min-height:0}
+  .home-booking-image{aspect-ratio:16/10}
+  .home-booking-copy{padding:24px 20px 26px}
+}
+
+/* Repertoire page — menu-like buying view */
+.repertoire-hero p{max-width:820px}
+.repertoire-guide-section{padding-top:42px;padding-bottom:44px}
+.repertoire-guide{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--line);gap:1px}
+.repertoire-guide>div{background:#0a0a0a;padding:22px 24px;min-width:0}
+.repertoire-guide span{display:block;color:var(--muted);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.repertoire-guide strong{display:block;font-size:1rem;line-height:1.55;font-weight:600}
+.repertoire-note{margin:18px 0 0;color:var(--muted);font-size:.84rem;line-height:1.75;max-width:920px}
+.repertoire-menu-section{padding-top:68px}
+.repertoire-menu{border-top:1px solid var(--line)}
+.repertoire-item{border-bottom:1px solid var(--line);padding:22px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center}
+.repertoire-main-link{display:grid;grid-template-columns:minmax(220px,30%) minmax(0,1fr);gap:26px;align-items:center;min-width:0}
+.repertoire-thumb{aspect-ratio:16/10;background:#111;overflow:hidden;min-width:0}
+.repertoire-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.repertoire-main-link:hover .repertoire-thumb img{transform:scale(1.025)}
+.repertoire-thumb-placeholder{display:grid;place-items:center;background:radial-gradient(circle at 70% 25%,#251713,#111 42%,#080808 72%)}
+.repertoire-thumb-placeholder img{width:48%;height:auto;object-fit:contain;opacity:.78}
+.repertoire-copy{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;align-items:start;min-width:0}
+.repertoire-no{font-family:Georgia,serif;color:#7f7971;font-size:.95rem;padding-top:7px}
+.repertoire-meta{font-size:.72rem;letter-spacing:.08em;color:#aaa49b;margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.repertoire-copy h2{font-family:"Songti TC","PMingLiU",serif;font-size:clamp(1.45rem,2.4vw,2.5rem);line-height:1.12;font-weight:500;margin:0 0 10px;white-space:nowrap;letter-spacing:-.025em}
+.repertoire-copy p{margin:0;color:#bbb5ad;line-height:1.75;font-size:.88rem;max-width:52rem}
+.repertoire-actions{display:flex;flex-direction:column;gap:10px;align-items:flex-end;white-space:nowrap;font-size:.8rem}
+.repertoire-actions a{border-bottom:1px solid #4d4943;padding-bottom:2px}
+.repertoire-actions a:hover{border-color:#fff}
+.repertoire-cta-section{padding-top:38px}
+.repertoire-cta{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;border:1px solid var(--line);padding:clamp(26px,4vw,46px);background:#0d0d0d}
+.repertoire-cta h2{font-size:clamp(2rem,4vw,3.8rem);margin:.18em 0 .3em}
+.repertoire-cta p{margin:0;color:#c8c2b9;max-width:760px;line-height:1.8}
+.repertoire-cta>span{white-space:nowrap;font-size:.9rem}
+@media(max-width:850px){
+  .repertoire-guide{grid-template-columns:1fr}
+  .repertoire-item{grid-template-columns:1fr;gap:14px}
+  .repertoire-actions{flex-direction:row;align-items:center;justify-content:flex-end}
+  .repertoire-cta{display:block}
+  .repertoire-cta>span{display:block;margin-top:22px}
+}
+@media(max-width:600px){
+  .repertoire-guide-section{padding-top:24px;padding-bottom:36px}
+  .repertoire-main-link{grid-template-columns:1fr;gap:16px}
+  .repertoire-thumb{aspect-ratio:16/9}
+  .repertoire-copy{grid-template-columns:34px minmax(0,1fr);gap:10px}
+  .repertoire-no{font-size:.82rem;padding-top:5px}
+  .repertoire-meta{font-size:.65rem}
+  .repertoire-copy h2{font-size:clamp(1.22rem,5.8vw,1.62rem);letter-spacing:-.045em;white-space:nowrap}
+  .repertoire-copy p{font-size:.82rem;line-height:1.7}
+  .repertoire-actions{justify-content:flex-start;padding-left:44px;gap:18px}
+  .repertoire-cta{padding:24px 20px}
+}
+@media(max-width:380px){
+  .repertoire-copy h2{font-size:1.14rem}
+}
+
+/* Booking page */
+.booking-hero p{max-width:820px}
+.booking-service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.booking-service-grid article{background:#0a0a0a;padding:30px;min-height:290px;display:flex;flex-direction:column}
+.booking-service-no{font-family:Georgia,serif;color:#777169;font-size:.8rem}
+.booking-service-grid h3{font-family:"Songti TC","PMingLiU",serif;font-size:clamp(1.7rem,2.5vw,2.55rem);font-weight:500;margin:18px 0 12px}
+.booking-service-grid p{color:#c8c2b9;line-height:1.85;margin:0}
+.booking-service-grid a{margin-top:auto;padding-top:22px;font-size:.86rem}
+.booking-flex-note{margin-top:28px;border-left:2px solid var(--gold);padding:24px 26px;background:#0b0b0b}
+.booking-flex-note h3{font-family:"Songti TC","PMingLiU",serif;font-size:clamp(1.7rem,3vw,2.8rem);font-weight:500;line-height:1.2;margin:.25em 0 .35em}
+.booking-flex-note p{margin:0;color:#c8c2b9;line-height:1.85;max-width:900px}
+.booking-case-section{background:#090909}
+.booking-case-grid{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:46px;align-items:start}
+.booking-case-copy{position:sticky;top:120px}
+.booking-case-tag{display:inline-block;border:1px solid #5a554e;border-radius:999px;padding:6px 10px;color:#ddd6cc;font-size:.74rem;margin-bottom:18px}
+.booking-case-copy h3{font-family:"Songti TC","PMingLiU",serif;font-size:clamp(2rem,4vw,3.8rem);line-height:1.13;font-weight:500;margin:0 0 22px}
+.booking-case-copy p{color:#c9c3ba;line-height:1.9}
+.booking-case-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.booking-case-gallery figure{margin:0;overflow:hidden;background:#111;aspect-ratio:4/3}
+.booking-case-gallery .booking-case-wide{grid-column:1/-1;aspect-ratio:16/9}
+.booking-case-gallery img{width:100%;height:100%;object-fit:cover}
+.booking-contact-card{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:44px;border:1px solid var(--line);padding:clamp(26px,4vw,48px);background:#0c0c0c;align-items:end}
+.booking-contact-card h2{font-size:clamp(2.2rem,5vw,4.5rem);margin:.2em 0 .28em}
+.booking-contact-card p{margin:0;color:#c8c2b9;line-height:1.8;max-width:720px}
+.booking-contact-links{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.booking-contact-links a{font-size:1rem;border-bottom:1px solid #554f48;padding-bottom:4px;overflow-wrap:anywhere}
+@media(max-width:900px){
+  .booking-service-grid{grid-template-columns:1fr}
+  .booking-service-grid article{min-height:0}
+  .booking-case-grid{grid-template-columns:1fr}
+  .booking-case-copy{position:static}
+  .booking-contact-card{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .booking-service-grid article{padding:24px 20px}
+  .booking-case-gallery{grid-template-columns:1fr;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:10px}
+  .booking-case-gallery figure,.booking-case-gallery .booking-case-wide{flex:0 0 88%;aspect-ratio:4/3;scroll-snap-align:start}
+  .booking-case-gallery .booking-case-wide{aspect-ratio:16/10}
+  .booking-contact-card{padding:24px 20px}
+}
