@@ -69,6 +69,13 @@ function setupBackstageCarousel(){
   });
 }
 
+
+function setupImageProtection(){
+  document.querySelectorAll('img').forEach(img=>img.setAttribute('draggable','false'));
+  document.addEventListener('contextmenu',e=>{if(e.target.closest&&e.target.closest('img,picture'))e.preventDefault();});
+  document.addEventListener('dragstart',e=>{if(e.target.closest&&e.target.closest('img,picture'))e.preventDefault();});
+}
+
 function setupBackToTop(){
   const b=document.createElement('button');
   b.type='button'; b.className='back-to-top'; b.setAttribute('aria-label','回到頁面頂端'); b.setAttribute('title','回到頂端'); b.textContent='↑';
@@ -86,4 +93,4 @@ async function renderSchedule(){const root=document.querySelector('[data-calenda
   document.querySelector('[data-prev-month]').addEventListener('click',()=>{calCursor=new Date(calCursor.getFullYear(),calCursor.getMonth()-1,1);draw()});document.querySelector('[data-next-month]').addEventListener('click',()=>{calCursor=new Date(calCursor.getFullYear(),calCursor.getMonth()+1,1);draw()});
   if(list){const upcoming=events.filter(e=>eventEnd(e)>=todayStart()); list.innerHTML=upcoming.length?`<div class="upcoming-card-list">${upcoming.map(e=>{const ext=externalLink(e.url||'')?' target="_blank" rel="noopener"':'';const tags=(Array.isArray(e.tags)?e.tags:[]).map(tag=>`<span>${esc(tag)}</span>`).join('');const fit=e.imageFit==='contain'?' is-contain':'';const img=e.image?`<div class="upcoming-card-thumb${fit}"><img src="${esc(e.image)}" alt="${esc(e.subtitle||e.title)}" loading="eager" decoding="async"><span class="upcoming-card-badge">${esc(e.badge||EVENT_CATEGORY[e.category]||'活動')}</span></div>`:'';return `<article class="upcoming-event-card">${img}<div class="upcoming-card-content"><div class="upcoming-card-date">${eventDateLabel(e)}${e.time?' · '+esc(e.time):''}</div><h3>${esc(e.title)}</h3>${e.subtitle?`<div class="upcoming-card-subtitle">${esc(e.subtitle)}</div>`:''}<div class="upcoming-card-meta">${e.location?esc(e.location):''}</div>${tags?`<div class="upcoming-card-tags">${tags}</div>`:''}${e.description?`<div class="upcoming-card-description">${esc(e.description)}</div>`:''}${e.url?`<a class="upcoming-card-link" href="${esc(e.url)}"${ext}>查看詳情／報名 →</a>`:''}</div></article>`}).join('')}</div>`:'<div class="schedule-empty">目前尚無公開行程。新的演出、工作坊與交流活動確認後會更新於此。</div>';} draw();}
 
-document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackstageCarousel();setupBackToTop();renderHomeEvents();renderSchedule();});
+document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackstageCarousel();setupImageProtection();setupBackToTop();renderHomeEvents();renderSchedule();});
