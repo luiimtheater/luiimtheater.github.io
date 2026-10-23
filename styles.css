@@ -1041,3 +1041,61 @@ img{
 @media(max-width:600px){
   .award-badge{font-size:.62rem;padding:5px 8px;margin-bottom:8px}
 }
+
+/* V29.5 — mobile calendar event preview */
+.calendar-event-preview{display:none}
+@media (max-width:600px){
+  .cal-event{
+    position:relative;
+    display:block;
+    width:28px;
+    height:20px;
+    min-height:20px;
+    margin:1px auto 0;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    font-size:0;
+    line-height:0;
+    overflow:visible;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .cal-event::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--red);
+    transform:translate(-50%,-50%);
+    transition:transform .18s ease,box-shadow .18s ease;
+  }
+  .cal-event.is-selected::after{
+    transform:translate(-50%,-50%) scale(1.18);
+    box-shadow:0 0 0 4px rgba(211,35,35,.2);
+  }
+  .day{min-height:64px;padding:5px 2px}
+  .calendar-event-preview{display:block;position:fixed;inset:0;z-index:260;pointer-events:none;visibility:hidden}
+  .calendar-event-preview.is-open{pointer-events:auto;visibility:visible}
+  .calendar-event-preview-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.62);opacity:0;transition:opacity .2s ease}
+  .calendar-event-preview.is-open .calendar-event-preview-backdrop{opacity:1}
+  .calendar-event-preview-sheet{position:absolute;left:0;right:0;bottom:0;background:#101010;border-top:1px solid #3a3733;border-radius:22px 22px 0 0;padding:24px 22px calc(24px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .24s ease;max-height:min(76vh,620px);overflow:auto;box-shadow:0 -18px 48px rgba(0,0,0,.45)}
+  .calendar-event-preview.is-open .calendar-event-preview-sheet{transform:translateY(0)}
+  .calendar-event-preview-close{position:absolute;top:14px;right:16px;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:transparent;color:#fff;font-size:1.35rem;line-height:1;cursor:pointer}
+  .calendar-preview-date{font-family:Georgia,serif;color:#d8d1c7;font-size:.9rem;padding-right:46px}
+  .calendar-preview-badge{display:inline-flex;margin-top:12px;border:1px solid #655d54;border-radius:999px;padding:5px 9px;font-size:.7rem;color:#e8e0d6}
+  .calendar-event-preview h3{font-family:"Songti TC","PMingLiU",serif;font-size:clamp(1.45rem,7vw,1.9rem);line-height:1.35;font-weight:500;margin:12px 0 16px;padding-right:24px}
+  .calendar-preview-meta{display:grid;grid-template-columns:42px minmax(0,1fr);gap:10px;margin-top:10px;line-height:1.65}
+  .calendar-preview-meta span{font-size:.75rem;color:var(--muted)}
+  .calendar-preview-meta strong{font-size:.88rem;font-weight:500;color:#eee8df}
+  .calendar-preview-description{margin:16px 0 0;color:#bbb4aa;font-size:.86rem;line-height:1.75}
+  .calendar-preview-link{display:flex;align-items:center;justify-content:center;margin-top:20px;min-height:46px;border:1px solid #6a6258;border-radius:999px;color:#fff;font-size:.88rem;text-decoration:none}
+  .calendar-preview-note{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+  body.calendar-preview-open{overflow:hidden}
+}
+@media (prefers-reduced-motion:reduce){
+  .calendar-event-preview-backdrop,.calendar-event-preview-sheet,.cal-event::after{transition:none!important}
+}
