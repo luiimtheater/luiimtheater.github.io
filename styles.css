@@ -1182,3 +1182,28 @@ img{
   .calendar-preview-item .calendar-preview-link{margin-top:16px}
   .calendar-preview-item .calendar-preview-note{margin-top:14px}
 }
+
+/* V29.9 — show supplied event banners inside mobile day preview */
+@media (max-width:600px){
+  .calendar-preview-banner{
+    margin:14px 0 14px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    background:#090909;
+  }
+  .calendar-preview-banner img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:240px;
+    object-fit:cover;
+  }
+  .calendar-preview-banner.is-contain img{
+    object-fit:contain;
+    max-height:none;
+  }
+  .calendar-preview-banner + h3{
+    margin-top:14px;
+  }
+}
