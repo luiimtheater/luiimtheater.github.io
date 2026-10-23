@@ -1,5 +1,37 @@
 [
   {
+    "title": "《做伙揣春天》校園巡迴｜新和國小",
+    "date": "2026-10-20",
+    "time": "10:30–11:55",
+    "category": "performance",
+    "location": "新北市新店區",
+    "description": "新北市新店區新和國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜景新國小",
+    "date": "2026-10-20",
+    "time": "13:40–15:10",
+    "category": "performance",
+    "location": "新北市中和區",
+    "description": "新北市中和區景新國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
     "title": "演出互動DIY場《豬八戒痟娶某》",
     "date": "2026-10-21",
     "endDate": "2026-10-25",
@@ -41,5 +73,133 @@
     "badge": "旗艦演出",
     "subtitle": "街區藝埕｜親子偶戲藝術週",
     "seriesUrl": "event-dadaocheng-2026.html#flagship"
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜厚德國小",
+    "date": "2026-11-16",
+    "time": "10:30–12:00",
+    "category": "performance",
+    "location": "新北市三重區",
+    "description": "新北市三重區厚德國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜三光國小",
+    "date": "2026-11-16",
+    "time": "13:30–15:00",
+    "category": "performance",
+    "location": "新北市三重區",
+    "description": "新北市三重區三光國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜忠義國小",
+    "date": "2026-11-24",
+    "time": "10:30–12:00",
+    "category": "performance",
+    "location": "新北市蘆洲區",
+    "description": "新北市蘆洲區忠義國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜仁愛國小",
+    "date": "2026-11-24",
+    "time": "13:30–15:00",
+    "category": "performance",
+    "location": "新北市蘆洲區",
+    "description": "新北市蘆洲區仁愛國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜文德國小",
+    "date": "2026-12-07",
+    "time": "08:45–10:10",
+    "category": "performance",
+    "location": "新北市板橋區",
+    "description": "新北市板橋區文德國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜光興國小",
+    "date": "2026-12-07",
+    "time": "10:30–11:20",
+    "category": "performance",
+    "location": "新北市三重區",
+    "description": "新北市三重區光興國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜萬富國小",
+    "date": "2026-12-08",
+    "time": "10:00–11:10",
+    "category": "performance",
+    "location": "宜蘭縣三星鄉",
+    "description": "宜蘭縣三星鄉萬富國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
+  },
+  {
+    "title": "《做伙揣春天》校園巡迴｜憲明國小",
+    "date": "2026-12-08",
+    "time": "13:30–15:00",
+    "category": "performance",
+    "location": "宜蘭縣三星鄉",
+    "description": "宜蘭縣三星鄉憲明國民小學",
+    "published": true,
+    "series": "zuohuo-spring-school-tour-2026",
+    "badge": "校園巡演",
+    "tags": [
+      "校園巡演",
+      "臺語布袋戲"
+    ],
+    "showOnHome": false
   }
 ]
