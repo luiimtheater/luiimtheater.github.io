@@ -103,4 +103,67 @@ async function renderSchedule(){const root=document.querySelector('[data-calenda
   document.querySelector('[data-prev-month]').addEventListener('click',()=>{calCursor=new Date(calCursor.getFullYear(),calCursor.getMonth()-1,1);draw()});document.querySelector('[data-next-month]').addEventListener('click',()=>{calCursor=new Date(calCursor.getFullYear(),calCursor.getMonth()+1,1);draw()});
   if(list){const upcoming=events.filter(e=>eventEnd(e)>=todayStart()); list.innerHTML=upcoming.length?`<div class="upcoming-card-list">${upcoming.map(e=>{const ext=externalLink(e.url||'')?' target="_blank" rel="noopener"':'';const tags=(Array.isArray(e.tags)?e.tags:[]).map(tag=>`<span>${esc(tag)}</span>`).join('');const fit=e.imageFit==='contain'?' is-contain':'';const img=e.image?`<div class="upcoming-card-thumb${fit}"><img src="${esc(e.image)}" alt="${esc(e.subtitle||e.title)}" loading="eager" decoding="async"><span class="upcoming-card-badge">${esc(e.badge||EVENT_CATEGORY[e.category]||'活動')}</span></div>`:'';return `<article class="upcoming-event-card">${img}<div class="upcoming-card-content"><div class="upcoming-card-date">${eventDateLabel(e)}${e.time?' · '+esc(e.time):''}</div><h3>${esc(e.title)}</h3>${e.subtitle?`<div class="upcoming-card-subtitle">${esc(e.subtitle)}</div>`:''}<div class="upcoming-card-meta">${e.location?esc(e.location):''}</div>${tags?`<div class="upcoming-card-tags">${tags}</div>`:''}${e.description?`<div class="upcoming-card-description">${esc(e.description)}</div>`:''}${e.url?`<a class="upcoming-card-link" href="${esc(e.url)}"${ext}>查看詳情／報名 →</a>`:''}</div></article>`}).join('')}</div>`:'<div class="schedule-empty">目前尚無公開行程。新的演出、工作坊與交流活動確認後會更新於此。</div>';} draw();}
 
-document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackstageCarousel();setupImageProtection();setupBackToTop();renderHomeEvents();renderSchedule();});
+
+
+function setupProductionGalleries(){
+  const tracks=[...document.querySelectorAll('.production-stills-section .production-stills')];
+  if(!tracks.length)return;
+
+  let lightbox=document.querySelector('[data-production-lightbox]');
+  if(!lightbox){
+    lightbox=document.createElement('div');
+    lightbox.className='production-lightbox';
+    lightbox.setAttribute('data-production-lightbox','');
+    lightbox.setAttribute('aria-hidden','true');
+    lightbox.innerHTML='<button class="production-lightbox-close" type="button" aria-label="關閉劇照">×</button><button class="production-lightbox-nav prev" type="button" aria-label="上一張劇照">←</button><div class="production-lightbox-stage"><img alt=""></div><button class="production-lightbox-nav next" type="button" aria-label="下一張劇照">→</button><div class="production-lightbox-counter" aria-live="polite"></div>';
+    document.body.appendChild(lightbox);
+  }
+  const lbImg=lightbox.querySelector('img');
+  const lbCounter=lightbox.querySelector('.production-lightbox-counter');
+  let lbImages=[],lbIndex=0,lastTrigger=null;
+  const renderLightbox=()=>{
+    const img=lbImages[lbIndex]; if(!img)return;
+    lbImg.src=img.currentSrc||img.src; lbImg.alt=img.alt||'演出劇照';
+    lbCounter.textContent=`${lbIndex+1} / ${lbImages.length}`;
+  };
+  const openLightbox=(images,index,trigger)=>{lbImages=images;lbIndex=index;lastTrigger=trigger;renderLightbox();lightbox.classList.add('is-open');lightbox.setAttribute('aria-hidden','false');lightbox.querySelector('.production-lightbox-close').focus({preventScroll:true});};
+  const closeLightbox=()=>{lightbox.classList.remove('is-open');lightbox.setAttribute('aria-hidden','true');lbImg.removeAttribute('src');if(lastTrigger)lastTrigger.focus({preventScroll:true});};
+  const shiftLightbox=(dir)=>{if(!lbImages.length)return;lbIndex=(lbIndex+dir+lbImages.length)%lbImages.length;renderLightbox();};
+  lightbox.querySelector('.production-lightbox-close').addEventListener('click',closeLightbox);
+  lightbox.querySelector('.production-lightbox-nav.prev').addEventListener('click',()=>shiftLightbox(-1));
+  lightbox.querySelector('.production-lightbox-nav.next').addEventListener('click',()=>shiftLightbox(1));
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});
+  document.addEventListener('keydown',e=>{if(!lightbox.classList.contains('is-open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')shiftLightbox(-1);if(e.key==='ArrowRight')shiftLightbox(1);});
+
+  tracks.forEach(track=>{
+    if(track.dataset.galleryReady==='1')return;
+    track.dataset.galleryReady='1';
+    track.classList.add('production-stills-carousel');
+    const figures=[...track.querySelectorAll('figure')];
+    const images=figures.map(f=>f.querySelector('img')).filter(Boolean);
+    if(!images.length)return;
+
+    const shell=document.createElement('div');
+    shell.className='production-gallery-shell';
+    track.parentNode.insertBefore(shell,track); shell.appendChild(track);
+    const prev=document.createElement('button');prev.type='button';prev.className='production-gallery-arrow prev';prev.setAttribute('aria-label','上一張劇照');prev.textContent='←';
+    const next=document.createElement('button');next.type='button';next.className='production-gallery-arrow next';next.setAttribute('aria-label','下一張劇照');next.textContent='→';
+    shell.append(prev,next);
+    const dots=document.createElement('div');dots.className='production-gallery-dots';dots.setAttribute('aria-label','劇照頁次');shell.after(dots);
+    figures.forEach((fig,i)=>{
+      const dot=document.createElement('button');dot.type='button';dot.className='production-gallery-dot';dot.setAttribute('aria-label',`查看第 ${i+1} 張劇照`);dots.appendChild(dot);
+      dot.addEventListener('click',()=>fig.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}));
+      const img=images[i]; if(img){img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label',`${img.alt||'演出劇照'}，點擊放大`);img.addEventListener('click',()=>openLightbox(images,i,img));img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(images,i,img);}});}
+    });
+    const dotEls=[...dots.children];
+    let active=0,raf=0;
+    const update=()=>{raf=0;const center=track.scrollLeft+track.clientWidth/2;let best=0,dist=Infinity;figures.forEach((fig,i)=>{const c=fig.offsetLeft+fig.offsetWidth/2;const d=Math.abs(c-center);if(d<dist){dist=d;best=i;}});active=best;dotEls.forEach((d,i)=>d.classList.toggle('is-active',i===active));prev.disabled=active===0;next.disabled=active===figures.length-1;};
+    const go=dir=>{const idx=Math.max(0,Math.min(figures.length-1,active+dir));figures[idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});};
+    prev.addEventListener('click',()=>go(-1));next.addEventListener('click',()=>go(1));
+    track.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(update);},{passive:true});
+    window.addEventListener('resize',update,{passive:true});
+    update();
+  });
+}
+
+document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackstageCarousel();setupProductionGalleries();setupImageProtection();setupBackToTop();renderHomeEvents();renderSchedule();});

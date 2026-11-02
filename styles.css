@@ -1207,3 +1207,76 @@ img{
     margin-top:14px;
   }
 }
+
+
+/* V29.11 — unified production stills gallery */
+.production-stills-section .production-gallery-shell{position:relative}
+.production-stills-section .production-stills-carousel{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:min(72vw,720px);
+  grid-template-columns:none;
+  gap:14px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:0;
+  overscroll-behavior-x:contain;
+}
+.production-stills-section .production-stills-carousel::-webkit-scrollbar{display:none;width:0;height:0}
+.production-stills-section .production-stills-carousel figure{
+  margin:0;
+  width:100%;
+  aspect-ratio:3/2;
+  overflow:hidden;
+  background:#0d0d0d;
+  scroll-snap-align:center;
+  scroll-snap-stop:always;
+}
+.production-stills-section .production-stills-carousel img{
+  width:100%;height:100%;object-fit:cover;cursor:zoom-in;
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+}
+.production-gallery-arrow{
+  position:absolute;top:50%;z-index:3;transform:translateY(-50%);
+  width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.28);
+  background:rgba(7,7,7,.76);color:#fff;font-size:1.35rem;line-height:1;
+  display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(5px);
+  transition:background .2s ease,border-color .2s ease,opacity .2s ease;
+}
+.production-gallery-arrow:hover{background:rgba(28,28,28,.92);border-color:rgba(255,255,255,.5)}
+.production-gallery-arrow:disabled{opacity:.28;cursor:default}
+.production-gallery-arrow.prev{left:14px}.production-gallery-arrow.next{right:14px}
+.production-gallery-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px;min-height:18px}
+.production-gallery-dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:#57534f;cursor:pointer;transition:transform .2s ease,background .2s ease}
+.production-gallery-dot.is-active{background:#f3eee7;transform:scale(1.35)}
+.production-gallery-dot:focus-visible,.production-gallery-arrow:focus-visible,.production-lightbox button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+.production-lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.94);padding:68px 76px 54px;overscroll-behavior:contain}
+.production-lightbox.is-open{display:flex}
+.production-lightbox-stage{width:min(1320px,100%);height:min(82vh,900px);display:flex;align-items:center;justify-content:center}
+.production-lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.production-lightbox-close,.production-lightbox-nav{position:absolute;border:1px solid rgba(255,255,255,.3);background:rgba(10,10,10,.74);color:#fff;border-radius:50%;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(5px)}
+.production-lightbox-close{top:18px;right:18px;width:48px;height:48px;font-size:1.7rem}
+.production-lightbox-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.4rem}
+.production-lightbox-nav.prev{left:18px}.production-lightbox-nav.next{right:18px}
+.production-lightbox-counter{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-size:.82rem;letter-spacing:.12em;color:#c9c4bd}
+
+@media(max-width:700px){
+  .production-stills-section .production-stills-carousel{grid-auto-columns:88%;gap:10px;scroll-padding-inline:6%}
+  .production-stills-section .production-stills-carousel figure{aspect-ratio:4/3}
+  .production-gallery-arrow{width:42px;height:42px;font-size:1.1rem;background:rgba(7,7,7,.68)}
+  .production-gallery-arrow.prev{left:8px}.production-gallery-arrow.next{right:8px}
+  .production-gallery-dots{margin-top:13px;gap:7px}
+  .production-lightbox{padding:64px 12px 48px}
+  .production-lightbox-stage{height:72vh}
+  .production-lightbox-nav{width:44px;height:44px;font-size:1.1rem;top:auto;bottom:14px;transform:none}
+  .production-lightbox-nav.prev{left:18px}.production-lightbox-nav.next{right:18px}
+  .production-lightbox-counter{bottom:28px}
+}
+@media(max-width:420px){
+  .production-stills-section .production-stills-carousel{grid-auto-columns:92%;scroll-padding-inline:4%}
+}
