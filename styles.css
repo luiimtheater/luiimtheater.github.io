@@ -1334,3 +1334,218 @@ img{
   .current-series-dates{display:grid;gap:5px}
   .current-series-sep{display:none}
 }
+
+
+/* v29.15 — stable click-by-day calendar + full school tour schedule */
+.calendar-day-details[hidden]{display:none!important}
+.calendar-day-details{
+  margin-top:22px;
+  border:1px solid var(--line);
+  background:#0b0b0b;
+  padding:24px;
+}
+.calendar-inline-head{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-start;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--line);
+}
+.calendar-inline-head h3{
+  margin:5px 0 0;
+  font-family:"Songti TC","PMingLiU",serif;
+  font-size:clamp(1.35rem,3vw,2rem);
+  font-weight:500;
+}
+.calendar-inline-close{
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  background:transparent;
+  color:#ddd7cf;
+  border-radius:999px;
+  padding:9px 13px;
+  cursor:pointer;
+}
+.calendar-inline-list{display:grid;gap:0}
+.calendar-inline-card{
+  padding:22px 0;
+  border-bottom:1px solid var(--line);
+}
+.calendar-inline-card:last-child{border-bottom:0;padding-bottom:0}
+.calendar-inline-card-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.calendar-inline-badge{
+  display:inline-flex;
+  border:1px solid #655d54;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:.7rem;
+  color:#e8e0d6;
+}
+.calendar-inline-time{
+  font-family:Georgia,serif;
+  color:#d8d1c7;
+  font-size:.86rem;
+  white-space:nowrap;
+}
+.calendar-inline-card h3{
+  margin:12px 0 14px;
+  font-family:"Songti TC","PMingLiU",serif;
+  font-size:clamp(1.3rem,3vw,1.7rem);
+  font-weight:500;
+}
+.calendar-inline-meta{
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr);
+  gap:10px;
+  line-height:1.65;
+}
+.calendar-inline-meta span{font-size:.75rem;color:var(--muted)}
+.calendar-inline-meta strong{font-size:.9rem;font-weight:500;color:#eee8df}
+.calendar-inline-description{
+  margin:12px 0 0;
+  color:#bbb4aa;
+  font-size:.88rem;
+  line-height:1.75;
+}
+.calendar-inline-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+.calendar-inline-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:9px 15px;
+  border:1px solid #6a6258;
+  border-radius:999px;
+  color:#fff;
+  font-size:.84rem;
+  text-decoration:none;
+}
+.calendar-inline-link.map{
+  border-color:#8b7b63;
+  background:#17140f;
+  color:#f2e8d7;
+}
+.calendar-inline-banner{
+  margin:14px 0;
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  background:#090909;
+}
+.calendar-inline-banner img{display:block;width:100%;height:auto;max-height:340px;object-fit:cover}
+.calendar-inline-banner.is-contain img{object-fit:contain;max-height:none}
+
+.day.has-events{
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.day.has-events:hover,
+.day.has-events.is-selected{
+  background:rgba(211,35,35,.055);
+  box-shadow:inset 0 0 0 1px rgba(211,35,35,.26);
+}
+.day.has-events:focus-visible{
+  outline:2px solid rgba(211,35,35,.7);
+  outline-offset:-2px;
+}
+
+/* Mobile: dots remain visual indicators only. The whole date cell is the tap target. */
+@media(max-width:600px){
+  .calendar-event-preview{display:none!important}
+  .day{min-height:64px;padding:5px 2px}
+  .cal-event{
+    position:relative!important;
+    display:inline-block!important;
+    width:12px!important;
+    height:14px!important;
+    min-height:14px!important;
+    margin:1px 1px 0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    font-size:0!important;
+    line-height:0!important;
+    overflow:visible!important;
+    pointer-events:none!important;
+  }
+  .cal-event::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--red);
+    transform:translate(-50%,-50%);
+  }
+  .calendar-day-details{margin-top:16px;padding:18px 16px}
+  .calendar-inline-head{gap:10px}
+  .calendar-inline-close{padding:8px 10px;font-size:.78rem}
+  .calendar-inline-card{padding:18px 0}
+  .calendar-inline-card-head{align-items:flex-start}
+  .calendar-inline-actions{display:grid;grid-template-columns:1fr}
+  .calendar-inline-link{width:100%}
+}
+
+/* Full school-tour timetable in the "正在進行" card */
+.current-series-tour-list{
+  margin-top:6px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.current-series-date-group{
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr);
+  gap:18px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.current-series-date-group.is-complete{opacity:.58}
+.current-series-date-label{
+  font-family:Georgia,serif;
+  font-size:1.02rem;
+  color:#eee7dc;
+}
+.current-series-date-label small{
+  display:block;
+  margin-top:3px;
+  font-family:inherit;
+  font-size:.65rem;
+  color:var(--muted);
+}
+.current-series-stops{display:grid;gap:8px}
+.current-series-stop{
+  display:grid;
+  grid-template-columns:104px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+}
+.current-series-stop-time{
+  font-family:Georgia,serif;
+  font-size:.8rem;
+  color:#bfb7ad;
+}
+.current-series-stop-school{
+  font-size:.88rem;
+  line-height:1.55;
+  color:#f0ebe4;
+}
+@media(max-width:600px){
+  .current-series-date-group{grid-template-columns:1fr;gap:8px;padding:14px 0}
+  .current-series-date-label{display:flex;align-items:center;gap:8px}
+  .current-series-date-label small{display:inline;margin:0}
+  .current-series-stop{grid-template-columns:92px minmax(0,1fr);gap:8px}
+  .current-series-stop-time{font-size:.76rem}
+  .current-series-stop-school{font-size:.84rem}
+}
