@@ -1288,3 +1288,49 @@ img{
   .calendar-preview-actions .calendar-preview-link{flex:1 1 180px;margin-top:0;min-width:0}
   .calendar-preview-map-link{border-color:#8b7b63;background:#17140f;color:#f2e8d7}
 }
+
+
+/* v29.14 — dynamic "正在進行" series */
+.current-series-card{
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.035);
+  padding:clamp(22px,4vw,42px);
+  display:grid;
+  gap:14px;
+}
+.current-series-kicker{
+  font-size:.78rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#b98a58;
+}
+.current-series-card h3{
+  margin:0;
+  font-size:clamp(1.45rem,3vw,2.25rem);
+  line-height:1.25;
+}
+.current-series-dates{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 10px;
+  color:rgba(255,255,255,.78);
+  font-size:.98rem;
+  line-height:1.7;
+}
+.current-series-sep{color:rgba(255,255,255,.3)}
+.current-series-link{
+  width:max-content;
+  max-width:100%;
+  margin-top:6px;
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.45);
+  padding-bottom:3px;
+}
+.current-series-link:hover{border-color:#b98a58;color:#d6b184}
+.day.has-events{cursor:pointer}
+@media (max-width:600px){
+  .current-series-card{padding:20px 18px}
+  .current-series-dates{display:grid;gap:5px}
+  .current-series-sep{display:none}
+}
