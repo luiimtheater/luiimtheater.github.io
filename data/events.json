@@ -13,7 +13,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8C%97%E5%B8%82%E6%96%B0%E5%BA%97%E5%8D%80%E6%96%B0%E5%92%8C%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "《做伙揣春天》校園巡迴｜景新國小",
@@ -29,7 +30,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%99%AF%E6%96%B0%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "演出互動DIY場《豬八戒痟娶某》",
@@ -88,7 +90,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%89%E9%87%8D%E5%8D%80%E5%8E%9A%E5%BE%B7%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "《做伙揣春天》校園巡迴｜三光國小",
@@ -104,7 +107,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%89%E9%87%8D%E5%8D%80%E4%B8%89%E5%85%89%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "《做伙揣春天》校園巡迴｜忠義國小",
@@ -120,7 +124,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8C%97%E5%B8%82%E8%98%86%E6%B4%B2%E5%8D%80%E5%BF%A0%E7%BE%A9%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "《做伙揣春天》校園巡迴｜仁愛國小",
@@ -136,7 +141,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8C%97%E5%B8%82%E8%98%86%E6%B4%B2%E5%8D%80%E4%BB%81%E6%84%9B%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "《做伙揣春天》校園巡迴｜文德國小",
@@ -152,7 +158,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8C%97%E5%B8%82%E6%9D%BF%E6%A9%8B%E5%8D%80%E6%96%87%E5%BE%B7%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "《做伙揣春天》校園巡迴｜光興國小",
@@ -168,7 +175,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%89%E9%87%8D%E5%8D%80%E5%85%89%E8%88%88%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "《做伙揣春天》校園巡迴｜萬富國小",
@@ -184,7 +192,8 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E5%AE%9C%E8%98%AD%E7%B8%A3%E4%B8%89%E6%98%9F%E9%84%89%E8%90%AC%E5%AF%8C%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   },
   {
     "title": "《做伙揣春天》校園巡迴｜憲明國小",
@@ -200,6 +209,7 @@
       "校園巡演",
       "臺語布袋戲"
     ],
-    "showOnHome": false
+    "showOnHome": false,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%E5%AE%9C%E8%98%AD%E7%B8%A3%E4%B8%89%E6%98%9F%E9%84%89%E6%86%B2%E6%98%8E%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8"
   }
 ]
