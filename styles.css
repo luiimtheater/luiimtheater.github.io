@@ -1393,3 +1393,6 @@ img{
   .home-tour-note{padding:12px 20px}
 }
 
+
+/* V29.14 — completed activity status */
+.event-completed-note{margin-top:20px;display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--line);color:var(--muted);font-size:.84rem}.event-completed-note strong{color:#fff;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}@media(max-width:700px){.event-completed-note{align-items:flex-start;flex-direction:column;gap:5px}}
