@@ -2427,3 +2427,128 @@ img{
     width:100%;
   }
 }
+
+
+/* v29.22 — refined compact red request slip */
+.request-show-slip{
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.015) 0,
+      rgba(0,0,0,.015) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    #b83a2f;
+}
+.request-show-slip-inner{
+  gap:12px;
+}
+.request-show-slip-top{
+  padding-bottom:10px;
+}
+.request-show-slip-brand{
+  font-size:.96rem;
+  letter-spacing:.14em;
+}
+.request-show-slip-code{
+  font-size:.5rem;
+  opacity:.72;
+}
+.request-show-slip-main{
+  display:block;
+  min-height:76px;
+  padding:2px 78px 2px 0;
+}
+.request-show-slip-title strong{
+  font-size:clamp(1.02rem,2.25vw,1.32rem);
+  line-height:1.4;
+}
+.request-show-slip-bottom{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:16px;
+  padding-top:11px;
+  border-top:1px solid #080808;
+}
+.request-show-countline{
+  text-align:left;
+  align-self:end;
+}
+.request-show-countline .request-show-slip-label{
+  margin-bottom:5px;
+}
+.request-show-countline strong{
+  font-size:1.65rem;
+}
+.request-show-button{
+  min-width:138px;
+  min-height:40px;
+  padding:8px 12px;
+}
+.request-show-stamp{
+  right:20px;
+  top:64px;
+  width:54px;
+  height:54px;
+  font-size:.58rem;
+  border-width:2px;
+}
+.request-show-stamp::before{
+  bottom:7px;
+  font-size:.28rem;
+}
+.request-show-slip.is-submitted .request-show-stamp{
+  opacity:.78;
+}
+@media(max-width:760px){
+  .request-show-slip{
+    padding:9px;
+  }
+  .request-show-slip-inner{
+    padding:11px 12px 10px;
+  }
+  .request-show-slip-main{
+    min-height:72px;
+    padding-right:66px;
+  }
+  .request-show-slip-title strong{
+    font-size:.98rem;
+    line-height:1.38;
+  }
+  .request-show-slip-bottom{
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:10px;
+    padding-top:9px;
+  }
+  .request-show-countline strong{
+    font-size:1.45rem;
+  }
+  .request-show-button{
+    min-width:124px;
+    min-height:38px;
+    font-size:.74rem;
+    padding:7px 9px;
+  }
+  .request-show-stamp{
+    right:14px;
+    top:62px;
+    width:48px;
+    height:48px;
+    font-size:.52rem;
+  }
+}
+@media(max-width:380px){
+  .request-show-slip-main{
+    min-height:82px;
+    padding-right:58px;
+  }
+  .request-show-slip-bottom{
+    grid-template-columns:1fr auto;
+  }
+  .request-show-button{
+    width:auto;
+    min-width:118px;
+  }
+}
