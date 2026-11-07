@@ -2320,32 +2320,33 @@ img{
 }
 .request-show-stamp{
   position:absolute;
-  right:28px;
-  top:48px;
-  width:70px;
-  height:70px;
+  right:18px;
+  top:88px;
+  width:56px;
+  height:56px;
   border:3px double #080808;
   border-radius:50%;
   display:grid;
   place-items:center;
   color:#080808;
   font-family:"Songti TC","PMingLiU",serif;
-  font-size:.78rem;
+  font-size:.62rem;
   font-weight:900;
-  letter-spacing:.1em;
-  transform:rotate(-10deg) scale(1.65);
+  letter-spacing:.08em;
+  line-height:1;
+  transform:rotate(-12deg) scale(1.5);
   opacity:0;
   pointer-events:none;
 }
 .request-show-stamp::before{
   content:"LUI IM";
   position:absolute;
-  bottom:10px;
+  bottom:8px;
   color:#080808;
   font-family:Georgia,serif;
-  font-size:.35rem;
+  font-size:.3rem;
   font-weight:700;
-  letter-spacing:.1em;
+  letter-spacing:.08em;
 }
 .request-show-slip.is-submitted .request-show-stamp{
   opacity:.86;
@@ -2404,11 +2405,11 @@ img{
     min-width:132px;
   }
   .request-show-stamp{
-    right:18px;
-    top:45px;
-    width:62px;
-    height:62px;
-    font-size:.7rem;
+    right:14px;
+    top:86px;
+    width:50px;
+    height:50px;
+    font-size:.56rem;
   }
 }
 @media(max-width:380px){
