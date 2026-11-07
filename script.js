@@ -366,10 +366,10 @@ function setupProductionGalleries(){
 
 /* v29.17 — 觀眾請戲單 / public request-show counter */
 const REQUEST_SHOW_API='https://countapi.mileshilliard.com/api/v1';
-const REQUEST_SHOW_PREFIX='luiimtheater_request_show_2026_v2_';
+const REQUEST_SHOW_PREFIX='luiimtheater_request_show_2026_v3_';
 const requestShowMemory=new Set();
 
-function requestShowStorageKey(id){return `luiimtheater_request_show_v2_${id}`;}
+function requestShowStorageKey(id){return `luiimtheater_request_show_v3_${id}`;}
 function requestShowCounterKey(id){return `${REQUEST_SHOW_PREFIX}${id}`;}
 
 function hasRequestedShow(id){
