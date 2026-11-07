@@ -366,10 +366,10 @@ function setupProductionGalleries(){
 
 /* v29.17 — 觀眾請戲單 / public request-show counter */
 const REQUEST_SHOW_API='https://countapi.mileshilliard.com/api/v1';
-const REQUEST_SHOW_PREFIX='luiimtheater_request_show_2026_v1_';
+const REQUEST_SHOW_PREFIX='luiimtheater_request_show_2026_v2_';
 const requestShowMemory=new Set();
 
-function requestShowStorageKey(id){return `luiimtheater_request_show_v1_${id}`;}
+function requestShowStorageKey(id){return `luiimtheater_request_show_v2_${id}`;}
 function requestShowCounterKey(id){return `${REQUEST_SHOW_PREFIX}${id}`;}
 
 function hasRequestedShow(id){
@@ -400,7 +400,7 @@ function requestShowRender(panel,count,voted){
   if(button){
     button.disabled=!!voted;
     button.classList.toggle('is-requested',!!voted);
-    button.textContent=voted?'✓ 請戲單已送出':'送出請戲單 ϟ';
+    button.textContent=voted?'✓ 已送出':'送出請戲單';
   }
   if(slip)slip.classList.toggle('is-submitted',!!voted);
   if(state)state.textContent=voted?'請戲單已送出':'';
@@ -458,7 +458,7 @@ async function setupRequestShow(){
       }catch(_){
         if(slip)slip.classList.remove('is-sending');
         button.disabled=false;
-        button.textContent='再試一次 ϟ';
+        button.textContent='再試一次';
         if(state)state.textContent='送出未完成，請再試一次';
       }
     });
