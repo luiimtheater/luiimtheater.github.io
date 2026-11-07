@@ -363,4 +363,97 @@ function setupProductionGalleries(){
   });
 }
 
-document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackstageCarousel();setupProductionGalleries();setupImageProtection();setupBackToTop();renderCurrentSeries();renderHomeEvents();renderSchedule();});
+
+/* v29.17 — 觀眾請戲單 / public request-show counter */
+const REQUEST_SHOW_API='https://countapi.mileshilliard.com/api/v1';
+const REQUEST_SHOW_PREFIX='luiimtheater_request_show_2026_v1_';
+const requestShowMemory=new Set();
+
+function requestShowStorageKey(id){return `luiimtheater_request_show_v1_${id}`;}
+function requestShowCounterKey(id){return `${REQUEST_SHOW_PREFIX}${id}`;}
+
+function hasRequestedShow(id){
+  try{return localStorage.getItem(requestShowStorageKey(id))==='1';}
+  catch(_){return requestShowMemory.has(id);}
+}
+function markRequestedShow(id){
+  try{localStorage.setItem(requestShowStorageKey(id),'1');}
+  catch(_){requestShowMemory.add(id);}
+}
+function requestShowValue(data){
+  const n=Number(data&&data.value);
+  return Number.isFinite(n)&&n>=0?Math.round(n):0;
+}
+async function requestShowFetch(kind,id){
+  const key=encodeURIComponent(requestShowCounterKey(id));
+  const res=await fetch(`${REQUEST_SHOW_API}/${kind}/${key}`,{cache:'no-store',headers:{'Accept':'application/json'}});
+  if(!res.ok)throw new Error(`Counter API ${res.status}`);
+  return requestShowValue(await res.json());
+}
+function requestShowRender(panel,count,voted){
+  const button=panel.querySelector('[data-request-show-button]');
+  const countEl=panel.querySelector('[data-request-show-count]');
+  const state=panel.querySelector('[data-request-show-state]');
+  if(countEl&&Number.isFinite(count))countEl.textContent=count.toLocaleString('zh-TW');
+  if(button){
+    button.disabled=!!voted;
+    button.classList.toggle('is-requested',!!voted);
+    button.textContent=voted?'✓ 已請戲':'ϟ 請戲單｜我想看這齣';
+  }
+  if(state)state.textContent=voted?'你的請戲已記錄。':'';
+}
+async function setupRequestShow(){
+  const panels=[...document.querySelectorAll('[data-request-show]')];
+  if(!panels.length)return;
+
+  panels.forEach(async panel=>{
+    const id=panel.dataset.workId||'';
+    const title=panel.dataset.workTitle||document.title;
+    const button=panel.querySelector('[data-request-show-button]');
+    const countEl=panel.querySelector('[data-request-show-count]');
+    const state=panel.querySelector('[data-request-show-state]');
+    if(!id||!button)return;
+
+    const voted=hasRequestedShow(id);
+    if(voted)requestShowRender(panel,NaN,true);
+
+    try{
+      const count=await requestShowFetch('get',id);
+      requestShowRender(panel,count,voted);
+    }catch(_){
+      if(countEl)countEl.textContent='—';
+      if(state&&!voted)state.textContent='目前票數暫時無法讀取，仍可送出請戲。';
+    }
+
+    button.addEventListener('click',async()=>{
+      if(hasRequestedShow(id)){
+        requestShowRender(panel,NaN,true);
+        return;
+      }
+      button.disabled=true;
+      button.textContent='送出中…';
+      if(state)state.textContent='';
+
+      try{
+        const count=await requestShowFetch('hit',id);
+        markRequestedShow(id);
+        requestShowRender(panel,count,true);
+
+        if(typeof window.gtag==='function'){
+          window.gtag('event','request_show',{
+            work_id:id,
+            work_title:title,
+            event_category:'engagement'
+          });
+        }
+      }catch(_){
+        button.disabled=false;
+        button.textContent='ϟ 請戲單｜我想看這齣';
+        if(state)state.textContent='目前無法送出，請稍後再試。';
+      }
+    });
+  });
+}
+
+
+document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackstageCarousel();setupProductionGalleries();setupImageProtection();setupBackToTop();setupRequestShow();renderCurrentSeries();renderHomeEvents();renderSchedule();});
