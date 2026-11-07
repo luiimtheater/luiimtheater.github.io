@@ -1650,3 +1650,230 @@ img{
   .request-show-countline{justify-content:flex-start}
   .request-show-state{text-align:left}
 }
+
+
+/* v29.18 — 請戲單票券造型 */
+.request-show-panel{
+  margin-top:30px;
+  margin-bottom:10px;
+  border:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(320px,1.18fr);
+  gap:clamp(22px,4vw,54px);
+  align-items:center;
+}
+.request-show-copy{
+  padding:8px 0;
+}
+.request-show-copy h3{
+  margin:6px 0 10px;
+  font-size:clamp(1.5rem,3vw,2.15rem);
+}
+.request-show-copy p{
+  max-width:540px;
+}
+.request-show-slip{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(199,164,111,.58);
+  border-radius:3px;
+  background:
+    linear-gradient(rgba(255,255,255,.025),rgba(255,255,255,.025)),
+    #11100e;
+  color:#eee7dc;
+  min-height:258px;
+  padding:22px 24px 20px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025);
+  transform-origin:center;
+  transition:transform .25s ease,opacity .25s ease,border-color .25s ease;
+}
+.request-show-slip::before,
+.request-show-slip::after{
+  content:"";
+  position:absolute;
+  top:58%;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#050505;
+  border:1px solid rgba(199,164,111,.45);
+  transform:translateY(-50%);
+}
+.request-show-slip::before{left:-10px}
+.request-show-slip::after{right:-10px}
+.request-show-slip-top{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:flex-start;
+  padding-bottom:16px;
+  border-bottom:1px dashed rgba(199,164,111,.42);
+}
+.request-show-slip-brand{
+  font-family:"Songti TC","PMingLiU",serif;
+  font-size:1rem;
+  letter-spacing:.12em;
+}
+.request-show-slip-code{
+  color:#81786e;
+  font-family:Georgia,serif;
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-align:right;
+}
+.request-show-slip-title{
+  padding:18px 0 17px;
+}
+.request-show-slip-label{
+  display:block;
+  margin-bottom:7px;
+  color:#81786e;
+  font-size:.68rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.request-show-slip-title strong{
+  display:block;
+  max-width:92%;
+  font-family:"Songti TC","PMingLiU",serif;
+  font-size:clamp(1.15rem,2.5vw,1.55rem);
+  line-height:1.5;
+  font-weight:500;
+}
+.request-show-slip-bottom{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:18px;
+  padding-top:17px;
+  border-top:1px dashed rgba(199,164,111,.42);
+}
+.request-show-countline{
+  display:block;
+  color:#8f877d;
+  font-size:.7rem;
+  line-height:1.3;
+}
+.request-show-countline strong{
+  display:inline-block;
+  margin-right:5px;
+  color:#d8b47b;
+  font-size:1.7rem;
+  line-height:1;
+}
+.request-show-button{
+  min-width:158px;
+  min-height:45px;
+  padding:10px 15px;
+  border:1px solid #a78049;
+  border-radius:2px;
+  background:#17120c;
+  color:#f2e5d2;
+  font-size:.82rem;
+  letter-spacing:.04em;
+}
+.request-show-button:hover{
+  border-color:#d1a464;
+  background:#21180f;
+}
+.request-show-button.is-requested,
+.request-show-button:disabled.is-requested{
+  border-color:#5f594f;
+  background:#111;
+  color:#aaa39a;
+}
+.request-show-state{
+  position:absolute;
+  left:24px;
+  bottom:6px;
+  min-height:0;
+  color:#777168;
+  font-size:.64rem;
+  text-align:left;
+}
+.request-show-note{display:none!important}
+.request-show-stamp{
+  position:absolute;
+  right:30px;
+  top:72px;
+  width:94px;
+  height:94px;
+  border:2px solid rgba(166,52,44,.82);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:rgba(196,69,58,.92);
+  font-family:"Songti TC","PMingLiU",serif;
+  font-size:1.05rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  transform:rotate(-11deg) scale(1.7);
+  opacity:0;
+  pointer-events:none;
+}
+.request-show-stamp::before{
+  content:"REQUESTED";
+  position:absolute;
+  bottom:17px;
+  font-family:Georgia,serif;
+  font-size:.45rem;
+  letter-spacing:.1em;
+}
+.request-show-slip.is-submitted .request-show-stamp{
+  opacity:.92;
+  transform:rotate(-11deg) scale(1);
+}
+.request-show-slip.is-sending{
+  transform:translateY(6px) scale(.992);
+  opacity:.74;
+}
+.request-show-slip.is-stamping .request-show-stamp{
+  animation:requestStamp .58s cubic-bezier(.2,.9,.25,1.2);
+}
+@keyframes requestStamp{
+  0%{opacity:0;transform:rotate(-11deg) scale(1.9)}
+  60%{opacity:1;transform:rotate(-11deg) scale(.9)}
+  100%{opacity:.92;transform:rotate(-11deg) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .request-show-slip,
+  .request-show-stamp{transition:none!important;animation:none!important}
+}
+@media(max-width:760px){
+  .request-show-panel{
+    grid-template-columns:1fr;
+    gap:17px;
+  }
+  .request-show-slip{
+    min-height:248px;
+    padding:19px 18px 18px;
+  }
+  .request-show-slip-title strong{max-width:78%}
+  .request-show-slip-bottom{
+    align-items:center;
+  }
+  .request-show-button{
+    width:auto;
+    min-width:145px;
+  }
+  .request-show-stamp{
+    right:18px;
+    top:70px;
+    width:82px;
+    height:82px;
+    font-size:.92rem;
+  }
+  .request-show-state{
+    left:18px;
+    bottom:4px;
+  }
+}
+@media(max-width:390px){
+  .request-show-slip-bottom{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .request-show-button{width:100%}
+  .request-show-state{position:static;margin-top:5px}
+}

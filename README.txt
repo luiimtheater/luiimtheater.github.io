@@ -1,39 +1,16 @@
-雷音劇坊官網 v29.17｜觀眾「請戲單」功能
+雷音劇坊官網 v29.18｜請戲單票券版
 
-請將以下檔案上傳到 GitHub 專案最外層根目錄並覆蓋：
+請將以下檔案全部上傳到 GitHub 專案最外層根目錄並覆蓋：
 - styles.css
 - script.js
-- work-qingminglong.html
-- work-guishan.html
-- work-crazy-knight.html
-- work-xibeiyu.html
-- work-kutai.html
-- work-yanluo.html
-- work-jijiyu.html
-- work-chenxiang.html
-- work-weizheng.html
-- work-zhubajie.html
-- work-jinkuixing.html
+- 11 個 work-*.html 劇目頁
 
-功能：
-1. 11 個劇目頁皆新增「ϟ 請戲單｜我想看這齣」。
-2. 跨訪客共用公開計數，頁面顯示「XX 人想看」。
-3. 同一瀏覽器同一齣戲原則上只記一次（localStorage）。
-4. 成功請戲時送出 GA4 event：request_show，參數 work_id、work_title。
-5. API 暫時不可用時，不會卡住整個作品頁；會顯示錯誤訊息。
-
-注意：
-這是公開觀眾意向計數，不是防作弊的正式投票。清除瀏覽器資料、無痕模式或不同裝置仍可能再次投票；公開計數 API 也不是高風險資料庫。適合作為節目規劃的熱度參考。
-
-Counter keys:
-- qingminglong: 《青瞑的龍蛇無青瞑》
-- guishan: 《龜山夫人氣甲衝煙矣！》
-- crazy-knight: 《瘋狂騎士闖戲棚》
-- xibeiyu: 《西北雨傳奇》
-- kutai: 《鮕鮐兄點姻緣》
-- yanluo: 《閻羅石磨心》
-- jijiyu: 《鯽仔魚娶親》
-- chenxiang: 《沉香救母》
-- weizheng: 《魏徵斬龍王》
-- zhubajie: 《豬八戒痟娶某》
-- jinkuixing: 《掠賊賠千金（金魁星）》
+本版更新：
+1. 移除「目前票數暫時無法讀取」等內部錯誤提示。
+2. 移除「同一瀏覽器同一劇目原則上僅記錄一次／非演出承諾」前台說明。
+3. 新計數器 GET 回 404 時改視為 0 人，不再當成故障。
+4. 請戲區改成「雷音劇坊・請戲單」實體票券／單據感造型。
+5. 按「送出請戲單」才真正呼叫 counter hit +1。
+6. 送出成功後票券蓋上「已請戲 / REQUESTED」印章，按鈕顯示「✓ 請戲單已送出」。
+7. 同瀏覽器防重複與 GA4 request_show 事件仍保留。
+8. 若真的送出失敗，只顯示簡短「送出未完成，請再試一次」。

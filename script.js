@@ -387,6 +387,7 @@ function requestShowValue(data){
 async function requestShowFetch(kind,id){
   const key=encodeURIComponent(requestShowCounterKey(id));
   const res=await fetch(`${REQUEST_SHOW_API}/${kind}/${key}`,{cache:'no-store',headers:{'Accept':'application/json'}});
+  if(kind==='get'&&res.status===404)return 0;
   if(!res.ok)throw new Error(`Counter API ${res.status}`);
   return requestShowValue(await res.json());
 }
@@ -394,13 +395,15 @@ function requestShowRender(panel,count,voted){
   const button=panel.querySelector('[data-request-show-button]');
   const countEl=panel.querySelector('[data-request-show-count]');
   const state=panel.querySelector('[data-request-show-state]');
+  const slip=panel.querySelector('[data-request-show-slip]');
   if(countEl&&Number.isFinite(count))countEl.textContent=count.toLocaleString('zh-TW');
   if(button){
     button.disabled=!!voted;
     button.classList.toggle('is-requested',!!voted);
-    button.textContent=voted?'✓ 已請戲':'ϟ 請戲單｜我想看這齣';
+    button.textContent=voted?'✓ 請戲單已送出':'送出請戲單 ϟ';
   }
-  if(state)state.textContent=voted?'你的請戲已記錄。':'';
+  if(slip)slip.classList.toggle('is-submitted',!!voted);
+  if(state)state.textContent=voted?'請戲單已送出':'';
 }
 async function setupRequestShow(){
   const panels=[...document.querySelectorAll('[data-request-show]')];
@@ -421,8 +424,7 @@ async function setupRequestShow(){
       const count=await requestShowFetch('get',id);
       requestShowRender(panel,count,voted);
     }catch(_){
-      if(countEl)countEl.textContent='—';
-      if(state&&!voted)state.textContent='目前票數暫時無法讀取，仍可送出請戲。';
+      if(countEl)countEl.textContent='0';
     }
 
     button.addEventListener('click',async()=>{
@@ -430,13 +432,20 @@ async function setupRequestShow(){
         requestShowRender(panel,NaN,true);
         return;
       }
+      const slip=panel.querySelector('[data-request-show-slip]');
       button.disabled=true;
       button.textContent='送出中…';
       if(state)state.textContent='';
+      if(slip)slip.classList.add('is-sending');
 
       try{
         const count=await requestShowFetch('hit',id);
         markRequestedShow(id);
+        if(slip){
+          slip.classList.remove('is-sending');
+          slip.classList.add('is-stamping');
+          setTimeout(()=>slip.classList.remove('is-stamping'),650);
+        }
         requestShowRender(panel,count,true);
 
         if(typeof window.gtag==='function'){
@@ -447,9 +456,10 @@ async function setupRequestShow(){
           });
         }
       }catch(_){
+        if(slip)slip.classList.remove('is-sending');
         button.disabled=false;
-        button.textContent='ϟ 請戲單｜我想看這齣';
-        if(state)state.textContent='目前無法送出，請稍後再試。';
+        button.textContent='再試一次 ϟ';
+        if(state)state.textContent='送出未完成，請再試一次';
       }
     });
   });
