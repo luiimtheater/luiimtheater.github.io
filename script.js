@@ -1,3 +1,16 @@
+/*
+╔══════════════════════════════════════╗
+║      ϟ 雷音劇坊｜Lui Im Theater ϟ      ║
+║                                      ║
+║              雷 音 鎮 台             ║
+║                                      ║
+║      戲棚平安・程式順行・演出滿座      ║
+║      香火不斷・觀眾滿席・請戲滿單      ║
+╚══════════════════════════════════════╝
+
+有拜有保庇，有 commit 有保留。
+*/
+
 const EVENT_CATEGORY = {performance:'演出', workshop:'工作坊', exchange:'交流', other:'其他'};
 
 function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
@@ -467,3 +480,8 @@ async function setupRequestShow(){
 
 
 document.addEventListener('DOMContentLoaded',()=>{setupNav();setupHero();setupReveal();setupBrokenImages();setupPersonDialogs();setupCounters();setupBackstageCarousel();setupProductionGalleries();setupImageProtection();setupBackToTop();setupRequestShow();renderCurrentSeries();renderHomeEvents();renderSchedule();});
+
+// Hidden backstage blessing — visible only in DevTools Console.
+try {
+  console.info('%cϟ 雷音劇坊｜Lui Im Theater ϟ\n戲棚平安・程式順行・演出滿座\n⌁⌁⌁⌁⌁⌁', 'color:#b83a2f;font-weight:700;line-height:1.7;');
+} catch (_) {}
