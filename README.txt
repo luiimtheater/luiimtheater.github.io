@@ -1,11 +1,22 @@
-雷音劇坊官網 v29.25｜青瞑近期演出改歷史＋雷音鎮台彩蛋
+雷音劇坊官網 v29.30｜《青瞑的龍蛇無青瞑》回顧頁小修復包
 
-請上傳到 GitHub 專案最外層根目錄覆蓋：
-- script.js
+這包只補《青瞑的龍蛇無青瞑》2026 大稻埕國際藝術節回顧頁，不需要重傳整站。
+
+請上傳到 GitHub repository 根目錄並保持路徑：
+- review-qingminglong-dadaocheng-2026.html
 - work-qingminglong.html
+- assets/images/reviews/qingminglong-dadaocheng/
+  - qingminglong-dadaocheng-review-01.jpg
+  - qingminglong-dadaocheng-review-02.jpg
+  - qingminglong-dadaocheng-review-03.jpg
+  - qingminglong-dadaocheng-review-04.jpg
+  - qingminglong-dadaocheng-review-05.jpg
+  - qingminglong-dadaocheng-review-06.jpg
+  - qingminglong-dadaocheng-review-07.jpg
+  - qingminglong-dadaocheng-review-08.jpg
 
-本版更新：
-1. 保留 v29.24「雷音鎮台」隱藏程式碼彩蛋。
-2. 《青瞑的龍蛇無青瞑》移除已過期的「近期演出 / Current event」區塊。
-3. 2026.11.03 大稻埕國際藝術節場次仍保留在「演出足跡」中，作為歷史紀錄。
-4. 頁面資源版本更新為 v29.25，避免瀏覽器快取舊內容。
+完成後：
+《青瞑的龍蛇無青瞑》→ 演出足跡 → 2026.11.03 →「看看回顧照 →」
+會進入獨立回顧頁並顯示 8 張照片。
+
+攝影：許尊凱、拍照的人平面攝影工作室。由大稻埕國際藝術節工作室提供。
