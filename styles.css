@@ -2636,3 +2636,9 @@ img{
     padding-bottom:0!important;
   }
 }
+
+
+/* v29.33 — remove divider between Booking & Outreach and Media & Press */
+.home-media-section{
+  border-top:0!important;
+}
