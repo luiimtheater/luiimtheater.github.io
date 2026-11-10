@@ -1,34 +1,31 @@
-雷音劇坊｜活動回顧完整覆蓋包 v4
+雷音劇坊｜演出足跡恢復＋豬八戒 Banner 修正版 v5
 
-這版已修正：
-【《豬八戒痟娶某》回顧】
-- 刪除 Banner 上方的 sticky header／多餘橫條
-- 頁面一打開直接是活動 Banner
-- 返回演出足跡縮成 Banner 裡的小型連結
-- 不放合作形式或洽詢按鈕
+這版修正前一版造成的問題：
 
-【《青瞑的龍蛇無青瞑》回顧】
-- Banner 直接置頂
-- 2026 大稻埕國際藝術節｜思劇場 Thinkers’ Theater
-- 下方放演出紀錄
-- 不放合作形式或洽詢按鈕
+1. archive.html
+- 恢復 2020–2026 完整演出足跡，不再只剩兩張活動回顧卡。
+- 依年份分組，保留「日期 → 活動名稱 → 地點」邏輯。
+- 手機版同樣改成日期、活動名稱、地點由上到下排列。
+- 活動回顧只放在上方當入口，不取代完整歷史紀錄。
+- 沒有大型「查看回顧」按鈕；整張卡可點，標題旁只留 ↗。
+- 已過期的「近期活動」不再出現。
+- 不放「合作形式」按鈕。
 
-【演出足跡 archive.html】
-- 已過期「近期活動」下架
-- 只保留「活動回顧」
-- 移除大型「查看回顧」按鈕
-- 整張卡片可點
-- 標題右側只留小 ↗
-- 滑鼠移入照片時才出現淡淡的 VIEW ↗
-- 不放合作形式按鈕
+2. review-zhubajie-dadaocheng-2026.html
+- Banner 不再使用體驗工作坊照片。
+- 頁面會讀取原官網／售票頁使用的：
+  assets/images/dadaocheng-zhubajie.jpg
+- 若你的舊站是把該檔放在根目錄，也會再嘗試：
+  dadaocheng-zhubajie.jpg
+- 本更新包不另外偽造或替換那張主視覺；請保留 GitHub 原本的 dadaocheng-zhubajie.jpg。
+- 5 張體驗照片只用於下方「現場紀錄」。
 
 上傳方式：
-把 ZIP 內所有檔案全部上傳到 GitHub Repository 最外層，
-也就是與 index.html 同一層，然後 Commit changes。
+- archive.html → 覆蓋 Repository 根目錄原檔
+- review-zhubajie-dadaocheng-2026.html → 覆蓋同名檔
+- assets/images/zhubajie-experience-01.webp ～ 05.webp → 上傳至 assets/images/
+- assets/images/qingming-banner.webp → 若 GitHub 已有可略過
 
-請覆蓋：
-- archive.html
-- review-zhubajie-dadaocheng-2026.html
-- review-qingminglong-dadaocheng-2026.html
-
-圖片也全部一起上傳。
+重要：
+請不要刪除 GitHub 原本的 assets/images/dadaocheng-zhubajie.jpg。
+如果 Repository 裡沒有這個檔案，請把你售票頁原圖上傳給 ChatGPT，我再幫你補進更新包；目前不會用錯誤的體驗照片冒充它。
