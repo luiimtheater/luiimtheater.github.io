@@ -2857,3 +2857,139 @@ img{
 .activity-review-gallery img{display:block;width:100%;height:auto;object-fit:contain}
 @media(max-width:960px){.activity-review-grid{grid-template-columns:1fr;gap:26px}}
 @media(max-width:600px){.activity-review-gallery{column-count:1}.archive-review-arrow{width:19px;height:19px;margin-left:4px}}
+
+
+/* =========================================================
+   v29.39 — Activity review layout stabilization
+   Scope: review pages only.
+   - smaller titles
+   - no column overlap
+   - stable grid gallery
+   - images never cropped
+   ========================================================= */
+
+.activity-review-hero{
+  padding-top:64px;
+  padding-bottom:48px;
+}
+.activity-review-hero h1{
+  max-width:18ch;
+  font-size:clamp(2.35rem,5vw,5rem);
+  line-height:1.08;
+  letter-spacing:.01em;
+  overflow-wrap:anywhere;
+}
+.activity-review-hero p{
+  max-width:760px;
+  font-size:1rem;
+  line-height:1.85;
+}
+
+.activity-review-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:64px;
+  align-items:start;
+}
+.activity-review-grid > *{
+  min-width:0;
+}
+.activity-review-grid h2{
+  max-width:12em;
+  font-size:clamp(1.9rem,3vw,3.15rem);
+  line-height:1.18;
+  margin:8px 0 0;
+  overflow-wrap:anywhere;
+}
+.activity-review-copy{
+  min-width:0;
+}
+.activity-review-copy > p{
+  margin:0 0 24px;
+  font-size:.96rem;
+  line-height:1.9;
+}
+.review-facts{
+  margin-top:22px;
+}
+.review-facts div{
+  grid-template-columns:74px minmax(0,1fr);
+  gap:16px;
+  padding:12px 0;
+}
+.review-facts dd{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+/* Stable gallery: no masonry/column balancing. */
+.activity-review-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  column-count:initial;
+}
+.activity-review-gallery figure{
+  display:grid;
+  place-items:center;
+  width:100%;
+  aspect-ratio:4 / 3;
+  margin:0;
+  background:#0a0a0a;
+  border:1px solid rgba(255,255,255,.07);
+  overflow:hidden;
+}
+.activity-review-gallery img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+
+/* When a gallery has an odd number of images, center the final tile. */
+.activity-review-gallery figure:last-child:nth-child(odd){
+  grid-column:1 / -1;
+  width:calc(50% - 7px);
+  justify-self:center;
+}
+
+@media(max-width:1180px){
+  .activity-review-grid{
+    grid-template-columns:1fr;
+    gap:26px;
+  }
+  .activity-review-grid h2{
+    max-width:16em;
+  }
+}
+
+@media(max-width:760px){
+  .activity-review-hero{
+    padding-top:46px;
+    padding-bottom:36px;
+  }
+  .activity-review-hero h1{
+    max-width:none;
+    font-size:clamp(2.15rem,10vw,3.7rem);
+  }
+  .activity-review-gallery{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .activity-review-gallery figure,
+  .activity-review-gallery figure:last-child:nth-child(odd){
+    grid-column:auto;
+    width:100%;
+    aspect-ratio:auto;
+  }
+  .activity-review-gallery img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+  }
+  .review-facts div{
+    grid-template-columns:64px minmax(0,1fr);
+    gap:12px;
+  }
+}
