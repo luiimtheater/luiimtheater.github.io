@@ -2993,3 +2993,60 @@ img{
     gap:12px;
   }
 }
+
+
+/* =========================================================
+   v29.40 — Review responsive typography
+   ========================================================= */
+
+.activity-review-hero h1{
+  width:100%;
+  max-width:none;
+  font-size:clamp(2.05rem,3.7vw,3.9rem);
+  line-height:1.1;
+  letter-spacing:0;
+  text-wrap:balance;
+}
+.activity-review-hero p{
+  max-width:780px;
+  font-size:.95rem;
+  line-height:1.8;
+}
+.activity-review-grid h2{
+  max-width:11em;
+  font-size:clamp(1.7rem,2.45vw,2.65rem);
+  line-height:1.2;
+  text-wrap:balance;
+}
+.activity-review-copy > p{
+  font-size:.93rem;
+  line-height:1.84;
+}
+
+@media(max-width:1180px){
+  .activity-review-grid h2{
+    max-width:none;
+  }
+}
+
+@media(max-width:760px){
+  .activity-review-hero{
+    padding-top:38px;
+    padding-bottom:30px;
+  }
+  .activity-review-hero h1{
+    font-size:clamp(1.72rem,7.2vw,2.4rem);
+    line-height:1.12;
+  }
+  .activity-review-hero p{
+    font-size:.91rem;
+    line-height:1.75;
+  }
+  .activity-review-grid h2{
+    font-size:clamp(1.45rem,6.4vw,1.95rem);
+    line-height:1.18;
+  }
+  .activity-review-copy > p{
+    font-size:.9rem;
+  }
+}
