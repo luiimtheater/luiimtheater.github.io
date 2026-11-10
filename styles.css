@@ -3050,3 +3050,30 @@ img{
     font-size:.9rem;
   }
 }
+
+
+/* =========================================================
+   v29.41 — Natural Chinese wrapping for activity reviews
+   ========================================================= */
+
+.activity-review-hero p,
+.activity-review-copy > p{
+  line-break:strict;
+  word-break:auto-phrase;
+  overflow-wrap:normal;
+  text-wrap:pretty;
+}
+
+.activity-review-hero p{
+  width:min(100%, 920px);
+  max-width:920px;
+}
+
+@media(max-width:760px){
+  .activity-review-hero p,
+  .activity-review-copy > p{
+    text-wrap:pretty;
+    line-break:strict;
+    word-break:auto-phrase;
+  }
+}
