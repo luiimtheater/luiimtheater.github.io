@@ -1,22 +1,12 @@
-雷音劇坊官網 v29.30｜《青瞑的龍蛇無青瞑》回顧頁小修復包
+雷音劇坊官網 v29.32｜首頁「台前一刻・台後千工」滿版圖片
 
-這包只補《青瞑的龍蛇無青瞑》2026 大稻埕國際藝術節回顧頁，不需要重傳整站。
+請上傳到 GitHub repository 最外層根目錄並覆蓋：
+- index.html
+- styles.css
 
-請上傳到 GitHub repository 根目錄並保持路徑：
-- review-qingminglong-dadaocheng-2026.html
-- work-qingminglong.html
-- assets/images/reviews/qingminglong-dadaocheng/
-  - qingminglong-dadaocheng-review-01.jpg
-  - qingminglong-dadaocheng-review-02.jpg
-  - qingminglong-dadaocheng-review-03.jpg
-  - qingminglong-dadaocheng-review-04.jpg
-  - qingminglong-dadaocheng-review-05.jpg
-  - qingminglong-dadaocheng-review-06.jpg
-  - qingminglong-dadaocheng-review-07.jpg
-  - qingminglong-dadaocheng-review-08.jpg
-
-完成後：
-《青瞑的龍蛇無青瞑》→ 演出足跡 → 2026.11.03 →「看看回顧照 →」
-會進入獨立回顧頁並顯示 8 張照片。
-
-攝影：許尊凱、拍照的人平面攝影工作室。由大稻埕國際藝術節工作室提供。
+更新：
+1. 「台前一刻・台後千工」圖片橫向滿版至螢幕左右邊緣。
+2. 移除圖片區外框、圓角與卡片感。
+3. 移除該段上下額外留白，直接利用原本上下主題之間的分隔線。
+4. 保留圖片輪播、疊字、漸層與左右切換按鈕。
+5. 手機版同步滿版。

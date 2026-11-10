@@ -2602,3 +2602,37 @@ img{
     padding-right:26px;
   }
 }
+
+
+/* v29.32 — Homepage "台前一刻・台後千工" full-bleed image */
+.backstage-section{
+  padding-top:0!important;
+  padding-bottom:0!important;
+  overflow:hidden;
+}
+.backstage-section > .container{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.backstage-carousel-overlay-mode{
+  width:100%;
+  max-width:none;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+.backstage-carousel-overlay-mode .backstage-track,
+.backstage-carousel-overlay-mode .backstage-track figure,
+.backstage-carousel-overlay-mode .backstage-track img{
+  border:0!important;
+  border-radius:0!important;
+}
+@media(max-width:700px){
+  .backstage-section{
+    padding-top:0!important;
+    padding-bottom:0!important;
+  }
+}
