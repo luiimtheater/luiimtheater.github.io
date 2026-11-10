@@ -1,390 +1,210 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="雷音劇坊演出邀約、布袋戲示範與親子體驗合作資訊。">
-  <title>演出邀約・示範與體驗｜雷音劇坊 Lui Im Theater</title>
-  <style>
-    :root{
-      --bg:#090909;
-      --panel:#111;
-      --panel-2:#151515;
-      --text:#f4f1ea;
-      --muted:#aaa59c;
-      --line:#2a2926;
-      --red:#a51d22;
-      --max:1180px;
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:
-        "Noto Sans TC","PingFang TC","Microsoft JhengHei",
-        system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      line-height:1.75;
-    }
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%;height:auto}
-    button,input,textarea,select{font:inherit}
-    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="雷音劇坊演出邀約、校園推廣、布袋戲示範與親子體驗合作資訊">
+<title>合作｜雷音劇坊</title>
+<style>
+:root{--bg:#090909;--panel:#111;--panel2:#151515;--text:#f3efe8;--muted:#a9a39a;--line:#2a2926;--red:#a51d22;--max:1180px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+  line-height:1.75;overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:auto}
 
-    .site-header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(9,9,9,.92);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--line);
-    }
-    .header-inner{
-      min-height:72px;
-      display:flex;align-items:center;justify-content:space-between;gap:24px;
-    }
-    .brand{
-      display:flex;align-items:center;gap:13px;min-width:0;
-    }
-    .seal{
-      width:34px;height:34px;border:1px solid var(--red);
-      color:#fff;display:grid;place-items:center;
-      font-family:"DFKai-SB","BiauKai","標楷體",serif;
-      font-weight:700;line-height:1;
-      background:var(--red);
-      flex:0 0 auto;
-    }
-    .brand-text{display:flex;flex-direction:column;line-height:1.15}
-    .brand-text strong{font-size:18px;letter-spacing:.15em}
-    .brand-text span{font-size:10px;color:var(--muted);letter-spacing:.22em;margin-top:5px}
-    nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end}
-    nav a{
-      font-size:14px;color:#d8d4cc;padding:8px 0;position:relative;white-space:nowrap;
-    }
-    nav a::after{
-      content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;
-      background:var(--red);transition:.2s ease;
-    }
-    nav a:hover::after, nav a[aria-current="page"]::after{right:0}
-    nav a[aria-current="page"]{color:#fff}
+.site-header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(9,9,9,.96);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.header-wrap{
+  width:min(var(--max),calc(100% - 40px));
+  margin:0 auto;
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.brand{
+  display:flex;align-items:center;gap:12px;flex:0 0 auto;color:var(--text);
+}
+.brand-mark{
+  width:34px;height:34px;display:grid;place-items:center;
+  background:var(--red);color:#fff;
+  font-family:"DFKai-SB","BiauKai","標楷體",serif;
+  font-weight:700;
+}
+.brand-copy{display:flex;flex-direction:column;line-height:1.08}
+.brand-copy strong{font-size:16px;letter-spacing:.14em;white-space:nowrap}
+.brand-copy small{margin-top:5px;font-size:9px;letter-spacing:.18em;color:var(--muted);white-space:nowrap}
+.nav-shell{min-width:0;overflow:hidden}
+.site-nav{
+  display:flex;align-items:center;justify-content:flex-end;gap:18px;
+  white-space:nowrap;
+}
+.site-nav a{
+  display:inline-flex;align-items:baseline;gap:5px;
+  padding:10px 0;color:#d9d4cc;font-size:13px;
+  border-bottom:1px solid transparent;
+}
+.site-nav a small{font-size:9px;letter-spacing:.08em;color:#77716a}
+.site-nav a:hover,.site-nav a[aria-current="page"]{color:#fff;border-color:var(--red)}
+.site-nav a[aria-current="page"] small{color:#aaa39a}
+@media(max-width:980px){
+  .header-wrap{align-items:flex-start;flex-direction:column;gap:10px;padding:14px 0 10px}
+  .nav-shell{width:100%;overflow-x:auto;scrollbar-width:none}
+  .nav-shell::-webkit-scrollbar{display:none}
+  .site-nav{justify-content:flex-start;width:max-content;gap:18px}
+}
+@media(max-width:560px){
+  .header-wrap{width:min(var(--max),calc(100% - 28px))}
+  .brand-copy strong{font-size:15px}
+}
 
-    .hero{
-      padding:88px 0 72px;
-      border-bottom:1px solid var(--line);
-      background:
-        radial-gradient(circle at 85% 20%, rgba(165,29,34,.13), transparent 28%),
-        linear-gradient(180deg,#0b0b0b 0%,#090909 100%);
-    }
-    .eyebrow{
-      color:#c9c2b7;
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      font-size:12px;
-      margin:0 0 14px;
-    }
-    h1,h2,h3,p{margin-top:0}
-    h1{
-      margin-bottom:18px;
-      font-size:clamp(38px,7vw,78px);
-      line-height:1.03;
-      letter-spacing:-.03em;
-      max-width:900px;
-    }
-    .hero-lead{
-      max-width:760px;
-      color:#cac6bf;
-      font-size:clamp(16px,2.1vw,20px);
-      margin-bottom:28px;
-    }
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:46px;padding:0 18px;border:1px solid #44413c;
-      border-radius:999px;font-weight:700;font-size:14px;
-      transition:.2s ease;
-    }
-    .btn-primary{background:var(--red);border-color:var(--red)}
-    .btn:hover{transform:translateY(-1px);border-color:#6b655e}
-    .btn-primary:hover{border-color:#c22b31}
-
-    main section{padding:78px 0;border-bottom:1px solid var(--line)}
-    .section-head{
-      display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
-      gap:40px;align-items:start;margin-bottom:38px;
-    }
-    .kicker{font-size:12px;letter-spacing:.2em;color:#aaa39a;margin:0 0 10px;text-transform:uppercase}
-    h2{font-size:clamp(28px,4vw,46px);line-height:1.15;margin-bottom:12px}
-    .section-copy{color:#bcb7af;max-width:720px;margin:0}
-
-    .service-grid{
-      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;
-    }
-    .service{
-      min-height:240px;padding:26px;border:1px solid var(--line);
-      background:linear-gradient(180deg,#111 0%,#0d0d0d 100%);
-      border-radius:var(--radius);
-    }
-    .service-num{
-      width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-      border:1px solid #4b4741;color:#d7d0c6;font-size:12px;margin-bottom:38px;
-    }
-    .service h3{font-size:21px;margin-bottom:10px}
-    .service p{color:#aaa59d;font-size:14px;margin-bottom:0}
-
-    .case{
-      display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);
-      gap:34px;padding:24px;border:1px solid var(--line);
-      background:var(--panel);border-radius:24px;align-items:stretch;
-    }
-    .case-cover{
-      position:relative;min-height:420px;border-radius:16px;overflow:hidden;background:#181818;
-    }
-    .case-cover img{width:100%;height:100%;object-fit:cover}
-    .case-body{padding:14px 8px 10px 0;display:flex;flex-direction:column}
-    .case-meta{font-size:12px;letter-spacing:.14em;color:#a9a39a;margin-bottom:18px}
-    .case h3{font-size:clamp(26px,3.3vw,42px);line-height:1.18;margin-bottom:18px}
-    .case p{color:#bbb6ad}
-    .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:18px}
-    .tag{
-      border:1px solid #393631;border-radius:999px;
-      padding:7px 10px;font-size:12px;color:#cac3b9;
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(12,minmax(0,1fr));
-      gap:12px;margin-top:18px;
-    }
-    .gallery figure{margin:0;overflow:hidden;border-radius:14px;background:#151515}
-    .gallery figure:nth-child(1){grid-column:span 7}
-    .gallery figure:nth-child(2){grid-column:span 5}
-    .gallery figure:nth-child(3){grid-column:span 4}
-    .gallery figure:nth-child(4){grid-column:span 4}
-    .gallery figure:nth-child(5){grid-column:span 4}
-    .gallery img{width:100%;height:100%;min-height:260px;object-fit:cover}
-
-    .booking-box{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:34px;
-      padding:34px;border:1px solid var(--line);
-      border-radius:24px;background:var(--panel-2);
-    }
-    .booking-box h2{margin-bottom:16px}
-    .booking-box p{color:#bbb6ad}
-    .contact-list{display:grid;gap:12px;align-content:start}
-    .contact-item{
-      border:1px solid #34312e;border-radius:14px;padding:16px 18px;
-      background:#0e0e0e;
-    }
-    .contact-item small{display:block;color:#8f8a82;margin-bottom:4px}
-    .contact-item strong{font-size:16px;word-break:break-word}
-    .note{
-      margin-top:18px;padding-left:14px;border-left:2px solid var(--red);
-      color:#9e9991;font-size:13px;
-    }
-
-    .site-footer{padding:38px 0 48px}
-    .footer-inner{
-      display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
-      color:#88837b;font-size:12px;
-    }
-
-    @media (max-width:900px){
-      .header-inner{align-items:flex-start;padding:16px 0;flex-direction:column}
-      nav{gap:14px;width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
-      .hero{padding:62px 0 54px}
-      .section-head,.case,.booking-box{grid-template-columns:1fr}
-      .service-grid{grid-template-columns:1fr}
-      .case-cover{min-height:340px}
-      .case-body{padding:4px}
-      .gallery figure:nth-child(n){grid-column:span 6}
-      .gallery figure:first-child{grid-column:span 12}
-    }
-    @media (max-width:600px){
-      .container{width:min(100% - 28px,var(--max))}
-      main section{padding:56px 0}
-      .gallery{grid-template-columns:1fr}
-      .gallery figure:nth-child(n){grid-column:auto}
-      .gallery img{min-height:0;aspect-ratio:4/3}
-      .case{padding:14px}
-      .case-cover{min-height:0}
-      .case-cover img{aspect-ratio:4/3}
-      .booking-box{padding:22px}
-    }
-  </style>
+.wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+.hero{padding:70px 0 52px;border-bottom:1px solid var(--line)}
+.eyebrow{margin:0 0 12px;font-size:11px;letter-spacing:.18em;color:#918b83}
+h1{margin:0 0 18px;font-size:clamp(40px,7vw,76px);line-height:1.04;letter-spacing:-.03em}
+.hero p{max-width:770px;margin:0;color:#c3bdb4;font-size:17px}
+section.content{padding:58px 0;border-bottom:1px solid var(--line)}
+.section-head{
+  display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);
+  gap:40px;align-items:start;margin-bottom:30px
+}
+.kicker{margin:0 0 8px;font-size:11px;letter-spacing:.18em;color:#8d877f}
+h2{margin:0;font-size:clamp(28px,4vw,44px);line-height:1.2}
+.section-copy{margin:0;color:#b8b2aa;max-width:720px}
+.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.service{
+  min-width:0;padding:24px;border:1px solid var(--line);border-radius:16px;background:#101010
+}
+.service small{display:block;color:#77716a;font-size:11px;letter-spacing:.14em;margin-bottom:30px}
+.service h3{margin:0 0 10px;font-size:21px}
+.service p{margin:0;color:#a9a39b;font-size:14px}
+.case{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);
+  gap:28px;padding:18px;border:1px solid var(--line);border-radius:18px;background:#101010
+}
+.case-media{overflow:hidden;border-radius:12px;background:#171717}
+.case-media img{width:100%;height:100%;min-height:380px;object-fit:cover}
+.case-copy{padding:12px 10px 12px 0}
+.case-meta{margin:0 0 10px;color:#88827a;font-size:12px;letter-spacing:.1em}
+.case h3{margin:0 0 16px;font-size:clamp(26px,3vw,38px);line-height:1.2}
+.case-copy p{margin:0 0 14px;color:#b9b3aa}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.tag{padding:6px 10px;border:1px solid #383530;border-radius:999px;color:#bbb4ab;font-size:11px}
+.contact{
+  display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
+  gap:34px;padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--panel2)
+}
+.contact p{margin:0;color:#bcb6ad}
+.contact-list{display:grid;gap:10px;align-content:start}
+.contact-item{padding:14px 16px;border:1px solid #37332f;border-radius:12px;background:#0d0d0d}
+.contact-item small{display:block;color:#77716a;margin-bottom:3px}
+.contact-item strong{font-size:15px;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:28px 0 36px;color:#77726b;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:900px){
+  .section-head,.case,.contact{grid-template-columns:1fr}
+  .service-grid{grid-template-columns:1fr}
+  .case-media img{min-height:0;aspect-ratio:4/3}
+  .case-copy{padding:4px}
+}
+@media(max-width:560px){
+  .wrap{width:min(var(--max),calc(100% - 28px))}
+  .hero{padding:48px 0 36px}
+  section.content{padding:44px 0}
+  .section-head{gap:18px}
+  .contact{padding:20px}
+}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="雷音劇坊首頁">
-        <span class="seal">雷</span>
-        <span class="brand-text">
-          <strong>雷音劇坊</strong>
-          <span>LUI IM THEATER</span>
-        </span>
-      </a>
-      <nav aria-label="主要導覽">
-        <a href="index.html">首頁</a>
-        <a href="schedule.html">近期動向</a>
-        <a href="productions.html">作品</a>
-        <a href="people.html">團隊</a>
-        <a href="booking.html" aria-current="page">演出邀約</a>
+
+<header class="site-header">
+  <div class="header-wrap">
+    <a class="brand" href="index.html" aria-label="雷音劇坊首頁">
+      <span class="brand-mark">雷</span>
+      <span class="brand-copy"><strong>雷音劇坊</strong><small>LUIIM THEATER</small></span>
+    </a>
+    <div class="nav-shell">
+      <nav class="site-nav" aria-label="主要導覽">
+        <a href="index.html"><span>首頁</span><small>HOME</small></a><a href="schedule.html"><span>最新動向</span><small>SCHEDULE</small></a><a href="productions.html"><span>劇目</span><small>PRODUCTIONS</small></a><a href="people.html"><span>團隊</span><small>TEAM</small></a><a href="archive.html"><span>演出足跡</span><small>ARCHIVE</small></a><a href="booking.html" aria-current="page"><span>合作</span><small>BOOKING</small></a><a href="en.html"><span>EN</span></a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
 
+<main>
   <section class="hero">
-    <div class="container">
-      <p class="eyebrow">Booking · Outreach · Experience</p>
-      <h1>讓布袋戲走進<br>不同的場域。</h1>
-      <p class="hero-lead">
-        雷音劇坊提供正式演出、精華版演出、校園與社區推廣、布袋戲示範及親子體驗等合作形式，
-        可依場地、觀眾年齡與活動需求調整內容。
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">洽詢合作</a>
-        <a class="btn" href="#experience">查看示範與體驗案例</a>
+    <div class="wrap">
+      <p class="eyebrow">BOOKING & COLLABORATION</p>
+      <h1>合作</h1>
+      <p>雷音劇坊提供正式演出、校園與社區推廣、布袋戲示範、親子體驗及工作坊等合作形式，可依活動流程、觀眾年齡、場地與技術條件調整內容。</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="kicker">COLLABORATION</p><h2>合作形式</h2></div>
+        <p class="section-copy">從完整劇場製作到可移動的推廣演出，內容可依場地與活動需求調整，不必用同一套形式套用所有場合。</p>
+      </div>
+      <div class="service-grid">
+        <article class="service"><small>01</small><h3>正式演出</h3><p>年度製作、劇場節目、藝術節及場館演出，依作品與場地條件進行技術協調。</p></article>
+        <article class="service"><small>02</small><h3>推廣演出</h3><p>適合校園、社區、節慶及戶外活動，可依流程調整演出段落與演出長度。</p></article>
+        <article class="service"><small>03</small><h3>示範與體驗</h3><p>可結合短段演出、戲偶示範、操偶解說、後場介紹、手作及親子互動。</p></article>
       </div>
     </div>
   </section>
 
-  <main>
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Collaboration</p>
-            <h2>合作形式</h2>
-          </div>
-          <p class="section-copy">
-            從完整舞臺製作到可移動的小型戲棚，從「看一齣戲」到「走近戲偶、認識後場、親手體驗」，
-            可依不同活動情境安排適合的演出與推廣內容。
-          </p>
-        </div>
-
-        <div class="service-grid">
-          <article class="service">
-            <div class="service-num">01</div>
-            <h3>正式演出</h3>
-            <p>年度製作、劇場節目、藝術節及場館演出，可依演出作品與場地條件進行技術協調。</p>
-          </article>
-          <article class="service">
-            <div class="service-num">02</div>
-            <h3>精華演出・推廣演出</h3>
-            <p>適合校園、社區、節慶及戶外活動，依活動流程調整演出段落與長度。</p>
-          </article>
-          <article class="service">
-            <div class="service-num">03</div>
-            <h3>示範・導覽・體驗</h3>
-            <p>可結合短段演出、操偶與戲偶示範、後場介紹、手作或親子互動，形成完整的布袋戲體驗。</p>
-          </article>
-        </div>
+  <section class="content">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="kicker">EXPERIENCE CASE</p><h2>示範與體驗</h2></div>
+        <p class="section-copy">讓觀眾從「看戲」走到「靠近戲棚、看見戲偶、理解操演、動手參與」。</p>
       </div>
-    </section>
-
-    <section id="experience">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Experience Case</p>
-            <h2>示範與體驗</h2>
-          </div>
-          <p class="section-copy">
-            不只讓觀眾坐在台下看戲，也讓戲棚成為可以靠近、觀看、提問與動手參與的入口。
-          </p>
+      <article class="case">
+        <div class="case-media">
+          <img src="./zhubajie-01.webp" alt="《豬八戒痟娶某》親子偶戲互動體驗">
         </div>
-
-        <article class="case">
-          <div class="case-cover">
-            <img src="assets/images/zhubajie-dadaocheng-2026-experience-01.webp"
-                 alt="雷音劇坊《豬八戒痟娶某》親子偶戲體驗，參與者與戲偶及手作成果合影互動">
-          </div>
-          <div class="case-body">
-            <p class="case-meta">2026 大稻埕國際藝術節｜思劇場</p>
-            <h3>《豬八戒痟娶某》<br>親子偶戲互動體驗</h3>
-            <p>
-              從布袋戲演出出發，延伸近距離戲偶示範、導覽與手作體驗。
-              雷音劇坊以《豬八戒痟娶某》為親子觀眾打開掌中戲入口，
-              讓觀眾不只坐著看戲，也能靠近戲棚、認識戲偶，
-              並透過動手製作與現場互動進入布袋戲的表演世界。
-            </p>
-            <p>
-              本類型可依活動需求調整為「短段演出＋操偶／戲偶示範＋手作體驗」，
-              適合親子活動、校園推廣、藝文場館及節慶工作坊。
-            </p>
-            <div class="tag-row">
-              <span class="tag">親子偶戲</span>
-              <span class="tag">布袋戲示範</span>
-              <span class="tag">觀眾互動</span>
-              <span class="tag">手作體驗</span>
-              <span class="tag">戲偶導覽</span>
-            </div>
-          </div>
-        </article>
-
-        <div class="gallery" aria-label="《豬八戒痟娶某》親子偶戲互動體驗照片">
-          <figure>
-            <img src="assets/images/zhubajie-dadaocheng-2026-experience-02.webp"
-                 alt="2026大稻埕國際藝術節親子偶戲體驗現場，觀眾在思劇場進行手作活動" loading="lazy">
-          </figure>
-          <figure>
-            <img src="assets/images/zhubajie-dadaocheng-2026-experience-03.webp"
-                 alt="參與者近距離製作戲曲意象手作物件的過程" loading="lazy">
-          </figure>
-          <figure>
-            <img src="assets/images/zhubajie-dadaocheng-2026-experience-04.webp"
-                 alt="雷音劇坊於思劇場進行布袋戲示範與近距離導覽" loading="lazy">
-          </figure>
-          <figure>
-            <img src="assets/images/zhubajie-dadaocheng-2026-experience-05.webp"
-                 alt="親子偶戲體驗工作坊現場，參與者在雷音劇坊戲棚旁進行手作" loading="lazy">
-          </figure>
-          <figure>
-            <img src="assets/images/zhubajie-dadaocheng-2026-experience-01.webp"
-                 alt="參與者與雷音劇坊戲偶及手作成果互動" loading="lazy">
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="booking-box">
-          <div>
-            <p class="kicker">Booking Contact</p>
-            <h2>演出與合作邀約</h2>
-            <p>
-              如需邀請雷音劇坊演出、安排校園或社區推廣、講座、工作坊、布袋戲示範及親子體驗，
-              可提供活動日期、地點、預計觀眾、場地條件及希望的合作形式，我們將依需求討論內容。
-            </p>
-            <p class="note">
-              正式演出之技術、交通、演職人員與演出費用，將依作品及場地條件另行確認。
-            </p>
-          </div>
-
-          <div class="contact-list">
-            <a class="contact-item" href="mailto:luiimtheater@gmail.com">
-              <small>Email</small>
-              <strong>luiimtheater@gmail.com</strong>
-            </a>
-            <a class="contact-item" href="tel:+886926484341">
-              <small>Phone</small>
-              <strong>0926-484-341</strong>
-            </a>
-            <a class="contact-item" href="https://lin.ee/QDOhyNy" target="_blank" rel="noopener">
-              <small>Official LINE</small>
-              <strong>加入雷音劇坊官方 LINE</strong>
-            </a>
+        <div class="case-copy">
+          <p class="case-meta">2026 大稻埕國際藝術節｜思劇場 Thinkers’ Theater</p>
+          <h3>《豬八戒痟娶某》親子偶戲互動體驗</h3>
+          <p>從布袋戲演出出發，延伸近距離戲偶示範、導覽與手作體驗。觀眾不只坐著看戲，也能靠近戲棚、認識戲偶，透過動手製作與現場交流進入掌中戲的表演世界。</p>
+          <p>此形式可依需求調整為「短段演出＋操偶／戲偶示範＋手作體驗」，適合親子活動、校園推廣、藝文場館及節慶工作坊。</p>
+          <div class="tags">
+            <span class="tag">親子偶戲</span><span class="tag">布袋戲示範</span><span class="tag">觀眾互動</span><span class="tag">手作體驗</span>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© 2026 LUI IM THEATER 雷音劇坊</span>
-      <span>Traditional Glove Puppetry · Taiwan</span>
+      </article>
     </div>
-  </footer>
+  </section>
+
+  <section class="content" id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <p class="kicker">CONTACT</p>
+          <h2>演出與合作邀約</h2>
+          <p>邀演或合作可提供活動日期、地點、預計觀眾、場地條件與希望的合作形式，以利後續評估演出內容及技術需求。</p>
+        </div>
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:luiimtheater@gmail.com"><small>Email</small><strong>luiimtheater@gmail.com</strong></a>
+          <a class="contact-item" href="tel:+886926484341"><small>Phone</small><strong>0926-484-341</strong></a>
+          <a class="contact-item" href="https://lin.ee/QDOhyNy" target="_blank" rel="noopener"><small>Official LINE</small><strong>雷音劇坊官方 LINE</strong></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap footer-inner"><span>© 2026 LUIIM THEATER 雷音劇坊</span><span>Traditional Glove Puppetry · Taiwan</span></div></footer>
 </body>
 </html>
