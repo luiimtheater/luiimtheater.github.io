@@ -2642,3 +2642,79 @@ img{
 .home-media-section{
   border-top:0!important;
 }
+
+
+/* v29.34 — Global divider system refinement
+   Large content sections use whitespace/background instead of repeated rules.
+   Lines remain where they carry information: tables, calendars, lists, cards, footer. */
+
+:root{
+  --line:#211f1d;
+}
+
+/* Remove generic "every section gets a line" behavior */
+.section{
+  border-top:0!important;
+}
+
+/* Work pages: let scale, whitespace and background define hierarchy */
+.production-detail{
+  border-top:0!important;
+}
+.production-title-block{
+  border-bottom:0!important;
+}
+.press-section{
+  border-top:0!important;
+}
+.request-show-section{
+  border-top:0!important;
+}
+
+/* Homepage / event blocks: avoid decorative rules that duplicate spacing */
+.festival-detail-card{
+  border-top:0!important;
+}
+
+/* Keep functional component rules, but lower their visual weight */
+.schedule-strip,
+.home-festival-footer,
+.home-festival-meta,
+.schedule-feature-meta,
+.production-feature,
+.info-card,
+.repertoire-menu,
+.archive-year,
+.archive-table,
+.archive-row,
+.tour-year,
+.tour-list,
+.tour-item,
+.campus-stats,
+.calendar,
+.weekday,
+.day,
+.bio-meta,
+.en-work-list li{
+  border-color:rgba(255,255,255,.10);
+}
+
+/* Footer remains the single strong page-ending divider */
+.footer{
+  border-top:1px solid rgba(255,255,255,.09);
+}
+.copyright{
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+/* Header line remains subtle */
+.site-header{
+  border-bottom-color:rgba(255,255,255,.07);
+}
+
+/* Slightly increase breathing room where a divider was removed */
+@media(min-width:961px){
+  .production-title-block{
+    padding-bottom:66px;
+  }
+}
