@@ -2718,3 +2718,109 @@ img{
     padding-bottom:66px;
   }
 }
+
+
+/* v29.35 — Demonstration & Experience case: Dadaocheng / Zhu Bajie */
+.booking-experience-section{
+  background:#070707;
+}
+.booking-case-actions,
+.review-actions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:24px;
+}
+.booking-case-gallery-single{
+  grid-template-columns:1fr;
+}
+.booking-case-gallery-single .booking-case-wide{
+  grid-column:auto;
+  aspect-ratio:auto;
+}
+.booking-case-gallery-single .booking-case-wide img{
+  height:auto;
+  object-fit:contain;
+  background:#101010;
+}
+.zhubajie-review-section{
+  padding-top:34px;
+}
+.zhubajie-review-visual{
+  margin:0 0 42px;
+}
+.zhubajie-review-visual img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.zhubajie-review-grid{
+  display:grid;
+  grid-template-columns:minmax(260px,.75fr) minmax(0,1.25fr);
+  gap:54px;
+  align-items:start;
+}
+.zhubajie-review-grid h2{
+  margin:8px 0 0;
+  font-family:"Songti TC","PMingLiU",serif;
+  font-size:clamp(2rem,4.2vw,4.2rem);
+  line-height:1.12;
+  font-weight:500;
+}
+.zhubajie-review-copy p{
+  margin-top:0;
+  color:#c8c2b9;
+  line-height:1.9;
+}
+.review-facts{
+  margin:28px 0 0;
+  border-top:1px solid rgba(255,255,255,.10);
+}
+.review-facts div{
+  display:grid;
+  grid-template-columns:90px 1fr;
+  gap:20px;
+  padding:13px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.review-facts dt{
+  color:#827b72;
+  font-size:.76rem;
+}
+.review-facts dd{
+  margin:0;
+  color:#ddd7cf;
+  line-height:1.6;
+}
+.tour-review-link{
+  display:inline-flex;
+  align-items:center;
+  margin-top:10px;
+  padding:6px 11px;
+  border:1px solid #57534d;
+  border-radius:999px;
+  color:#d8d2ca;
+  font-size:.74rem;
+  line-height:1.2;
+  transition:border-color .2s ease,color .2s ease,transform .2s ease;
+}
+.tour-review-link:hover{
+  border-color:#d8d2ca;
+  color:#fff;
+  transform:translateX(2px);
+}
+@media(max-width:760px){
+  .zhubajie-review-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .zhubajie-review-visual{
+    margin-bottom:28px;
+  }
+  .booking-case-actions,
+  .review-actions{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}

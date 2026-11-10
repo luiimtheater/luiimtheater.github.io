@@ -1,27 +1,21 @@
-雷音劇坊官網 v29.34｜全站分隔線系統優化
+雷音劇坊官網 v29.35｜示範與體驗案例：《豬八戒痟娶某》
 
-這版不是把所有線全部刪掉，而是重新分工：
+更新內容：
+1. Booking「示範與體驗」新增案例入口。
+2. Booking 新增完整案例區：
+   2026大稻埕國際藝術節《豬八戒痟娶某》
+   經典布袋戲演出 × 手持道具認識 × 扇子吊飾 DIY。
+3. 新增獨立案例回顧頁 review-zhubajie-dadaocheng-2026.html。
+4. Archive 2026.10.21–25 新增「看看活動回顧 →」。
+5. 《豬八戒痟娶某》劇目頁演出足跡新增「看看活動回顧 →」。
+6. 使用既有活動主視覺，不假裝成現場攝影回顧。
+7. sitemap 補入新回顧頁（若檔案存在）。
 
-移除：
-- 所有大區塊 section 預設的頂部分隔線
-- 劇目頁作品標題與內文之間的裝飾線
-- 媒體報導區頂部分隔線
-- 請戲單區頂部分隔線
-- 首頁活動細節卡重複的頂部分隔線
-
-保留：
-- 行事曆格線
-- 演出足跡／Archive 列表線
-- 卡片與資訊框必要邊框
-- 劇目選單結構線
-- Footer 上方一條頁尾分隔線
-
-另外：
-- 全站剩餘線條整體降一階，顏色更淡。
-- 區塊改以留白、背景深淺與滿版圖片建立層次。
-- 首頁 v29.33 的「台前一刻・台後千工」滿版與媒體區分隔線調整保留。
-- v29.31《青瞑》回顧入口／Archive 更新保留。
-
-上傳方式：
-將 ZIP 解壓後，裡面的 styles.css 與所有 html 檔直接上傳到 GitHub repository 根目錄覆蓋。
-這次沒有動 script.js、data 或圖片。
+上傳：
+- booking.html
+- archive.html
+- work-zhubajie.html
+- review-zhubajie-dadaocheng-2026.html
+- styles.css
+- sitemap.xml（若包內有）
+- assets/images/booking/dadaocheng-zhubajie-experience.png
