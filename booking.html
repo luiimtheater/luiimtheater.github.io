@@ -1,192 +1,116 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>合作｜雷音劇坊</title>
-<style>
-:root{--bg:#080808;--panel:#101010;--text:#f3efe9;--muted:#9f9990;--line:#292724;--red:#a72a2d;--max:1180px}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.75}
-a{color:inherit;text-decoration:none} img{display:block;max-width:100%;height:auto} 
-.site-header{
-  position:sticky; top:0; z-index:80;
-  background:#070707;
-  border-bottom:1px solid #242424;
-}
-.site-header .header-inner{
-  width:100%;
-  min-height:74px;
-  padding:0 28px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:26px;
-}
-.site-logo{
-  width:158px;
-  flex:0 0 158px;
-  display:flex;
-  align-items:center;
-}
-.site-logo img{
-  width:100%;
-  height:auto;
-  object-fit:contain;
-}
-.site-nav-shell{
-  min-width:0;
-  overflow:hidden;
-}
-.site-nav{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:34px;
-  white-space:nowrap;
-}
-.site-nav a{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:2px;
-  padding:18px 0 16px;
-  color:#e4e1dc;
-  font-size:14px;
-  line-height:1.05;
-}
-.site-nav a .en{
-  font-size:10px;
-  letter-spacing:.04em;
-  color:#9b9690;
-}
-.site-nav a::after{
-  content:"";
-  position:absolute;
-  left:0; right:100%; bottom:0;
-  height:1px;
-  background:#a72a2d;
-  transition:right .18s ease;
-}
-.site-nav a:hover::after,
-.site-nav a[aria-current="page"]::after{ right:0; }
-.site-nav a[aria-current="page"]{ color:#fff; }
-.site-nav .lang{
-  width:38px; height:38px;
-  padding:0;
-  border:1px solid #303030;
-  border-radius:50%;
-  align-items:center;
-  justify-content:center;
-  font-size:12px;
-  color:#ddd;
-}
-.site-nav .lang::after{ display:none; }
-
-@media (max-width:1180px){
-  .site-header .header-inner{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:8px;
-    padding:13px 22px 8px;
-  }
-  .site-logo{ width:145px; flex-basis:auto; }
-  .site-nav-shell{
-    width:100%;
-    overflow-x:auto;
-    scrollbar-width:none;
-  }
-  .site-nav-shell::-webkit-scrollbar{ display:none; }
-  .site-nav{
-    justify-content:flex-start;
-    width:max-content;
-    gap:26px;
-  }
-  .site-nav a{ padding:10px 0 12px; }
-}
-@media (max-width:560px){
-  .site-header .header-inner{ padding-left:14px; padding-right:14px; }
-  .site-logo{ width:132px; }
-  .site-nav{ gap:22px; }
-}
-
-.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-.hero{padding:70px 0 54px;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:11px;letter-spacing:.18em;color:#948e87;margin:0 0 12px}
-h1{font-size:clamp(44px,7vw,78px);line-height:1;margin:0 0 20px}
-.hero p{max-width:790px;margin:0;color:#c0bab1;font-size:17px}
-.content{padding:58px 0;border-bottom:1px solid var(--line)}
-.section-head{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:40px;margin-bottom:30px;align-items:start}
-.kicker{font-size:11px;letter-spacing:.18em;color:#8d877f;margin:0 0 8px}
-h2{font-size:clamp(28px,4vw,44px);line-height:1.2;margin:0}
-.section-copy{margin:0;color:#b8b2aa;max-width:720px}
-.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.service{padding:24px;border:1px solid var(--line);border-radius:16px;background:#101010}
-.service small{display:block;color:#77716a;font-size:11px;letter-spacing:.14em;margin-bottom:30px}
-.service h3{margin:0 0 10px;font-size:21px} .service p{margin:0;color:#aaa49c;font-size:14px}
-.case{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);gap:28px;padding:18px;border:1px solid var(--line);border-radius:18px;background:#101010}
-.case-media{overflow:hidden;border-radius:12px;background:#171717}
-.case-media img{width:100%;height:auto;object-fit:contain}
-.case-copy{padding:12px 10px 12px 0}
-.case-meta{font-size:12px;color:#8b857d;margin:0 0 10px}
-.case h3{font-size:clamp(26px,3vw,38px);line-height:1.2;margin:0 0 16px}
-.case-copy p{color:#b9b3aa;margin:0 0 14px}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px} .tag{padding:6px 10px;border:1px solid #383530;border-radius:999px;color:#bcb5ac;font-size:11px}
-.contact{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:34px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#121212}
-.contact p{margin:0;color:#bcb6ad} .contact-list{display:grid;gap:10px;align-content:start}
-.contact-item{padding:14px 16px;border:1px solid #37332f;border-radius:12px;background:#0d0d0d}
-.contact-item small{display:block;color:#77716a;margin-bottom:3px} .contact-item strong{font-size:15px;word-break:break-word}
-footer{border-top:1px solid var(--line);padding:28px 0 36px;color:#706b65;font-size:12px}
-.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(max-width:900px){.section-head,.case,.contact{grid-template-columns:1fr}.service-grid{grid-template-columns:1fr}.case-copy{padding:4px}}
-@media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 28px))}.hero{padding:48px 0 36px}.content{padding:44px 0}.section-head{gap:18px}.contact{padding:20px}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>合作 Booking｜雷音劇坊</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="page-fixes.css">
+<script src="sync-home-header.js" defer></script>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <a class="site-logo" href="index.html" aria-label="雷音劇坊首頁">
-      <img src="assets/images/luiim-header-logo.png" alt="雷音劇坊 Lui Im Theater">
-    </a>
-    <div class="site-nav-shell">
-      <nav class="site-nav" aria-label="主要導覽">
-        <a href="index.html"><span>首頁</span><span class="en">Home</span></a><a href="schedule.html"><span>近期動向</span><span class="en">Schedule</span></a><a href="productions.html"><span>劇目</span><span class="en">Productions</span></a><a href="booking.html" aria-current="page"><span>合作</span><span class="en">Booking</span></a><a href="archive.html"><span>演出足跡</span><span class="en">Archive</span></a><a href="people.html"><span>團隊</span><span class="en">Team</span></a><a href="media.html"><span>媒體</span><span class="en">Media</span></a><a href="about.html"><span>關於</span><span class="en">About</span></a><a href="contact.html"><span>聯絡</span><span class="en">Contact</span></a><a class="lang" href="en.html">EN</a>
-      </nav>
+<div id="home-header-mount"></div>
+<main class="luiim-page">
+  <section class="luiim-hero">
+    <div class="luiim-wrap">
+      <p class="luiim-kicker">BOOKING & COLLABORATION</p>
+      <h1>合作</h1>
+      <p class="luiim-lead">提供劇目演出、校園講座與布袋戲示範／體驗。節目內容與演出長度可依活動流程、場地、觀眾與技術條件洽談調整。</p>
     </div>
-  </div>
-</header>
-<main>
-<section class="hero"><div class="wrap">
-<p class="eyebrow">BOOKING & COLLABORATION</p><h1>合作</h1>
-<p>雷音劇坊提供正式演出、校園與社區推廣、布袋戲示範、親子體驗及工作坊等合作形式，可依活動流程、觀眾年齡、場地與技術條件調整內容。</p>
-</div></section>
+  </section>
 
-<section class="content"><div class="wrap">
-<div class="section-head"><div><p class="kicker">COLLABORATION</p><h2>合作形式</h2></div><p class="section-copy">從完整劇場製作到可移動的推廣演出，內容依場地與活動需求調整。</p></div>
-<div class="service-grid">
-<article class="service"><small>01</small><h3>正式演出</h3><p>年度製作、劇場節目、藝術節及場館演出，依作品與場地條件進行技術協調。</p></article>
-<article class="service"><small>02</small><h3>推廣演出</h3><p>適合校園、社區、節慶及戶外活動，可依流程調整演出段落與長度。</p></article>
-<article class="service"><small>03</small><h3>示範與體驗</h3><p>可結合短段演出、戲偶示範、操偶解說、後場介紹、手作及親子互動。</p></article>
-</div></div></section>
+  <section class="luiim-section">
+    <div class="luiim-wrap">
+      <div class="luiim-section-head">
+        <div><p class="luiim-kicker">COLLABORATION</p><h2>合作形式</h2></div>
+        <p class="luiim-section-copy">恢復 V25 當時的三種合作分類；場域可包含劇場、藝術節、校園與親子活動，完整製作或節選版本皆可洽談。</p>
+      </div>
+      <div class="luiim-grid-3">
+        <article class="luiim-card"><small>01</small><h3>劇目演出</h3><p>完整劇場製作、藝術節、場館、廟埕與節慶演出；亦可依活動流程安排節選版本。</p></article>
+        <article class="luiim-card"><small>02</small><h3>校園講座</h3><p>以操偶、角色行當、口白、後場音樂、戲偶與道具為主題，依年齡與課程需求調整內容。</p></article>
+        <article class="luiim-card"><small>03</small><h3>布袋戲示範與體驗</h3><p>短段演出、戲偶／操偶示範、後場介紹、親子互動與手作，可組成完整體驗流程。</p></article>
+      </div>
+    </div>
+  </section>
 
-<section class="content"><div class="wrap">
-<div class="section-head"><div><p class="kicker">EXPERIENCE CASE</p><h2>示範與體驗</h2></div><p class="section-copy">讓觀眾從看戲走到靠近戲棚、看見戲偶、理解操演與動手參與。</p></div>
-<article class="case">
-<div class="case-media"><img src="./zhubajie-01.webp" alt="《豬八戒痟娶某》親子偶戲互動體驗"></div>
-<div class="case-copy"><p class="case-meta">2026 大稻埕國際藝術節｜思劇場 Thinkers’ Theater</p>
-<h3>《豬八戒痟娶某》親子偶戲互動體驗</h3>
-<p>從布袋戲演出出發，延伸近距離戲偶示範、導覽與手作體驗。觀眾不只坐著看戲，也能靠近戲棚、認識戲偶，透過動手製作與現場交流進入掌中戲的表演世界。</p>
-<p>此形式可依需求調整為「短段演出＋操偶／戲偶示範＋手作體驗」，適合親子活動、校園推廣、藝文場館及節慶工作坊。</p>
-<div class="tags"><span class="tag">親子偶戲</span><span class="tag">布袋戲示範</span><span class="tag">觀眾互動</span><span class="tag">手作體驗</span></div>
-</div></article></div></section>
+  <section class="luiim-section">
+    <div class="luiim-wrap">
+      <div class="luiim-section-head">
+        <div><p class="luiim-kicker">PROGRAM MENU</p><h2>劇目菜單</h2></div>
+        <p class="luiim-section-copy">恢復當時「像菜單一樣讓邀演單位快速看懂」的邏輯；實際版本、長度與技術需求依場地討論。</p>
+      </div>
+      <div class="menu-list">
+        <div class="menu-row"><strong>《龜山夫人氣甲衝煙矣！》</strong><span>兒童戲曲／人偶共演／宜蘭地景傳說</span></div>
+        <div class="menu-row"><strong>《青瞑的龍蛇無青瞑》</strong><span>兒童布袋戲／臺灣民間傳說／臺語與歌仔調</span></div>
+        <div class="menu-row"><strong>《瘋狂騎士闖戲棚》</strong><span>歌仔調布袋戲／劇場製作</span></div>
+        <div class="menu-row"><strong>《閻羅石磨心》</strong><span>歌仔調布袋戲／年度製作</span></div>
+        <div class="menu-row"><strong>《鯽仔魚娶親》</strong><span>親子布袋戲／傳統故事</span></div>
+      </div>
+    </div>
+  </section>
 
-<section class="content"><div class="wrap"><div class="contact">
-<div><p class="kicker">CONTACT</p><h2>演出與合作邀約</h2><p>邀演或合作可提供活動日期、地點、預計觀眾、場地條件與希望的合作形式，以利後續評估演出內容及技術需求。</p></div>
-<div class="contact-list">
-<a class="contact-item" href="mailto:luiimtheater@gmail.com"><small>Email</small><strong>luiimtheater@gmail.com</strong></a>
-<a class="contact-item" href="tel:+886926484341"><small>Phone</small><strong>0926-484-341</strong></a>
-<a class="contact-item" href="https://lin.ee/QDOhyNy" target="_blank" rel="noopener"><small>Official LINE</small><strong>雷音劇坊官方 LINE</strong></a>
-</div></div></div></section>
+  <section class="luiim-section">
+    <div class="luiim-wrap">
+      <div class="luiim-section-head">
+        <div><p class="luiim-kicker">CASE STUDY · LECTURE</p><h2>國立宜蘭大學</h2></div>
+        <p class="luiim-section-copy">2026.10.13｜「布袋戲行當道具使用」。這個案例在 V25 合作頁原本就存在，後續重做頁面時被漏掉。</p>
+      </div>
+
+      <article class="case-block">
+        <div class="case-gallery" id="yilan-gallery">
+          <figure><img src="assets/images/booking/yilan-01.webp" data-fallback="assets/images/booking/yilan-reference-01.png" alt="宜蘭大學布袋戲行當道具使用講座" loading="lazy"></figure>
+          <figure><img src="assets/images/booking/yilan-02.webp" data-fallback="assets/images/booking/yilan-reference-02.png" alt="宜蘭大學布袋戲示範" loading="lazy"></figure>
+          <figure><img src="assets/images/booking/yilan-03.webp" alt="宜蘭大學布袋戲講座現場" loading="lazy"></figure>
+          <figure><img src="assets/images/booking/yilan-04.webp" alt="宜蘭大學講座學員互動" loading="lazy"></figure>
+        </div>
+        <div class="case-copy">
+          <p class="case-meta">2026.10.13｜國立宜蘭大學・綜合大樓 406</p>
+          <h3>布袋戲行當道具使用</h3>
+          <p>由團長陳建霖從角色行當、戲偶道具（砌末）與操偶方式切入，示範不同角色如何藉由身段、道具與聲線建立人物，也讓學員近距離看到一人分飾多角時口白與聲音的快速轉換。</p>
+          <p>此類講座可延伸為校園課程、社團、藝文教育或推廣活動，內容可依年齡、時間與場地調整。</p>
+          <div class="knowledge">
+            <strong>布袋戲小知識｜什麼是「砌末」？</strong>
+            <p>「砌末」是傳統戲曲舞臺道具的統稱，例如扇子、刀槍、馬鞭、拂塵、桌椅與轎子；除了完成角色動作，也能表明身分、暗示場景與推進劇情。</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="luiim-section">
+    <div class="luiim-wrap">
+      <div class="luiim-section-head">
+        <div><p class="luiim-kicker">CASE STUDY · EXPERIENCE</p><h2>示範與體驗</h2></div>
+        <p class="luiim-section-copy">《豬八戒痟娶某》親子偶戲互動體驗保留為第二個案例，不取代宜蘭大學講座。</p>
+      </div>
+      <article class="case-block">
+        <div class="case-gallery">
+          <figure><img src="./zhubajie-01.webp" alt="《豬八戒痟娶某》親子偶戲互動體驗" loading="lazy"></figure>
+          <figure><img src="./zhubajie-02.webp" alt="《豬八戒痟娶某》體驗活動現場" loading="lazy"></figure>
+        </div>
+        <div class="case-copy">
+          <p class="case-meta">2026 大稻埕國際藝術節｜思劇場 Thinkers’ Theater</p>
+          <h3>《豬八戒痟娶某》親子偶戲互動體驗</h3>
+          <p>從布袋戲演出出發，延伸近距離戲偶示範、導覽與手作體驗。觀眾不只看戲，也能靠近戲棚、認識戲偶並動手參與。</p>
+          <p>可依需求調整為「短段演出＋操偶／戲偶示範＋手作體驗」。</p>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap footer-inner"><span>© 2026 LUI IM THEATER 雷音劇坊</span><span>Traditional Glove Puppetry · Taiwan</span></div></footer>
-</body></html>
+
+<script>
+document.querySelectorAll('#yilan-gallery img').forEach(function(img){
+  img.addEventListener('error', function(){
+    var fallback = img.getAttribute('data-fallback');
+    if (fallback && img.getAttribute('src') !== fallback) {
+      img.setAttribute('src', fallback);
+    } else {
+      var fig = img.closest('figure');
+      if (fig) fig.remove();
+    }
+  });
+});
+</script>
+</body>
+</html>
