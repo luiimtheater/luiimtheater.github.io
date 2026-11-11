@@ -319,59 +319,82 @@ function setupProductionGalleries(){
   const tracks=[...document.querySelectorAll('.production-stills-section .production-stills')];
   if(!tracks.length)return;
 
-  let lightbox=document.querySelector('[data-production-lightbox]');
-  if(!lightbox){
-    lightbox=document.createElement('div');
-    lightbox.className='production-lightbox';
-    lightbox.setAttribute('data-production-lightbox','');
-    lightbox.setAttribute('aria-hidden','true');
-    lightbox.innerHTML='<button class="production-lightbox-close" type="button" aria-label="關閉劇照">×</button><button class="production-lightbox-nav prev" type="button" aria-label="上一張劇照">←</button><div class="production-lightbox-stage"><img alt=""></div><button class="production-lightbox-nav next" type="button" aria-label="下一張劇照">→</button><div class="production-lightbox-counter" aria-live="polite"></div>';
-    document.body.appendChild(lightbox);
-  }
-  const lbImg=lightbox.querySelector('img');
-  const lbCounter=lightbox.querySelector('.production-lightbox-counter');
-  let lbImages=[],lbIndex=0,lastTrigger=null;
-  const renderLightbox=()=>{
-    const img=lbImages[lbIndex]; if(!img)return;
-    lbImg.src=img.currentSrc||img.src; lbImg.alt=img.alt||'演出劇照';
-    lbCounter.textContent=`${lbIndex+1} / ${lbImages.length}`;
-  };
-  const openLightbox=(images,index,trigger)=>{lbImages=images;lbIndex=index;lastTrigger=trigger;renderLightbox();lightbox.classList.add('is-open');lightbox.setAttribute('aria-hidden','false');lightbox.querySelector('.production-lightbox-close').focus({preventScroll:true});};
-  const closeLightbox=()=>{lightbox.classList.remove('is-open');lightbox.setAttribute('aria-hidden','true');lbImg.removeAttribute('src');if(lastTrigger)lastTrigger.focus({preventScroll:true});};
-  const shiftLightbox=(dir)=>{if(!lbImages.length)return;lbIndex=(lbIndex+dir+lbImages.length)%lbImages.length;renderLightbox();};
-  lightbox.querySelector('.production-lightbox-close').addEventListener('click',closeLightbox);
-  lightbox.querySelector('.production-lightbox-nav.prev').addEventListener('click',()=>shiftLightbox(-1));
-  lightbox.querySelector('.production-lightbox-nav.next').addEventListener('click',()=>shiftLightbox(1));
-  lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});
-  document.addEventListener('keydown',e=>{if(!lightbox.classList.contains('is-open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')shiftLightbox(-1);if(e.key==='ArrowRight')shiftLightbox(1);});
-
   tracks.forEach(track=>{
     if(track.dataset.galleryReady==='1')return;
     track.dataset.galleryReady='1';
     track.classList.add('production-stills-carousel');
-    const figures=[...track.querySelectorAll('figure')];
-    const images=figures.map(f=>f.querySelector('img')).filter(Boolean);
-    if(!images.length)return;
 
-    const shell=document.createElement('div');
-    shell.className='production-gallery-shell';
-    track.parentNode.insertBefore(shell,track); shell.appendChild(track);
-    const prev=document.createElement('button');prev.type='button';prev.className='production-gallery-arrow prev';prev.setAttribute('aria-label','上一張劇照');prev.textContent='←';
-    const next=document.createElement('button');next.type='button';next.className='production-gallery-arrow next';next.setAttribute('aria-label','下一張劇照');next.textContent='→';
-    shell.append(prev,next);
-    const dots=document.createElement('div');dots.className='production-gallery-dots';dots.setAttribute('aria-label','劇照頁次');shell.after(dots);
-    figures.forEach((fig,i)=>{
-      const dot=document.createElement('button');dot.type='button';dot.className='production-gallery-dot';dot.setAttribute('aria-label',`查看第 ${i+1} 張劇照`);dots.appendChild(dot);
-      dot.addEventListener('click',()=>fig.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}));
-      const img=images[i]; if(img){img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label',`${img.alt||'演出劇照'}，點擊放大`);img.addEventListener('click',()=>openLightbox(images,i,img));img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(images,i,img);}});}
+    const figures=[...track.querySelectorAll('figure')];
+    if(!figures.length)return;
+
+    // Production stills are a slider only: no lightbox, no dots.
+    figures.forEach(fig=>{
+      const img=fig.querySelector('img');
+      if(!img)return;
+      img.removeAttribute('tabindex');
+      img.removeAttribute('role');
+      img.setAttribute('draggable','false');
+      const baseAlt=img.getAttribute('alt')||'演出劇照';
+      img.setAttribute('aria-label',baseAlt);
     });
-    const dotEls=[...dots.children];
+
+    let shell=track.parentElement;
+    if(!shell || !shell.classList.contains('production-gallery-shell')){
+      shell=document.createElement('div');
+      shell.className='production-gallery-shell';
+      track.parentNode.insertBefore(shell,track);
+      shell.appendChild(track);
+    }
+
+    if(figures.length<2)return;
+
+    const prev=document.createElement('button');
+    prev.type='button';
+    prev.className='production-gallery-arrow prev';
+    prev.setAttribute('aria-label','上一張劇照');
+    prev.textContent='←';
+
+    const next=document.createElement('button');
+    next.type='button';
+    next.className='production-gallery-arrow next';
+    next.setAttribute('aria-label','下一張劇照');
+    next.textContent='→';
+
+    shell.append(prev,next);
+
     let active=0,raf=0;
-    const update=()=>{raf=0;const center=track.scrollLeft+track.clientWidth/2;let best=0,dist=Infinity;figures.forEach((fig,i)=>{const c=fig.offsetLeft+fig.offsetWidth/2;const d=Math.abs(c-center);if(d<dist){dist=d;best=i;}});active=best;dotEls.forEach((d,i)=>d.classList.toggle('is-active',i===active));prev.disabled=active===0;next.disabled=active===figures.length-1;};
-    const go=dir=>{const idx=Math.max(0,Math.min(figures.length-1,active+dir));figures[idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});};
-    prev.addEventListener('click',()=>go(-1));next.addEventListener('click',()=>go(1));
-    track.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(update);},{passive:true});
+
+    const targetLeft=index=>{
+      const fig=figures[index];
+      return Math.max(0,fig.offsetLeft-(track.clientWidth-fig.offsetWidth)/2);
+    };
+
+    const update=()=>{
+      raf=0;
+      const center=track.scrollLeft+track.clientWidth/2;
+      let best=0,dist=Infinity;
+      figures.forEach((fig,i)=>{
+        const c=fig.offsetLeft+fig.offsetWidth/2;
+        const d=Math.abs(c-center);
+        if(d<dist){dist=d;best=i;}
+      });
+      active=best;
+      prev.disabled=active===0;
+      next.disabled=active===figures.length-1;
+    };
+
+    const go=dir=>{
+      const idx=Math.max(0,Math.min(figures.length-1,active+dir));
+      track.scrollTo({left:targetLeft(idx),behavior:'smooth'});
+    };
+
+    prev.addEventListener('click',()=>go(-1));
+    next.addEventListener('click',()=>go(1));
+    track.addEventListener('scroll',()=>{
+      if(!raf)raf=requestAnimationFrame(update);
+    },{passive:true});
     window.addEventListener('resize',update,{passive:true});
+
     update();
   });
 }
