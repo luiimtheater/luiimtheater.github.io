@@ -3398,3 +3398,30 @@ img{
     object-fit:initial;
   }
 }
+
+
+/* =========================================================
+   v29.48 — Review order + compact gallery spacing
+   Preferred review order:
+   intro / activity review → photos → production credits
+   ========================================================= */
+
+.activity-review-gallery{
+  margin-top:0;
+}
+
+/* If a gallery section has no section-head, keep it compact. */
+.section:has(> .container > .activity-review-gallery){
+  padding-top:28px;
+}
+
+/* Production credits belong after the photo gallery on review pages. */
+.activity-credits-section{
+  margin-top:0;
+}
+
+@media(max-width:760px){
+  .section:has(> .container > .activity-review-gallery){
+    padding-top:20px;
+  }
+}
