@@ -3145,3 +3145,41 @@ img{
     height:auto;
   }
 }
+
+
+/* =========================================================
+   v29.44 — Mobile review text uses full available width
+   ========================================================= */
+
+@media(max-width:760px){
+  .activity-review-hero .container,
+  .activity-review-section .container{
+    width:calc(100% - 28px);
+  }
+
+  .activity-review-hero p,
+  .activity-review-copy > p{
+    width:100%;
+    max-width:none;
+    text-wrap:wrap;
+    line-break:auto;
+    word-break:normal;
+    overflow-wrap:normal;
+  }
+
+  .activity-review-hero p{
+    font-size:.9rem;
+    line-height:1.72;
+  }
+
+  .activity-review-copy > p{
+    font-size:.89rem;
+    line-height:1.78;
+  }
+
+  .activity-review-grid h2{
+    text-wrap:wrap;
+    word-break:normal;
+    overflow-wrap:normal;
+  }
+}
