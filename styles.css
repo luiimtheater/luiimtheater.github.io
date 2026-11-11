@@ -3077,3 +3077,18 @@ img{
     word-break:auto-phrase;
   }
 }
+
+/* v29.42 — activity photo credit */
+.activity-photo-credit{
+  margin:8px 0 22px;
+  color:rgba(255,255,255,.58);
+  font-size:.78rem;
+  line-height:1.65;
+  letter-spacing:.03em;
+}
+@media(max-width:760px){
+  .activity-photo-credit{
+    margin:6px 0 18px;
+    font-size:.74rem;
+  }
+}
