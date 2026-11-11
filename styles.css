@@ -3092,3 +3092,56 @@ img{
     font-size:.74rem;
   }
 }
+
+
+/* =========================================================
+   v29.43 — Activity review photos: natural ratio, no black bars
+   ========================================================= */
+.activity-review-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  align-items:start;
+  column-count:initial;
+}
+
+.activity-review-gallery figure{
+  display:block;
+  width:100%;
+  aspect-ratio:auto;
+  margin:0;
+  padding:0;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.07);
+  overflow:hidden;
+}
+
+.activity-review-gallery img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:initial;
+  object-position:center;
+}
+
+.activity-review-gallery figure:last-child:nth-child(odd){
+  grid-column:1 / -1;
+  width:calc(50% - 7px);
+  justify-self:center;
+}
+
+@media(max-width:760px){
+  .activity-review-gallery{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .activity-review-gallery figure,
+  .activity-review-gallery figure:last-child:nth-child(odd){
+    grid-column:auto;
+    width:100%;
+  }
+  .activity-review-gallery img{
+    width:100%;
+    height:auto;
+  }
+}
