@@ -17,6 +17,22 @@ function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt
 function parseDate(s){const [y,m,d]=(s||'').split('-').map(Number); return y&&m&&d ? new Date(y,m-1,d) : null;}
 function dateLabel(s){const d=parseDate(s); if(!d)return ''; return `${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;}
 function eventEnd(e){return parseDate(e.endDate||e.date);}
+function eventEndMoment(e){
+  const d=parseDate(e.endDate||e.date);
+  if(!d)return null;
+  const matches=String(e.time||'').match(/\d{1,2}:\d{2}/g);
+  if(matches&&matches.length){
+    const [h,m]=matches[matches.length-1].split(':').map(Number);
+    d.setHours(h,m,0,0);
+  }else{
+    d.setHours(23,59,59,999);
+  }
+  return d;
+}
+function isEventCompleted(e,now=new Date()){
+  const end=eventEndMoment(e);
+  return !!(end&&end<now);
+}
 function eventDateLabel(e){const start=dateLabel(e.date),end=e.endDate?dateLabel(e.endDate):''; return end&&end!==start?`${start}–${end}`:start;}
 function dateInEvent(ds,e){const d=parseDate(ds),a=parseDate(e.date),b=eventEnd(e); return !!(d&&a&&b&&d>=a&&d<=b);}
 function todayStart(){const n=new Date(); return new Date(n.getFullYear(),n.getMonth(),n.getDate());}
@@ -98,7 +114,7 @@ function setupBackToTop(){
   window.addEventListener('scroll',sync,{passive:true}); sync();
 }
 
-async function renderHomeEvents(){const host=document.querySelector('[data-home-events]'); if(!host)return; const ev=(await loadEvents()).filter(e=>eventEnd(e)>=todayStart()&&e.showOnHome!==false).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3); if(!ev.length){host.innerHTML='<div class="schedule-empty">近期公開行程整理中。活動確認後會第一時間更新在這裡。</div>';return;} host.innerHTML=ev.map(e=>{const url=e.url||'schedule.html';const ext=externalLink(url)?' target="_blank" rel="noopener"':'';const tags=(Array.isArray(e.tags)?e.tags:[]).map(tag=>`<span>${esc(tag)}</span>`).join('');const fit=e.imageFit==='contain'?' is-contain':'';const img=e.image?`<img src="${esc(e.image)}" alt="${esc(e.title)}" loading="eager" decoding="async"/>`:'';return `<a class="home-event-card" href="${esc(url)}"${ext}><div class="home-event-thumb${fit}">${img}<div class="home-event-badge">${esc(e.badge||EVENT_CATEGORY[e.category]||'活動')}</div></div><div class="home-event-body"><div class="home-event-date">${eventDateLabel(e)}${e.time?' · '+esc(e.time):''}</div><div class="home-event-title">${esc(e.title)}</div>${e.subtitle?`<div class="home-event-subtitle">${esc(e.subtitle)}</div>`:''}<div class="home-event-meta">${e.location?esc(e.location):''}</div>${tags?`<div class="home-event-tags">${tags}</div>`:''}</div></a>`}).join('');}
+async function renderHomeEvents(){const host=document.querySelector('[data-home-events]'); if(!host)return; const ev=(await loadEvents()).filter(e=>eventEndMoment(e)>=new Date()&&e.showOnHome!==false).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3); if(!ev.length){host.innerHTML='<div class="schedule-empty">近期公開行程整理中。活動確認後會第一時間更新在這裡。</div>';return;} host.innerHTML=ev.map(e=>{const url=e.url||'schedule.html';const ext=externalLink(url)?' target="_blank" rel="noopener"':'';const tags=(Array.isArray(e.tags)?e.tags:[]).map(tag=>`<span>${esc(tag)}</span>`).join('');const fit=e.imageFit==='contain'?' is-contain':'';const img=e.image?`<img src="${esc(e.image)}" alt="${esc(e.title)}" loading="eager" decoding="async"/>`:'';return `<a class="home-event-card" href="${esc(url)}"${ext}><div class="home-event-thumb${fit}">${img}<div class="home-event-badge">${esc(e.badge||EVENT_CATEGORY[e.category]||'活動')}</div></div><div class="home-event-body"><div class="home-event-date">${eventDateLabel(e)}${e.time?' · '+esc(e.time):''}</div><div class="home-event-title">${esc(e.title)}</div>${e.subtitle?`<div class="home-event-subtitle">${esc(e.subtitle)}</div>`:''}<div class="home-event-meta">${e.location?esc(e.location):''}</div>${tags?`<div class="home-event-tags">${tags}</div>`:''}</div></a>`}).join('');}
 
 
 function shortPlace(location=''){
@@ -113,7 +129,8 @@ async function renderCurrentSeries(){
   if(!hosts.length)return;
 
   const allEvents=(await loadEvents()).sort((a,b)=>a.date.localeCompare(b.date)||(a.time||'').localeCompare(b.time||''));
-  const upcoming=allEvents.filter(e=>eventEnd(e)>=todayStart());
+  const now=new Date();
+  const upcoming=allEvents.filter(e=>eventEndMoment(e)>=now);
   if(!upcoming.length){
     hosts.forEach(host=>{
       const section=host.closest('[data-current-series-section]');
@@ -125,6 +142,22 @@ async function renderCurrentSeries(){
   const first=upcoming[0];
   const group=first.series ? allEvents.filter(e=>e.series===first.series) : [first];
   const isSchoolTour=first.series==='zuohuo-spring-school-tour-2026';
+  const completedCount=isSchoolTour?group.filter(e=>isEventCompleted(e,now)).length:0;
+  const remaining=isSchoolTour?group.filter(e=>!isEventCompleted(e,now)):[];
+
+  let schoolTourStatus='';
+  if(isSchoolTour){
+    if(completedCount>=group.length){
+      schoolTourStatus=`已完成 ${group.length}/${group.length} 場`;
+    }else{
+      const nextDate=remaining.length?remaining[0].date:'';
+      const nextItems=remaining.filter(e=>e.date===nextDate);
+      const d=parseDate(nextDate);
+      const nextLabel=d?`${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`:nextDate;
+      const nextSchools=nextItems.map(e=>(e.description||e.title).replace(/^.*?｜/,'').replace(/^(新北市|宜蘭縣).+?(區|鄉|鎮|市)/,'')).join('・');
+      schoolTourStatus=`已完成 ${completedCount}/${group.length} 場${nextLabel?`｜下一站 ${nextLabel}${nextSchools?' '+nextSchools:''}`:''}`;
+    }
+  }
 
   let body='';
   if(isSchoolTour){
@@ -136,7 +169,7 @@ async function renderCurrentSeries(){
     body=`<div class="current-series-tour-list">${[...dateGroups.entries()].map(([date,items])=>{
       const d=parseDate(date);
       const label=d?`${d.getMonth()+1}/${d.getDate()}`:date;
-      const completed=eventEnd(items[items.length-1])<todayStart();
+      const completed=items.every(e=>isEventCompleted(e,now));
       const stops=[...items].sort((a,b)=>(a.time||'').localeCompare(b.time||'')).map(e=>{
         const school=e.description||e.title.replace(/^.*?｜/,'');
         return `<div class="current-series-stop"><span class="current-series-stop-time">${esc(e.time||'')}</span><span class="current-series-stop-school">${esc(school)}</span></div>`;
@@ -162,8 +195,11 @@ async function renderCurrentSeries(){
 
   const title=isSchoolTour?'《做伙揣春天》校園巡迴':first.title;
   const eyebrow=isSchoolTour?'School Tour · 2026':'Now On';
+  const sectionTitle=isSchoolTour
+    ?(completedCount>=group.length?'巡演已完成':'巡演進行中')
+    :'正在進行';
   const lead=isSchoolTour
-    ?'10校10場｜10.20–12.08｜新北・宜蘭｜臺語童謠 × 布袋戲'
+    ?schoolTourStatus
     :(first.description||'近期活動進行中。');
   const subtitle=isSchoolTour
     ?'臺語童謠《春天佇佗位》二十週年布袋戲版校園巡迴計畫'
@@ -174,13 +210,13 @@ async function renderCurrentSeries(){
   const actionText=isSchoolTour?'查看行事曆與地圖導航 →':'查看活動詳情 →';
 
   const wideVisual=isSchoolTour
-    ?`<figure class="current-series-visual"><img src="assets/images/schedule/zuohuo-spring-school-tour-2026-wide-final.webp" alt="2026雷音劇坊《做伙揣春天》校園巡迴" loading="eager" decoding="async"></figure>`
+    ?`<figure class="current-series-visual"><img src="zuohuo-spring-school-tour-2026-wide-final.webp" alt="2026雷音劇坊《做伙揣春天》校園巡迴" loading="eager" decoding="async"></figure>`
     :'';
   const itineraryVisual=isSchoolTour
-    ?`<figure class="current-series-itinerary-visual"><img src="assets/images/schedule/zuohuo-spring-school-tour-2026-itinerary-final.webp" alt="《做伙揣春天》十校十場完整校園巡迴行程" loading="lazy" decoding="async"></figure>`
+    ?`<figure class="current-series-itinerary-visual"><img src="zuohuo-spring-school-tour-2026-itinerary-final.webp" alt="《做伙揣春天》十校十場完整校園巡迴行程" loading="lazy" decoding="async"></figure>`
     :'';
 
-  const html=`<div class="section-head reveal visible"><div><div class="eyebrow">${esc(eyebrow)}</div><h2>正在進行</h2></div><div class="lead">${esc(lead)}</div></div>
+  const html=`<div class="section-head reveal visible"><div><div class="eyebrow">${esc(eyebrow)}</div><h2>${esc(sectionTitle)}</h2></div><div class="lead">${esc(lead)}</div></div>
   <article class="current-series-card reveal visible${isSchoolTour?' is-school-tour':''}">
     ${wideVisual}
     <div class="current-series-content">
@@ -316,7 +352,7 @@ async function renderSchedule(){
   });
 
   if(list){
-    const upcoming=events.filter(e=>eventEnd(e)>=todayStart());
+    const upcoming=events.filter(e=>eventEndMoment(e)>=new Date());
     list.innerHTML=upcoming.length?`<div class="upcoming-card-list">${upcoming.map(e=>{
       const ext=externalLink(e.url||'')?' target="_blank" rel="noopener"':'';
       const tags=(Array.isArray(e.tags)?e.tags:[]).map(tag=>`<span>${esc(tag)}</span>`).join('');

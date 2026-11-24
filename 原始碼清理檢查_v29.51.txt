@@ -1,0 +1,55 @@
+雷音劇坊官網原始碼清理檢查｜v29.51
+檢查基準：v29.50 完整網站
+狀態判斷基準：2026-11-24 16:15（台灣時間）
+
+一、《做伙揣春天》目前正確狀態
+- 10/20：2 場已完成
+- 11/16：2 場已完成
+- 11/24：2 場已完成（最後一場 14:30 結束）
+- 12/07：2 場尚未演出
+- 12/08：2 場尚未演出
+因此整體不能標「全部已完成」。
+v29.51 會自動顯示：
+「巡演進行中｜已完成 6/10 場｜下一站 12/07 文德國民小學・光興國民小學」
+且 10/20、11/16、11/24 各日期旁會標示「已完成」。
+
+二、圖片出不來的原因
+v29.50 原始碼中的圖片路徑本身正確，完整網站 ZIP 也確實有兩張圖片。
+問題最可能是 GitHub 網頁版上傳時，兩張圖需要放進：
+assets/images/schedule/
+但手動上傳時沒有成功放到該子目錄。
+
+v29.51 已改成根目錄引用：
+- zuohuo-spring-school-tour-2026-wide-final.webp
+- zuohuo-spring-school-tour-2026-itinerary-final.webp
+之後只需要把更新包全部拖進 GitHub Repository 最外層。
+
+三、已從「完整網站精簡版」直接刪除的確定廢檔
+- sync-home-header.js
+- page-fixes.css
+- people-photo-fix.js
+- archive-card.html
+- booking-card.html
+- review-gallery.html
+- luiim-header-logo.png
+
+上述檔案是過去修復版本留下的臨時補丁／片段，正式頁面已不引用。
+
+四、已清除的舊版說明檔
+共 17 個舊版 README／UPLOAD GUIDE／REPAIR 說明。
+主 README.md 與 GOOGLE-SEARCH-CONSOLE.md 保留。
+
+五、目前仍建議「先保留」的檔案
+Repository 仍有不少重複圖片，例如：
+- 舊大稻埕 Banner
+- qingming-*.webp 舊衍生圖
+- zhubajie-*.webp 多個重複版本
+- 根目錄與 assets/images/ 內同內容照片
+這些確實可以再瘦身，但其中部分可能是舊作品頁、社群或備份素材。
+這一輪不自動刪除，避免誤刪仍有用途的素材。
+
+六、後續人工更新規則
+從 v29.51 開始，我提供的「網頁更新包」會盡量全部放在根目錄。
+你只需：
+GitHub Repository → Add file → Upload files → 全部拖入 → Commit changes。
+若未來改用可連線的 GitHub／網站後端工具，則可直接由我修改，不需要你手動分資料夾上傳。

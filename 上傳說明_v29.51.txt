@@ -1,0 +1,21 @@
+v29.51 根目錄更新方式
+
+這個 ZIP 解壓後，不需要進任何子資料夾。
+
+請到 GitHub Repository 最外層：
+Add file → Upload files
+
+把解壓後所有檔案一次拖進去即可：
+- index.html
+- schedule.html
+- script.js
+- styles.css
+- zuohuo-spring-school-tour-2026-wide-final.webp
+- zuohuo-spring-school-tour-2026-itinerary-final.webp
+- 原始碼清理檢查_v29.51.txt
+- 上傳說明_v29.51.txt
+
+Commit message 建議：
+Fix school tour status and root image paths v29.51
+
+更新後重新整理網頁即可。
