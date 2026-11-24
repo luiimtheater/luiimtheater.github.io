@@ -174,10 +174,10 @@ async function renderCurrentSeries(){
   const actionText=isSchoolTour?'查看行事曆與地圖導航 →':'查看活動詳情 →';
 
   const wideVisual=isSchoolTour
-    ?`<figure class="current-series-visual"><img src="assets/images/schedule/zuohuo-spring-school-tour-2026-wide.webp" alt="2026雷音劇坊《做伙揣春天》校園巡迴" loading="eager" decoding="async"></figure>`
+    ?`<figure class="current-series-visual"><img src="assets/images/schedule/zuohuo-spring-school-tour-2026-wide-final.webp" alt="2026雷音劇坊《做伙揣春天》校園巡迴" loading="eager" decoding="async"></figure>`
     :'';
   const itineraryVisual=isSchoolTour
-    ?`<figure class="current-series-itinerary-visual"><img src="assets/images/schedule/zuohuo-spring-school-tour-2026-itinerary.webp" alt="《做伙揣春天》十校十場完整校園巡迴行程" loading="lazy" decoding="async"></figure>`
+    ?`<figure class="current-series-itinerary-visual"><img src="assets/images/schedule/zuohuo-spring-school-tour-2026-itinerary-final.webp" alt="《做伙揣春天》十校十場完整校園巡迴行程" loading="lazy" decoding="async"></figure>`
     :'';
 
   const html=`<div class="section-head reveal visible"><div><div class="eyebrow">${esc(eyebrow)}</div><h2>正在進行</h2></div><div class="lead">${esc(lead)}</div></div>
