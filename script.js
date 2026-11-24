@@ -163,19 +163,34 @@ async function renderCurrentSeries(){
   const title=isSchoolTour?'《做伙揣春天》校園巡迴':first.title;
   const eyebrow=isSchoolTour?'School Tour · 2026':'Now On';
   const lead=isSchoolTour
-    ?'10–12月｜新北・宜蘭校園巡演，全臺語布袋戲把童謠與掌中戲帶進校園。'
+    ?'10校10場｜10.20–12.08｜新北・宜蘭｜臺語童謠 × 布袋戲'
     :(first.description||'近期活動進行中。');
+  const subtitle=isSchoolTour
+    ?'臺語童謠《春天佇佗位》二十週年布袋戲版校園巡迴計畫'
+    :'';
 
   const actionUrl=isSchoolTour?'schedule.html':(first.seriesUrl||first.url||'schedule.html');
   const ext=externalLink(actionUrl)?' target="_blank" rel="noopener"':'';
   const actionText=isSchoolTour?'查看行事曆與地圖導航 →':'查看活動詳情 →';
 
+  const wideVisual=isSchoolTour
+    ?`<figure class="current-series-visual"><img src="assets/images/schedule/zuohuo-spring-school-tour-2026-wide.webp" alt="2026雷音劇坊《做伙揣春天》校園巡迴" loading="eager" decoding="async"></figure>`
+    :'';
+  const itineraryVisual=isSchoolTour
+    ?`<figure class="current-series-itinerary-visual"><img src="assets/images/schedule/zuohuo-spring-school-tour-2026-itinerary.webp" alt="《做伙揣春天》十校十場完整校園巡迴行程" loading="lazy" decoding="async"></figure>`
+    :'';
+
   const html=`<div class="section-head reveal visible"><div><div class="eyebrow">${esc(eyebrow)}</div><h2>正在進行</h2></div><div class="lead">${esc(lead)}</div></div>
-  <article class="current-series-card reveal visible">
-    <div class="current-series-kicker">${esc(first.badge||EVENT_CATEGORY[first.category]||'活動')}</div>
-    <h3>${esc(title)}</h3>
-    ${body}
-    <a class="current-series-link" href="${esc(actionUrl)}"${ext}>${actionText}</a>
+  <article class="current-series-card reveal visible${isSchoolTour?' is-school-tour':''}">
+    ${wideVisual}
+    <div class="current-series-content">
+      <div class="current-series-kicker">${esc(first.badge||EVENT_CATEGORY[first.category]||'活動')}</div>
+      <h3>${esc(title)}</h3>
+      ${subtitle?`<div class="current-series-subtitle">${esc(subtitle)}</div>`:''}
+      ${body}
+      ${itineraryVisual}
+      <a class="current-series-link" href="${esc(actionUrl)}"${ext}>${actionText}</a>
+    </div>
   </article>`;
 
   hosts.forEach(host=>{host.innerHTML=html;});

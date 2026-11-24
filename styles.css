@@ -3425,3 +3425,60 @@ img{
     padding-top:20px;
   }
 }
+
+
+/* =========================================================
+   v29.49 — 做伙揣春天 current-series visual update
+   ========================================================= */
+.current-series-card.is-school-tour{
+  padding:0;
+  overflow:hidden;
+}
+.current-series-card.is-school-tour .current-series-content{
+  display:grid;
+  gap:14px;
+  padding:clamp(22px,4vw,42px);
+}
+.current-series-visual{
+  margin:0;
+  width:100%;
+  background:#111;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.current-series-visual img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.current-series-subtitle{
+  margin-top:-4px;
+  color:#d8d1c7;
+  font-size:.92rem;
+  line-height:1.65;
+}
+.current-series-itinerary-visual{
+  margin:10px auto 2px;
+  width:min(100%,980px);
+  border:1px solid rgba(255,255,255,.12);
+  background:#111;
+}
+.current-series-itinerary-visual img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+/* Homepage keeps the activity card compact; detailed itinerary stays on Schedule. */
+.home-festival-section .current-series-itinerary-visual{
+  display:none;
+}
+@media(max-width:760px){
+  .current-series-card.is-school-tour .current-series-content{
+    padding:20px 16px;
+  }
+  .current-series-subtitle{
+    font-size:.86rem;
+  }
+  .current-series-visual{
+    margin:0;
+  }
+}
