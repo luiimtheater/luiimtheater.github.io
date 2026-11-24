@@ -1,0 +1,9 @@
+v29.52 演出足跡校巡更新
+
+這次只要在 GitHub Repository 最外層上傳並覆蓋：
+- archive.html
+
+不需要進子資料夾，也不需要重新上傳圖片。
+
+Commit message 建議：
+Update school tour archive v29.52
